@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 1
+names: ['tomato']
+
+roboflow:
+  workspace: zrq-9wltk
+  project: tomato_leaf-ey2fk
+  version: 5
+  license: CC BY 4.0
+  url: https://universe.roboflow.com/zrq-9wltk/tomato_leaf-ey2fk/dataset/5
