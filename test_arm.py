@@ -15,3 +15,5 @@ for i in range(6):
         angles.append(0)
     time.sleep(.002)
 print(angles)
+
+#test
