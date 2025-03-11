@@ -5,7 +5,7 @@ if Arm:
     print("arm success")
 Arm.Arm_serial_set_torque(1)
 time.sleep(0.02)
-Arm.Arm_serial_servo_write6(0,90,90,0,90,90,3000)
+Arm.Arm_serial_servo_write6(90,90,90,0,90,90,3000)
 angles = []
 for i in range(6):
     aa = Arm.Arm_serial_servo_read(i+1)
