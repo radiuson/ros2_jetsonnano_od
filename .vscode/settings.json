@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./rclpy_ws/src/rclpy/rclpy"
+    ]
+}

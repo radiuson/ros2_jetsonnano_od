@@ -1,0 +1,7 @@
+[0.057s] Invoking command in '/home/jetson/code/rclpy_ws/build/rclpy': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/jetson/code/rclpy_ws/src/rclpy/rclpy -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/code/rclpy_ws/install/rclpy
+[0.242s] CMake Error at CMakeLists.txt:1 (cmake_minimum_required):
+[0.243s]   CMake 3.20 or higher is required.  You are running version 3.16.3
+[0.244s] 
+[0.244s] 
+[0.245s] -- Configuring incomplete, errors occurred!
+[0.249s] Invoked command in '/home/jetson/code/rclpy_ws/build/rclpy' returned '1': CMAKE_PREFIX_PATH=/opt/ros/foxy /usr/bin/cmake /home/jetson/code/rclpy_ws/src/rclpy/rclpy -DAMENT_CMAKE_SYMLINK_INSTALL=1 -DCMAKE_INSTALL_PREFIX=/home/jetson/code/rclpy_ws/install/rclpy

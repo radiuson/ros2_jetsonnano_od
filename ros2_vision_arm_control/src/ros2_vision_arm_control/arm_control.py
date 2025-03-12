@@ -3,11 +3,15 @@ from rclpy.node import Node
 from Arm_Lib import Arm_Device
 import numpy as np
 import time
-import ikpy
+import ikpy.chain
+import os
 
 class ArmControl(Node):
     def __init__(self):
         super().__init__('arm_control_node')
+        urdf_path = os.path.join(os.path.dirname(__file__), '..', 'urdf', 'dofbot.urdf')
+        acive_links_mask = [False, True, True, True, True, True]
+        self.chain = ikpy.chain.Chain.from_urdf_file(urdf_path,acive_links_mask)
         self.arm_device = Arm_Device()
         self.declare_parameter('servo_speed', 3.5)
         self.servo_speed = self.get_parameter('servo_speed').get_parameter_value().double_value
