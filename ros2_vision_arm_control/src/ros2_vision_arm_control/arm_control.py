@@ -10,8 +10,8 @@ class ArmControl(Node):
     def __init__(self):
         super().__init__('arm_control_node')
         urdf_path = os.path.join(os.path.dirname(__file__), '..', 'urdf', 'dofbot.urdf')
-        acive_links_mask = [False, True, True, True, True, True]
-        self.chain = ikpy.chain.Chain.from_urdf_file(urdf_path,acive_links_mask)
+        acive_links_mask = [False, True, True, True, True,True]
+        self.chain = ikpy.chain.Chain.from_urdf_file(urdf_path,active_links_mask=acive_links_mask)
         self.arm_device = Arm_Device()
         self.declare_parameter('servo_speed', 3.5)
         self.servo_speed = self.get_parameter('servo_speed').get_parameter_value().double_value
@@ -52,8 +52,10 @@ class ArmControl(Node):
         self.servo_write(joint_angles)
 
     def calculate_joint_angles(self, target_position):
-        # Placeholder for inverse kinematics calculation
-        return [0, 0, 0, 0, 0, 0]  # Replace with actual calculation
+        # Perform inverse kinematics calculation using ikpy
+        ik_results = self.chain.inverse_kinematics(target_position)
+        joint_angles = [ik_results[i] for i in range(1, 6)]  # Skip the base joint
+        return joint_angles
 
 def main(args=None):
     rclpy.init(args=args)
@@ -63,4 +65,9 @@ def main(args=None):
     rclpy.shutdown()
 
 if __name__ == '__main__':
-    main()
+    # main()
+    rclpy.init(args=None)
+    arm_control = ArmControl()
+    arm_control.servo_write([0, 90, 90, 0, 90, 90])
+    target_position = np.array([0, 0.3, 0.3])
+    arm_control.control_arm(target_position, arm_control.grabber_positions['open'])
