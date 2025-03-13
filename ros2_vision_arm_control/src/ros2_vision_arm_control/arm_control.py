@@ -54,10 +54,11 @@ class ArmControl(Node):
     def calculate_joint_angles(self, target_position):
         # Perform inverse kinematics calculation using ikpy
         ik_results = self.chain.inverse_kinematics(target_position)
-        joint_angles = [ik_results[i] for i in range(1, 6)]  # Skip the base joint
+        joint_angles = [-int(np.degrees(ik_results[i])) for i in range(1, 6)]  # Skip the base joint
+        print(joint_angles)
         return joint_angles
 
-def main(args=None):
+def main(args=None): 
     rclpy.init(args=args)
     arm_control = ArmControl()
     rclpy.spin(arm_control)
@@ -69,5 +70,5 @@ if __name__ == '__main__':
     rclpy.init(args=None)
     arm_control = ArmControl()
     arm_control.servo_write([0, 90, 90, 0, 90, 90])
-    target_position = np.array([0, 0.3, 0.3])
+    target_position = np.array([0.30, 0.3, -0.4])
     arm_control.control_arm(target_position, arm_control.grabber_positions['open'])
