@@ -139,4 +139,29 @@
         <child link="link5"/>
         <limit effort="30" velocity="1.0" lower="-1.5708" upper="3.1416"/>
     </joint>
+    <!-- link6 -->
+    <link name="link6">
+        <visual>
+            <origin xyz="0 0 0" rpy="0 0 0"/>
+            <geometry>
+                <box size="0.01 0.01 0.01"/> <!-- Small box to represent the virtual link -->
+            </geometry>
+            <material name="">
+                <color rgba="1 1 1 1" />
+            </material>
+        </visual>
+        <collision>
+            <origin xyz="0 0 0" rpy="0 0 0" />
+            <geometry>
+                <box size="0.01 0.01 0.01"/> <!-- Small box to represent the virtual link -->
+            </geometry>
+        </collision>
+    </link>
+
+    <!-- joint6 -->
+    <joint name="joint6" type="fixed">
+        <origin xyz="0 -0.001 -0.09" rpy="0 -1.57 0"/>
+        <parent link="link5"/>
+        <child link="link6"/>
+    </joint>
 </robot>

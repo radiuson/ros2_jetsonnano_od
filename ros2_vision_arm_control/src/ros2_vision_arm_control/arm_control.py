@@ -10,12 +10,11 @@ class ArmControl(Node):
     def __init__(self):
         super().__init__('arm_control_node')
         urdf_path = os.path.join(os.path.dirname(__file__), '..', 'urdf', 'dofbot.urdf')
-        acive_links_mask = [False, True, True, True, True,True]
+        acive_links_mask = [False, True, True, True, True,True,False]
         self.chain = ikpy.chain.Chain.from_urdf_file(urdf_path,active_links_mask=acive_links_mask)
         self.arm_device = Arm_Device()
         self.declare_parameter('servo_speed', 3.5)
         self.servo_speed = self.get_parameter('servo_speed').get_parameter_value().double_value
-        self.link_list = [0, 30, 83, 83, 80, 90]
         self.grabber_positions = {
             'open': 80,
             'close': 160,
@@ -53,8 +52,10 @@ class ArmControl(Node):
 
     def calculate_joint_angles(self, target_position):
         # Perform inverse kinematics calculation using ikpy
-        ik_results = self.chain.inverse_kinematics(target_position)
-        joint_angles = [-int(np.degrees(ik_results[i])) for i in range(1, 6)]  # Skip the base joint
+        initial_position = np.radians([0,0,30,-60,-50,0,0])
+        ik_results = self.chain.inverse_kinematics(target_position = target_position,initial_position = initial_position)
+        print(np.degrees(ik_results)+90)
+        joint_angles = [(int(np.degrees(ik_results[i]))+90) for i in range(1, 6)]  # Skip the base joint
         print(joint_angles)
         return joint_angles
 
@@ -68,7 +69,9 @@ def main(args=None):
 if __name__ == '__main__':
     # main()
     rclpy.init(args=None)
+
+    np.set_printoptions(suppress=True)
     arm_control = ArmControl()
-    arm_control.servo_write([0, 90, 90, 0, 90, 90])
-    target_position = np.array([0.30, 0.3, -0.4])
-    arm_control.control_arm(target_position, arm_control.grabber_positions['open'])
+    arm_control.servo_write([90, 90, 90, 90, 90, 180]) 
+    target_position = np.array([0.0, 0, 0.3])
+    arm_control.control_arm(target_position, arm_control.grabber_positions['close'])
