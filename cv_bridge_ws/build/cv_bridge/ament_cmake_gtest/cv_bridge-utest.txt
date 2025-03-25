@@ -1,0 +1,42 @@
+-- run_test.py: extra environment variables to append:
+ - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src
+-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+ - /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml
+
+[==========] Running 9 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 7 tests from CvBridgeTest
+[ RUN      ] CvBridgeTest.endianness
+[       OK ] CvBridgeTest.endianness (2 ms)
+[ RUN      ] CvBridgeTest.compression
+[       OK ] CvBridgeTest.compression (2 ms)
+[ RUN      ] CvBridgeTest.NonContinuous
+[       OK ] CvBridgeTest.NonContinuous (0 ms)
+[ RUN      ] CvBridgeTest.ChannelOrder
+[       OK ] CvBridgeTest.ChannelOrder (1 ms)
+[ RUN      ] CvBridgeTest.initialization
+[       OK ] CvBridgeTest.initialization (52 ms)
+[ RUN      ] CvBridgeTest.imageMessageStep
+[       OK ] CvBridgeTest.imageMessageStep (0 ms)
+[ RUN      ] CvBridgeTest.imageMessageConversion
+[       OK ] CvBridgeTest.imageMessageConversion (12 ms)
+[----------] 7 tests from CvBridgeTest (87 ms total)
+
+[----------] 1 test from OpencvTests
+[ RUN      ] OpencvTests.testCase_encode_decode
+[       OK ] OpencvTests.testCase_encode_decode (4202 ms)
+[----------] 1 test from OpencvTests (4205 ms total)
+
+[----------] 1 test from RGBColors
+[ RUN      ] RGBColors.testGetRGBColor
+[       OK ] RGBColors.testGetRGBColor (0 ms)
+[----------] 1 test from RGBColors (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 9 tests from 3 test cases ran. (4293 ms total)
+[  PASSED  ] 9 tests.
+
+
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'

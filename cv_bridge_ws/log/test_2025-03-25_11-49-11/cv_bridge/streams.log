@@ -1,0 +1,134 @@
+[0.238s] Invoking command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge': CMAKE_PREFIX_PATH=/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64 PYTHONPATH=/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/ctest -C Release -D ExperimentalTest --no-compress-output -V --force-new-ctest-process
+[0.278s] UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini
+[0.278s] Parse Config file:/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini
+[0.278s]    Site: nano
+[0.279s]    Build name: (empty)
+[0.279s]  Add coverage exclude regular expressions.
+[0.279s] SetCTestConfiguration:CMakeCommand:/usr/bin/cmake
+[0.280s] Create new tag: 20250325-1049 - Experimental
+[0.280s] UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini
+[0.281s] Parse Config file:/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini
+[0.282s] Test project /home/jetson/code/cv_bridge_ws/build/cv_bridge
+[0.283s] Constructing a list of tests
+[0.283s] Done constructing a list of tests
+[0.283s] Updating test list for fixtures
+[0.284s] Added 0 tests to meet fixture requirements
+[0.284s] Checking test dependency graph...
+[0.285s] Checking test dependency graph end
+[0.286s] test 1
+[0.286s]     Start 1: cv_bridge-utest
+[0.287s] 
+[0.287s] 1: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_gtest/cv_bridge-utest.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src" "--command" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml"
+[0.288s] 1: Test timeout computed to be: 60
+[0.572s] 1: -- run_test.py: extra environment variables to append:
+[0.572s] 1:  - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src
+[0.573s] 1: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+[0.573s] 1:  - /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml
+[0.902s] 1: [==========] Running 9 tests from 3 test cases.
+[0.905s] 1: [----------] Global test environment set-up.
+[0.905s] 1: [----------] 7 tests from CvBridgeTest
+[0.906s] 1: [ RUN      ] CvBridgeTest.endianness
+[0.906s] 1: [       OK ] CvBridgeTest.endianness (2 ms)
+[0.910s] 1: [ RUN      ] CvBridgeTest.compression
+[0.912s] 1: [       OK ] CvBridgeTest.compression (2 ms)
+[0.918s] 1: [ RUN      ] CvBridgeTest.NonContinuous
+[0.918s] 1: [       OK ] CvBridgeTest.NonContinuous (0 ms)
+[0.919s] 1: [ RUN      ] CvBridgeTest.ChannelOrder
+[0.919s] 1: [       OK ] CvBridgeTest.ChannelOrder (1 ms)
+[0.919s] 1: [ RUN      ] CvBridgeTest.initialization
+[0.966s] 1: [       OK ] CvBridgeTest.initialization (52 ms)
+[0.968s] 1: [ RUN      ] CvBridgeTest.imageMessageStep
+[0.969s] 1: [       OK ] CvBridgeTest.imageMessageStep (0 ms)
+[0.970s] 1: [ RUN      ] CvBridgeTest.imageMessageConversion
+[0.978s] 1: [       OK ] CvBridgeTest.imageMessageConversion (12 ms)
+[0.989s] 1: [----------] 7 tests from CvBridgeTest (87 ms total)
+[0.990s] 1: 
+[0.990s] 1: [----------] 1 test from OpencvTests
+[0.990s] 1: [ RUN      ] OpencvTests.testCase_encode_decode
+[5.190s] 1: [       OK ] OpencvTests.testCase_encode_decode (4202 ms)
+[5.193s] 1: [----------] 1 test from OpencvTests (4205 ms total)
+[5.195s] 1: 
+[5.195s] 1: [----------] 1 test from RGBColors
+[5.195s] 1: [ RUN      ] RGBColors.testGetRGBColor
+[5.196s] 1: [       OK ] RGBColors.testGetRGBColor (0 ms)
+[5.196s] 1: [----------] 1 test from RGBColors (0 ms total)
+[5.197s] 1: 
+[5.197s] 1: [----------] Global test environment tear-down
+[5.197s] 1: [==========] 9 tests from 3 test cases ran. (4293 ms total)
+[5.198s] 1: [  PASSED  ] 9 tests.
+[5.213s] 1: -- run_test.py: return code 0
+[5.214s] 1: -- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'
+[5.214s] 1: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'
+[5.290s] 1/4 Test #1: cv_bridge-utest ..................   Passed    5.02 sec
+[5.291s] test 2
+[5.291s]     Start 2: enumerants.py
+[5.293s] 
+[5.293s] 2: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/enumerants.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--junit-prefix=cv_bridge"
+[5.294s] 2: Test timeout computed to be: 60
+[5.597s] 2: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+[5.597s] 2:  - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml --junit-prefix=cv_bridge
+[9.705s] 2: ============================= test session starts ==============================
+[9.706s] 2: platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+[9.761s] 2: cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache
+[9.762s] 2: rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+[9.763s] 2: plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+[14.552s] 2: collected 2 items
+[14.560s] 2: 
+[16.370s] 2: ../../../src/vision_opencv/cv_bridge/test/enumerants.py ..               [100%]
+[16.372s] 2: 
+[16.374s] 2: - generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml -
+[16.376s] 2: =========================== 2 passed in 6.67 seconds ===========================
+[20.933s] 2: -- run_test.py: return code 0
+[20.934s] 2: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml'
+[20.976s] 2/4 Test #2: enumerants.py ....................   Passed   15.68 sec
+[20.976s] test 3
+[20.977s]     Start 3: conversions.py
+[20.977s] 
+[20.978s] 3: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/conversions.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--junit-prefix=cv_bridge"
+[20.978s] 3: Test timeout computed to be: 600
+[21.223s] 3: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+[21.224s] 3:  - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml --junit-prefix=cv_bridge
+[23.695s] 3: ============================= test session starts ==============================
+[23.697s] 3: platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+[23.721s] 3: cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache
+[23.721s] 3: rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+[23.723s] 3: plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+[25.243s] 3: collected 4 items
+[25.248s] 3: 
+[67.209s] 3: ../../../src/vision_opencv/cv_bridge/test/conversions.py ....            [100%]
+[67.210s] 3: 
+[67.211s] 3: - generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml -
+[67.212s] 3: ========================== 4 passed in 43.52 seconds ===========================
+[68.632s] 3: -- run_test.py: return code 0
+[68.633s] 3: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml'
+[68.677s] 3/4 Test #3: conversions.py ...................   Passed   47.70 sec
+[68.678s] test 4
+[68.678s]     Start 4: python_bindings.py
+[68.679s] 
+[68.679s] 4: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/python_bindings.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--junit-prefix=cv_bridge"
+[68.680s] 4: Test timeout computed to be: 60
+[68.923s] 4: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+[68.924s] 4:  - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml --junit-prefix=cv_bridge
+[71.381s] 4: ============================= test session starts ==============================
+[71.382s] 4: platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+[71.405s] 4: cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache
+[71.405s] 4: rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+[71.406s] 4: plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+[72.822s] 4: collected 1 item
+[72.827s] 4: 
+[73.241s] 4: ../../../src/vision_opencv/cv_bridge/test/python_bindings.py .           [100%]
+[73.242s] 4: 
+[73.242s] 4: - generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml -
+[73.243s] 4: =========================== 1 passed in 1.86 seconds ===========================
+[76.383s] 4: -- run_test.py: return code 0
+[76.384s] 4: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml'
+[76.428s] 4/4 Test #4: python_bindings.py ...............   Passed    7.75 sec
+[76.429s] 
+[76.430s] [0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 4
+[76.431s] 
+[76.431s] Label Time Summary:
+[76.432s] gtest     =   5.02 sec*proc (1 test)
+[76.432s] pytest    =  71.14 sec*proc (3 tests)
+[76.433s] 
+[76.434s] Total Test time (real) =  76.16 sec
+[76.442s] Invoked command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge' returned '0': CMAKE_PREFIX_PATH=/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64 PYTHONPATH=/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/ctest -C Release -D ExperimentalTest --no-compress-output -V --force-new-ctest-process

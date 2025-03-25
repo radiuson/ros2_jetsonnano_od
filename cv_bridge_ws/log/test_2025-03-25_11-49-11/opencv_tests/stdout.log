@@ -1,0 +1,10 @@
+[1m============================= test session starts ==============================[0m
+platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+cachedir: /home/jetson/code/cv_bridge_ws/build/opencv_tests/.pytest_cache
+rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+[1mcollecting ... [0m[1m
+collected 0 items                                                              [0m
+
+- generated xml file: /home/jetson/code/cv_bridge_ws/build/opencv_tests/pytest.xml -
+[33m[1m========================= no tests ran in 0.06 seconds =========================[0m

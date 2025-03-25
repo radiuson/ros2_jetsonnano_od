@@ -1,0 +1,1099 @@
+[0.000000] (-) TimerEvent: {}
+[0.000621] (cv_bridge) JobQueued: {'identifier': 'cv_bridge', 'dependencies': OrderedDict()}
+[0.000779] (image_geometry) JobQueued: {'identifier': 'image_geometry', 'dependencies': OrderedDict()}
+[0.000920] (opencv_tests) JobQueued: {'identifier': 'opencv_tests', 'dependencies': OrderedDict([('cv_bridge', '/home/jetson/code/cv_bridge_ws/install/cv_bridge')])}
+[0.001037] (vision_opencv) JobQueued: {'identifier': 'vision_opencv', 'dependencies': OrderedDict([('cv_bridge', '/home/jetson/code/cv_bridge_ws/install/cv_bridge'), ('image_geometry', '/home/jetson/code/cv_bridge_ws/install/image_geometry')])}
+[0.001149] (cv_bridge) JobStarted: {'identifier': 'cv_bridge'}
+[0.036116] (image_geometry) JobStarted: {'identifier': 'image_geometry'}
+[0.062975] (cv_bridge) JobProgress: {'identifier': 'cv_bridge', 'progress': 'cmake'}
+[0.064526] (cv_bridge) Command: {'cmd': ['/usr/bin/cmake', '/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/jetson/code/cv_bridge_ws/install/cv_bridge'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/cv_bridge', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/cv_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.098490] (-) TimerEvent: {}
+[0.104458] (image_geometry) JobProgress: {'identifier': 'image_geometry', 'progress': 'cmake'}
+[0.107076] (image_geometry) Command: {'cmd': ['/usr/bin/cmake', '/home/jetson/code/cv_bridge_ws/src/vision_opencv/image_geometry', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/jetson/code/cv_bridge_ws/install/image_geometry'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/image_geometry', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/image_geometry'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[0.198664] (-) TimerEvent: {}
+[0.299823] (-) TimerEvent: {}
+[0.401040] (-) TimerEvent: {}
+[0.504627] (-) TimerEvent: {}
+[0.605364] (-) TimerEvent: {}
+[0.706235] (-) TimerEvent: {}
+[0.754016] (image_geometry) StdoutLine: {'line': b'-- The C compiler identification is GNU 8.4.0\n'}
+[0.754922] (cv_bridge) StdoutLine: {'line': b'-- The C compiler identification is GNU 8.4.0\n'}
+[0.806437] (-) TimerEvent: {}
+[0.907119] (-) TimerEvent: {}
+[1.008108] (-) TimerEvent: {}
+[1.108945] (-) TimerEvent: {}
+[1.209697] (-) TimerEvent: {}
+[1.227178] (cv_bridge) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 8.4.0\n'}
+[1.228047] (image_geometry) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 8.4.0\n'}
+[1.256729] (cv_bridge) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.257362] (image_geometry) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.309887] (-) TimerEvent: {}
+[1.410723] (-) TimerEvent: {}
+[1.511594] (-) TimerEvent: {}
+[1.543193] (image_geometry) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.548417] (cv_bridge) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.549663] (image_geometry) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.551639] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[1.611770] (-) TimerEvent: {}
+[1.713121] (-) TimerEvent: {}
+[1.813854] (-) TimerEvent: {}
+[1.826615] (image_geometry) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.836067] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[1.884146] (image_geometry) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.886029] (image_geometry) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.888703] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[1.890033] (cv_bridge) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[1.899047] (image_geometry) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.900038] (cv_bridge) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[1.914035] (-) TimerEvent: {}
+[2.014803] (-) TimerEvent: {}
+[2.116234] (-) TimerEvent: {}
+[2.220310] (-) TimerEvent: {}
+[2.227262] (cv_bridge) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.236174] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.244375] (image_geometry) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.249555] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.320893] (-) TimerEvent: {}
+[2.426761] (-) TimerEvent: {}
+[2.527489] (-) TimerEvent: {}
+[2.587294] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.597638] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[2.627656] (-) TimerEvent: {}
+[2.642905] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.645019] (cv_bridge) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.650776] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[2.653730] (image_geometry) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[2.669815] (image_geometry) StdoutLine: {'line': b'-- Found ament_cmake_python: 0.9.12 (/opt/ros/foxy/share/ament_cmake_python/cmake)\n'}
+[2.670548] (cv_bridge) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[2.681135] (image_geometry) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[2.727826] (-) TimerEvent: {}
+[2.829070] (-) TimerEvent: {}
+[2.858521] (image_geometry) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.859136] (cv_bridge) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[2.859748] (cv_bridge) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.861015] (image_geometry) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[2.929315] (-) TimerEvent: {}
+[3.030075] (-) TimerEvent: {}
+[3.130795] (-) TimerEvent: {}
+[3.231501] (-) TimerEvent: {}
+[3.333166] (-) TimerEvent: {}
+[3.433857] (-) TimerEvent: {}
+[3.534531] (-) TimerEvent: {}
+[3.635138] (-) TimerEvent: {}
+[3.735781] (-) TimerEvent: {}
+[3.842027] (-) TimerEvent: {}
+[3.942720] (-) TimerEvent: {}
+[3.949606] (image_geometry) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[3.957345] (cv_bridge) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[4.042923] (-) TimerEvent: {}
+[4.143563] (-) TimerEvent: {}
+[4.211547] (cv_bridge) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found version "3.8.10") \n'}
+[4.243737] (-) TimerEvent: {}
+[4.272990] (cv_bridge) StdoutLine: {'line': b'-- Boost_VERSION_STRING: 1.71.0\n'}
+[4.303500] (cv_bridge) StdoutLine: {'line': b'-- Found Boost: /usr/lib/aarch64-linux-gnu/cmake/Boost-1.71.0/BoostConfig.cmake (found version "1.71.0") found components: python38 \n'}
+[4.304531] (image_geometry) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[4.319603] (cv_bridge) StdoutLine: {'line': b'-- Found rcpputils: 1.3.2 (/opt/ros/foxy/share/rcpputils/cmake)\n'}
+[4.343949] (-) TimerEvent: {}
+[4.380952] (cv_bridge) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[4.444196] (-) TimerEvent: {}
+[4.518347] (cv_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[4.544910] (-) TimerEvent: {}
+[4.576326] (cv_bridge) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[4.595935] (image_geometry) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[4.596725] (image_geometry) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[4.645080] (-) TimerEvent: {}
+[4.746286] (-) TimerEvent: {}
+[4.847149] (-) TimerEvent: {}
+[4.886630] (image_geometry) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[4.887532] (image_geometry) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[4.947337] (-) TimerEvent: {}
+[5.048086] (-) TimerEvent: {}
+[5.049725] (cv_bridge) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[5.109840] (image_geometry) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[5.110617] (image_geometry) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[5.148272] (-) TimerEvent: {}
+[5.177511] (cv_bridge) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[5.252073] (-) TimerEvent: {}
+[5.352759] (-) TimerEvent: {}
+[5.394363] (image_geometry) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[5.397843] (image_geometry) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[5.452928] (-) TimerEvent: {}
+[5.480235] (image_geometry) StdoutLine: {'line': b'-- Found CUDA: /usr/local/cuda (found suitable exact version "10.2") \n'}
+[5.542701] (image_geometry) StdoutLine: {'line': b'-- Found OpenCV: /usr (found version "4.8.0") found components: calib3d core highgui imgproc \n'}
+[5.552631] (image_geometry) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[5.553197] (-) TimerEvent: {}
+[5.593564] (cv_bridge) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[5.653437] (-) TimerEvent: {}
+[5.669961] (image_geometry) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.710205] (image_geometry) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[5.753603] (-) TimerEvent: {}
+[5.854323] (-) TimerEvent: {}
+[5.958270] (-) TimerEvent: {}
+[6.059005] (-) TimerEvent: {}
+[6.094145] (image_geometry) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[6.159168] (-) TimerEvent: {}
+[6.209540] (image_geometry) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[6.259333] (-) TimerEvent: {}
+[6.360039] (-) TimerEvent: {}
+[6.460796] (-) TimerEvent: {}
+[6.478628] (cv_bridge) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[6.560971] (-) TimerEvent: {}
+[6.605263] (image_geometry) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.661233] (-) TimerEvent: {}
+[6.762759] (-) TimerEvent: {}
+[6.779397] (cv_bridge) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[6.780203] (cv_bridge) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[6.862937] (-) TimerEvent: {}
+[6.964250] (-) TimerEvent: {}
+[7.064745] (cv_bridge) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed\n'}
+[7.065343] (-) TimerEvent: {}
+[7.066676] (cv_bridge) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads\n'}
+[7.165591] (-) TimerEvent: {}
+[7.274128] (-) TimerEvent: {}
+[7.295797] (cv_bridge) StdoutLine: {'line': b'-- Looking for pthread_create in pthreads - not found\n'}
+[7.296521] (cv_bridge) StdoutLine: {'line': b'-- Looking for pthread_create in pthread\n'}
+[7.374303] (-) TimerEvent: {}
+[7.475303] (-) TimerEvent: {}
+[7.480212] (image_geometry) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/foxy/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[7.488921] (image_geometry) StdoutLine: {'line': b'-- Check if compiler accepts -pthread\n'}
+[7.575457] (-) TimerEvent: {}
+[7.578662] (cv_bridge) StdoutLine: {'line': b'-- Looking for pthread_create in pthread - found\n'}
+[7.582565] (cv_bridge) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[7.620155] (cv_bridge) StdoutLine: {'line': b'-- Found CUDA: /usr/local/cuda (found suitable exact version "10.2") \n'}
+[7.675684] (-) TimerEvent: {}
+[7.773813] (image_geometry) StdoutLine: {'line': b'-- Check if compiler accepts -pthread - yes\n'}
+[7.776632] (-) TimerEvent: {}
+[7.827847] (cv_bridge) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY\n'}
+[7.876813] (-) TimerEvent: {}
+[7.982441] (-) TimerEvent: {}
+[8.083177] (-) TimerEvent: {}
+[8.151439] (image_geometry) StdoutLine: {'line': b'-- Configuring done\n'}
+[8.153450] (cv_bridge) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_VISIBILITY - Success\n'}
+[8.158009] (cv_bridge) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY\n'}
+[8.183351] (-) TimerEvent: {}
+[8.225125] (image_geometry) StdoutLine: {'line': b'-- Generating done\n'}
+[8.257147] (image_geometry) StdoutLine: {'line': b'-- Build files have been written to: /home/jetson/code/cv_bridge_ws/build/image_geometry\n'}
+[8.283562] (-) TimerEvent: {}
+[8.298844] (image_geometry) CommandEnded: {'returncode': 0}
+[8.300715] (image_geometry) JobProgress: {'identifier': 'image_geometry', 'progress': 'build'}
+[8.305046] (image_geometry) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/code/cv_bridge_ws/build/image_geometry', '--', '-j4', '-l4'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/image_geometry', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/image_geometry'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[8.385168] (-) TimerEvent: {}
+[8.467898] (cv_bridge) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_HIDDEN_INLINE_VISIBILITY - Success\n'}
+[8.469358] (cv_bridge) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_DEPRECATED_ATTR\n'}
+[8.479184] (image_geometry) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest\x1b[0m\n'}
+[8.481477] (image_geometry) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_geometry\x1b[0m\n'}
+[8.482975] (image_geometry) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest_main\x1b[0m\n'}
+[8.485325] (-) TimerEvent: {}
+[8.586131] (-) TimerEvent: {}
+[8.614764] (image_geometry) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[8.615671] (image_geometry) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o\x1b[0m\n'}
+[8.687755] (-) TimerEvent: {}
+[8.758511] (image_geometry) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/image_geometry.dir/src/pinhole_camera_model.cpp.o\x1b[0m\n'}
+[8.762914] (image_geometry) StdoutLine: {'line': b'[ 36%] \x1b[32mBuilding CXX object CMakeFiles/image_geometry.dir/src/stereo_camera_model.cpp.o\x1b[0m\n'}
+[8.788643] (-) TimerEvent: {}
+[8.890569] (-) TimerEvent: {}
+[8.986308] (cv_bridge) StdoutLine: {'line': b'-- Performing Test COMPILER_HAS_DEPRECATED_ATTR - Success\n'}
+[8.990839] (-) TimerEvent: {}
+[9.106560] (-) TimerEvent: {}
+[9.203848] (cv_bridge) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[9.206731] (-) TimerEvent: {}
+[9.222148] (cv_bridge) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.8") \n'}
+[9.306912] (-) TimerEvent: {}
+[9.408269] (-) TimerEvent: {}
+[9.514295] (-) TimerEvent: {}
+[9.615112] (-) TimerEvent: {}
+[9.716404] (-) TimerEvent: {}
+[9.817159] (-) TimerEvent: {}
+[9.921180] (-) TimerEvent: {}
+[10.021956] (-) TimerEvent: {}
+[10.122776] (-) TimerEvent: {}
+[10.223545] (-) TimerEvent: {}
+[10.346849] (-) TimerEvent: {}
+[10.404230] (cv_bridge) StdoutLine: {'line': b'-- Found ament_lint_auto: 0.9.8 (/opt/ros/foxy/share/ament_lint_auto/cmake)\n'}
+[10.447036] (-) TimerEvent: {}
+[10.548475] (-) TimerEvent: {}
+[10.649834] (-) TimerEvent: {}
+[10.751314] (-) TimerEvent: {}
+[10.853287] (-) TimerEvent: {}
+[10.954701] (-) TimerEvent: {}
+[11.056059] (-) TimerEvent: {}
+[11.068000] (cv_bridge) StdoutLine: {'line': b"-- Found gtest sources under '/opt/ros/foxy/src/gtest_vendor': C++ tests using 'Google Test' will be built\n"}
+[11.078329] (cv_bridge) StdoutLine: {'line': b'-- Check if compiler accepts -pthread\n'}
+[11.156250] (-) TimerEvent: {}
+[11.257571] (-) TimerEvent: {}
+[11.358419] (-) TimerEvent: {}
+[11.464379] (-) TimerEvent: {}
+[11.594853] (-) TimerEvent: {}
+[11.711390] (-) TimerEvent: {}
+[11.812828] (-) TimerEvent: {}
+[11.918717] (-) TimerEvent: {}
+[12.019541] (-) TimerEvent: {}
+[12.120636] (-) TimerEvent: {}
+[12.238317] (-) TimerEvent: {}
+[12.239476] (cv_bridge) StdoutLine: {'line': b'-- Check if compiler accepts -pthread - yes\n'}
+[12.338561] (-) TimerEvent: {}
+[12.444453] (-) TimerEvent: {}
+[12.545350] (-) TimerEvent: {}
+[12.646720] (-) TimerEvent: {}
+[12.750663] (-) TimerEvent: {}
+[12.780123] (image_geometry) StdoutLine: {'line': b'[ 45%] \x1b[32m\x1b[1mLinking CXX static library libgtest_main.a\x1b[0m\n'}
+[12.850836] (-) TimerEvent: {}
+[12.952116] (-) TimerEvent: {}
+[13.052924] (-) TimerEvent: {}
+[13.153372] (image_geometry) StdoutLine: {'line': b'[ 45%] Built target gtest_main\n'}
+[13.154058] (-) TimerEvent: {}
+[13.255339] (-) TimerEvent: {}
+[13.356087] (-) TimerEvent: {}
+[13.457454] (-) TimerEvent: {}
+[13.558280] (-) TimerEvent: {}
+[13.659686] (-) TimerEvent: {}
+[13.761004] (-) TimerEvent: {}
+[13.864167] (-) TimerEvent: {}
+[13.965013] (-) TimerEvent: {}
+[14.066272] (-) TimerEvent: {}
+[14.167516] (-) TimerEvent: {}
+[14.268821] (-) TimerEvent: {}
+[14.369579] (-) TimerEvent: {}
+[14.472345] (-) TimerEvent: {}
+[14.575417] (-) TimerEvent: {}
+[14.684429] (-) TimerEvent: {}
+[14.785787] (-) TimerEvent: {}
+[14.887143] (-) TimerEvent: {}
+[14.988439] (-) TimerEvent: {}
+[15.089665] (-) TimerEvent: {}
+[15.191179] (-) TimerEvent: {}
+[15.294589] (-) TimerEvent: {}
+[15.395648] (-) TimerEvent: {}
+[15.496937] (-) TimerEvent: {}
+[15.598206] (-) TimerEvent: {}
+[15.699077] (-) TimerEvent: {}
+[15.800417] (-) TimerEvent: {}
+[15.901695] (-) TimerEvent: {}
+[16.002950] (-) TimerEvent: {}
+[16.076063] (image_geometry) StdoutLine: {'line': b'[ 54%] \x1b[32m\x1b[1mLinking CXX shared library libimage_geometry.so\x1b[0m\n'}
+[16.103171] (-) TimerEvent: {}
+[16.204346] (-) TimerEvent: {}
+[16.305192] (-) TimerEvent: {}
+[16.410834] (-) TimerEvent: {}
+[16.511957] (-) TimerEvent: {}
+[16.607209] (image_geometry) StdoutLine: {'line': b'[ 54%] Built target image_geometry\n'}
+[16.612106] (-) TimerEvent: {}
+[16.712844] (-) TimerEvent: {}
+[16.813561] (-) TimerEvent: {}
+[16.914306] (-) TimerEvent: {}
+[17.015165] (-) TimerEvent: {}
+[17.116001] (-) TimerEvent: {}
+[17.216809] (-) TimerEvent: {}
+[17.317526] (-) TimerEvent: {}
+[17.418243] (-) TimerEvent: {}
+[17.519228] (-) TimerEvent: {}
+[17.620638] (-) TimerEvent: {}
+[17.721957] (-) TimerEvent: {}
+[17.823226] (-) TimerEvent: {}
+[17.923893] (-) TimerEvent: {}
+[18.024587] (-) TimerEvent: {}
+[18.125229] (-) TimerEvent: {}
+[18.225934] (-) TimerEvent: {}
+[18.326653] (-) TimerEvent: {}
+[18.427313] (-) TimerEvent: {}
+[18.527984] (-) TimerEvent: {}
+[18.628693] (-) TimerEvent: {}
+[18.729409] (-) TimerEvent: {}
+[18.830141] (-) TimerEvent: {}
+[18.930952] (-) TimerEvent: {}
+[19.031793] (-) TimerEvent: {}
+[19.132506] (-) TimerEvent: {}
+[19.233209] (-) TimerEvent: {}
+[19.333921] (-) TimerEvent: {}
+[19.434645] (-) TimerEvent: {}
+[19.535319] (-) TimerEvent: {}
+[19.636001] (-) TimerEvent: {}
+[19.736718] (-) TimerEvent: {}
+[19.837421] (-) TimerEvent: {}
+[19.938065] (-) TimerEvent: {}
+[20.038816] (-) TimerEvent: {}
+[20.139534] (-) TimerEvent: {}
+[20.240856] (-) TimerEvent: {}
+[20.342017] (-) TimerEvent: {}
+[20.442785] (-) TimerEvent: {}
+[20.543776] (-) TimerEvent: {}
+[20.644459] (-) TimerEvent: {}
+[20.745215] (-) TimerEvent: {}
+[20.846505] (-) TimerEvent: {}
+[20.947201] (-) TimerEvent: {}
+[21.047900] (-) TimerEvent: {}
+[21.148604] (-) TimerEvent: {}
+[21.249323] (-) TimerEvent: {}
+[21.350047] (-) TimerEvent: {}
+[21.450843] (-) TimerEvent: {}
+[21.551550] (-) TimerEvent: {}
+[21.652258] (-) TimerEvent: {}
+[21.752966] (-) TimerEvent: {}
+[21.853667] (-) TimerEvent: {}
+[21.954531] (-) TimerEvent: {}
+[22.055837] (-) TimerEvent: {}
+[22.156536] (-) TimerEvent: {}
+[22.257284] (-) TimerEvent: {}
+[22.357922] (-) TimerEvent: {}
+[22.458608] (-) TimerEvent: {}
+[22.562552] (-) TimerEvent: {}
+[22.663698] (-) TimerEvent: {}
+[22.764400] (-) TimerEvent: {}
+[22.865612] (-) TimerEvent: {}
+[22.966279] (-) TimerEvent: {}
+[23.067108] (-) TimerEvent: {}
+[23.167922] (-) TimerEvent: {}
+[23.268588] (-) TimerEvent: {}
+[23.369322] (-) TimerEvent: {}
+[23.429815] (image_geometry) StdoutLine: {'line': b'[ 63%] \x1b[32m\x1b[1mLinking CXX static library libgtest.a\x1b[0m\n'}
+[23.469732] (cv_bridge) StdoutLine: {'line': b'-- Configuring done\n'}
+[23.470339] (-) TimerEvent: {}
+[23.554066] (cv_bridge) StdoutLine: {'line': b'-- Generating done\n'}
+[23.570535] (-) TimerEvent: {}
+[23.671517] (-) TimerEvent: {}
+[23.717859] (cv_bridge) StdoutLine: {'line': b'-- Build files have been written to: /home/jetson/code/cv_bridge_ws/build/cv_bridge\n'}
+[23.732254] (image_geometry) StdoutLine: {'line': b'[ 63%] Built target gtest\n'}
+[23.746809] (cv_bridge) CommandEnded: {'returncode': 0}
+[23.757204] (cv_bridge) JobProgress: {'identifier': 'cv_bridge', 'progress': 'build'}
+[23.757511] (cv_bridge) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/code/cv_bridge_ws/build/cv_bridge', '--', '-j4', '-l4'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/cv_bridge', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/cv_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[23.771756] (-) TimerEvent: {}
+[23.797988] (image_geometry) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_geometry-utest\x1b[0m\n'}
+[23.803712] (image_geometry) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target image_geometry-utest-equi\x1b[0m\n'}
+[23.871946] (-) TimerEvent: {}
+[23.968341] (cv_bridge) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target cv_bridge\x1b[0m\n'}
+[23.972111] (-) TimerEvent: {}
+[23.985078] (cv_bridge) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest_main\x1b[0m\n'}
+[24.023349] (cv_bridge) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target gtest\x1b[0m\n'}
+[24.028326] (image_geometry) StdoutLine: {'line': b'[ 72%] \x1b[32mBuilding CXX object test/CMakeFiles/image_geometry-utest.dir/utest.cpp.o\x1b[0m\n'}
+[24.041131] (image_geometry) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object test/CMakeFiles/image_geometry-utest-equi.dir/utest_equi.cpp.o\x1b[0m\n'}
+[24.062532] (cv_bridge) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.o\x1b[0m\n'}
+[24.073490] (-) TimerEvent: {}
+[24.160171] (cv_bridge) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object gtest/CMakeFiles/gtest.dir/src/gtest-all.cc.o\x1b[0m\n'}
+[24.173667] (-) TimerEvent: {}
+[24.274952] (-) TimerEvent: {}
+[24.376262] (-) TimerEvent: {}
+[24.422978] (cv_bridge) StdoutLine: {'line': b'[ 18%] \x1b[32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/cv_bridge.cpp.o\x1b[0m\n'}
+[24.423893] (cv_bridge) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object src/CMakeFiles/cv_bridge.dir/rgb_colors.cpp.o\x1b[0m\n'}
+[24.476435] (-) TimerEvent: {}
+[24.578271] (-) TimerEvent: {}
+[24.682100] (-) TimerEvent: {}
+[24.782847] (-) TimerEvent: {}
+[24.883564] (-) TimerEvent: {}
+[24.984991] (-) TimerEvent: {}
+[25.086222] (-) TimerEvent: {}
+[25.187552] (-) TimerEvent: {}
+[25.288726] (-) TimerEvent: {}
+[25.389987] (-) TimerEvent: {}
+[25.491291] (-) TimerEvent: {}
+[25.592612] (-) TimerEvent: {}
+[25.693926] (-) TimerEvent: {}
+[25.795189] (-) TimerEvent: {}
+[25.896438] (-) TimerEvent: {}
+[25.997758] (-) TimerEvent: {}
+[26.117035] (-) TimerEvent: {}
+[26.218348] (-) TimerEvent: {}
+[26.319662] (-) TimerEvent: {}
+[26.420440] (-) TimerEvent: {}
+[26.522562] (-) TimerEvent: {}
+[26.623812] (-) TimerEvent: {}
+[26.724569] (-) TimerEvent: {}
+[26.825872] (-) TimerEvent: {}
+[26.926652] (-) TimerEvent: {}
+[27.051717] (-) TimerEvent: {}
+[27.152958] (-) TimerEvent: {}
+[27.254809] (-) TimerEvent: {}
+[27.356153] (-) TimerEvent: {}
+[27.457484] (-) TimerEvent: {}
+[27.558879] (-) TimerEvent: {}
+[27.659667] (-) TimerEvent: {}
+[27.764713] (-) TimerEvent: {}
+[27.870602] (-) TimerEvent: {}
+[27.971910] (-) TimerEvent: {}
+[28.073233] (-) TimerEvent: {}
+[28.182611] (-) TimerEvent: {}
+[28.283499] (-) TimerEvent: {}
+[28.384775] (-) TimerEvent: {}
+[28.502699] (-) TimerEvent: {}
+[28.604063] (-) TimerEvent: {}
+[28.705373] (-) TimerEvent: {}
+[28.806826] (-) TimerEvent: {}
+[28.908162] (-) TimerEvent: {}
+[29.000857] (cv_bridge) StdoutLine: {'line': b'[ 31%] \x1b[32m\x1b[1mLinking CXX static library libgtest_main.a\x1b[0m\n'}
+[29.008367] (-) TimerEvent: {}
+[29.109674] (-) TimerEvent: {}
+[29.210559] (-) TimerEvent: {}
+[29.311363] (-) TimerEvent: {}
+[29.394970] (cv_bridge) StdoutLine: {'line': b'[ 31%] Built target gtest_main\n'}
+[29.413047] (-) TimerEvent: {}
+[29.514341] (-) TimerEvent: {}
+[29.615697] (-) TimerEvent: {}
+[29.717000] (-) TimerEvent: {}
+[29.818353] (-) TimerEvent: {}
+[29.919696] (-) TimerEvent: {}
+[30.021003] (-) TimerEvent: {}
+[30.122473] (-) TimerEvent: {}
+[30.223889] (-) TimerEvent: {}
+[30.338245] (-) TimerEvent: {}
+[30.443274] (-) TimerEvent: {}
+[30.544682] (-) TimerEvent: {}
+[30.646644] (-) TimerEvent: {}
+[30.748208] (-) TimerEvent: {}
+[30.849598] (-) TimerEvent: {}
+[30.951054] (-) TimerEvent: {}
+[31.051910] (-) TimerEvent: {}
+[31.152787] (-) TimerEvent: {}
+[31.253668] (-) TimerEvent: {}
+[31.355464] (-) TimerEvent: {}
+[31.456830] (-) TimerEvent: {}
+[31.557755] (-) TimerEvent: {}
+[31.660271] (-) TimerEvent: {}
+[31.766620] (-) TimerEvent: {}
+[31.867938] (-) TimerEvent: {}
+[31.968843] (-) TimerEvent: {}
+[32.070735] (-) TimerEvent: {}
+[32.178321] (-) TimerEvent: {}
+[32.282645] (-) TimerEvent: {}
+[32.383546] (-) TimerEvent: {}
+[32.484407] (-) TimerEvent: {}
+[32.585777] (-) TimerEvent: {}
+[32.687346] (-) TimerEvent: {}
+[32.788735] (-) TimerEvent: {}
+[32.890117] (-) TimerEvent: {}
+[32.991562] (-) TimerEvent: {}
+[33.098966] (-) TimerEvent: {}
+[33.215773] (-) TimerEvent: {}
+[33.316650] (-) TimerEvent: {}
+[33.418003] (-) TimerEvent: {}
+[33.521820] (-) TimerEvent: {}
+[33.623290] (-) TimerEvent: {}
+[33.724661] (-) TimerEvent: {}
+[33.829078] (-) TimerEvent: {}
+[33.930572] (-) TimerEvent: {}
+[34.031910] (-) TimerEvent: {}
+[34.133884] (-) TimerEvent: {}
+[34.234729] (-) TimerEvent: {}
+[34.345870] (-) TimerEvent: {}
+[34.446833] (-) TimerEvent: {}
+[34.548213] (-) TimerEvent: {}
+[34.649658] (-) TimerEvent: {}
+[34.751020] (-) TimerEvent: {}
+[34.851834] (-) TimerEvent: {}
+[34.953114] (-) TimerEvent: {}
+[35.054471] (-) TimerEvent: {}
+[35.162604] (-) TimerEvent: {}
+[35.266742] (-) TimerEvent: {}
+[35.374583] (-) TimerEvent: {}
+[35.477759] (-) TimerEvent: {}
+[35.578557] (-) TimerEvent: {}
+[35.680073] (-) TimerEvent: {}
+[35.781358] (-) TimerEvent: {}
+[35.882837] (-) TimerEvent: {}
+[35.984157] (-) TimerEvent: {}
+[36.085550] (-) TimerEvent: {}
+[36.187101] (-) TimerEvent: {}
+[36.287923] (-) TimerEvent: {}
+[36.389584] (-) TimerEvent: {}
+[36.491445] (-) TimerEvent: {}
+[36.500791] (image_geometry) StdoutLine: {'line': b'[ 90%] \x1b[32m\x1b[1mLinking CXX executable image_geometry-utest\x1b[0m\n'}
+[36.591647] (-) TimerEvent: {}
+[36.602944] (image_geometry) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable image_geometry-utest-equi\x1b[0m\n'}
+[36.692008] (-) TimerEvent: {}
+[36.794147] (-) TimerEvent: {}
+[36.895798] (-) TimerEvent: {}
+[36.997510] (-) TimerEvent: {}
+[37.099959] (-) TimerEvent: {}
+[37.201499] (-) TimerEvent: {}
+[37.302381] (-) TimerEvent: {}
+[37.404583] (-) TimerEvent: {}
+[37.505895] (-) TimerEvent: {}
+[37.607416] (-) TimerEvent: {}
+[37.708162] (-) TimerEvent: {}
+[37.808879] (-) TimerEvent: {}
+[37.909671] (-) TimerEvent: {}
+[38.010491] (-) TimerEvent: {}
+[38.111935] (-) TimerEvent: {}
+[38.213232] (-) TimerEvent: {}
+[38.314505] (-) TimerEvent: {}
+[38.376970] (image_geometry) StdoutLine: {'line': b'[100%] Built target image_geometry-utest-equi\n'}
+[38.389479] (image_geometry) StdoutLine: {'line': b'[100%] Built target image_geometry-utest\n'}
+[38.414696] (-) TimerEvent: {}
+[38.443740] (image_geometry) CommandEnded: {'returncode': 0}
+[38.453458] (image_geometry) JobProgress: {'identifier': 'image_geometry', 'progress': 'install'}
+[38.500537] (image_geometry) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jetson/code/cv_bridge_ws/build/image_geometry'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/image_geometry', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/image_geometry'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[38.514913] (-) TimerEvent: {}
+[38.550601] (image_geometry) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[38.554174] (image_geometry) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[38.558967] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/pythonpath.sh\n'}
+[38.609158] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/pythonpath.dsv\n'}
+[38.615104] (-) TimerEvent: {}
+[38.666932] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages/image_geometry/__init__.py\n'}
+[38.708052] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages/image_geometry/cameramodels.py\n'}
+[38.715329] (-) TimerEvent: {}
+[38.750918] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/include/image_geometry/pinhole_camera_model.h\n'}
+[38.788190] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/include/image_geometry/stereo_camera_model.h\n'}
+[38.815548] (-) TimerEvent: {}
+[38.826176] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/include/image_geometry/visibility_control.hpp\n'}
+[38.864381] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/lib/libimage_geometry.so\n'}
+[38.908708] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/library_path.sh\n'}
+[38.915734] (-) TimerEvent: {}
+[38.946971] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/library_path.dsv\n'}
+[38.988763] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/ament_index/resource_index/package_run_dependencies/image_geometry\n'}
+[39.015978] (-) TimerEvent: {}
+[39.027706] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/ament_index/resource_index/parent_prefix_path/image_geometry\n'}
+[39.070682] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/ament_prefix_path.sh\n'}
+[39.110708] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/ament_prefix_path.dsv\n'}
+[39.116166] (-) TimerEvent: {}
+[39.149404] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/path.sh\n'}
+[39.187031] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/environment/path.dsv\n'}
+[39.216412] (-) TimerEvent: {}
+[39.226090] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/local_setup.bash\n'}
+[39.265488] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/local_setup.sh\n'}
+[39.310707] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/local_setup.zsh\n'}
+[39.316599] (-) TimerEvent: {}
+[39.346347] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/local_setup.dsv\n'}
+[39.389535] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/package.dsv\n'}
+[39.416864] (-) TimerEvent: {}
+[39.427836] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/ament_index/resource_index/packages/image_geometry\n'}
+[39.466883] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[39.504969] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[39.517043] (-) TimerEvent: {}
+[39.547913] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[39.585841] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/cmake/image_geometryConfig.cmake\n'}
+[39.618001] (-) TimerEvent: {}
+[39.630720] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/cmake/image_geometryConfig-version.cmake\n'}
+[39.672077] (image_geometry) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/image_geometry/share/image_geometry/package.xml\n'}
+[39.718198] (-) TimerEvent: {}
+[39.819115] (-) TimerEvent: {}
+[39.919916] (-) TimerEvent: {}
+[40.021170] (-) TimerEvent: {}
+[40.086767] (image_geometry) StdoutLine: {'line': b"Listing '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages/image_geometry'...\n"}
+[40.087870] (image_geometry) StdoutLine: {'line': b"Compiling '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages/image_geometry/__init__.py'...\n"}
+[40.088539] (image_geometry) StdoutLine: {'line': b"Compiling '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages/image_geometry/cameramodels.py'...\n"}
+[40.120728] (image_geometry) CommandEnded: {'returncode': 0}
+[40.122529] (-) TimerEvent: {}
+[40.226981] (-) TimerEvent: {}
+[40.298334] (image_geometry) JobEnded: {'identifier': 'image_geometry', 'rc': 0}
+[40.327590] (-) TimerEvent: {}
+[40.428941] (-) TimerEvent: {}
+[40.530034] (-) TimerEvent: {}
+[40.630732] (-) TimerEvent: {}
+[40.731433] (-) TimerEvent: {}
+[40.832203] (-) TimerEvent: {}
+[40.932883] (-) TimerEvent: {}
+[41.033551] (-) TimerEvent: {}
+[41.152386] (-) TimerEvent: {}
+[41.253106] (-) TimerEvent: {}
+[41.353826] (-) TimerEvent: {}
+[41.454564] (-) TimerEvent: {}
+[41.555361] (-) TimerEvent: {}
+[41.656127] (-) TimerEvent: {}
+[41.756839] (-) TimerEvent: {}
+[41.857512] (-) TimerEvent: {}
+[41.959175] (-) TimerEvent: {}
+[42.060000] (-) TimerEvent: {}
+[42.161223] (-) TimerEvent: {}
+[42.233611] (cv_bridge) StdoutLine: {'line': b'[ 37%] \x1b[32m\x1b[1mLinking CXX static library libgtest.a\x1b[0m\n'}
+[42.261453] (-) TimerEvent: {}
+[42.362138] (-) TimerEvent: {}
+[42.462890] (-) TimerEvent: {}
+[42.514066] (cv_bridge) StdoutLine: {'line': b'[ 37%] Built target gtest\n'}
+[42.563054] (-) TimerEvent: {}
+[42.663763] (-) TimerEvent: {}
+[42.764466] (-) TimerEvent: {}
+[42.865173] (-) TimerEvent: {}
+[42.965870] (-) TimerEvent: {}
+[43.066579] (-) TimerEvent: {}
+[43.167214] (-) TimerEvent: {}
+[43.267903] (-) TimerEvent: {}
+[43.368588] (-) TimerEvent: {}
+[43.469286] (-) TimerEvent: {}
+[43.569977] (-) TimerEvent: {}
+[43.670722] (-) TimerEvent: {}
+[43.771414] (-) TimerEvent: {}
+[43.872143] (-) TimerEvent: {}
+[43.972921] (-) TimerEvent: {}
+[44.073596] (-) TimerEvent: {}
+[44.174287] (-) TimerEvent: {}
+[44.275043] (-) TimerEvent: {}
+[44.375671] (-) TimerEvent: {}
+[44.476374] (-) TimerEvent: {}
+[44.577083] (-) TimerEvent: {}
+[44.677785] (-) TimerEvent: {}
+[44.778557] (-) TimerEvent: {}
+[44.879244] (-) TimerEvent: {}
+[44.979940] (-) TimerEvent: {}
+[45.080644] (-) TimerEvent: {}
+[45.181280] (-) TimerEvent: {}
+[45.281976] (-) TimerEvent: {}
+[45.382685] (-) TimerEvent: {}
+[45.483314] (-) TimerEvent: {}
+[45.583982] (-) TimerEvent: {}
+[45.684659] (-) TimerEvent: {}
+[45.785341] (-) TimerEvent: {}
+[45.886006] (-) TimerEvent: {}
+[45.986873] (-) TimerEvent: {}
+[46.087588] (-) TimerEvent: {}
+[46.189715] (-) TimerEvent: {}
+[46.290476] (-) TimerEvent: {}
+[46.322055] (cv_bridge) StdoutLine: {'line': b'[ 43%] \x1b[32m\x1b[1mLinking CXX shared library libcv_bridge.so\x1b[0m\n'}
+[46.390651] (-) TimerEvent: {}
+[46.491309] (-) TimerEvent: {}
+[46.592045] (-) TimerEvent: {}
+[46.692751] (-) TimerEvent: {}
+[46.793484] (-) TimerEvent: {}
+[46.894160] (-) TimerEvent: {}
+[46.974892] (cv_bridge) StdoutLine: {'line': b'[ 43%] Built target cv_bridge\n'}
+[46.994348] (-) TimerEvent: {}
+[47.019433] (cv_bridge) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target cv_bridge-utest\x1b[0m\n'}
+[47.031194] (cv_bridge) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target cv_bridge_boost\x1b[0m\n'}
+[47.094572] (-) TimerEvent: {}
+[47.195296] (-) TimerEvent: {}
+[47.292091] (cv_bridge) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module_opencv3.cpp.o\x1b[0m\n'}
+[47.293002] (cv_bridge) StdoutLine: {'line': b'[ 56%] \x1b[32mBuilding CXX object src/CMakeFiles/cv_bridge_boost.dir/module.cpp.o\x1b[0m\n'}
+[47.295462] (-) TimerEvent: {}
+[47.367532] (cv_bridge) StdoutLine: {'line': b'[ 62%] \x1b[32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_compression.cpp.o\x1b[0m\n'}
+[47.373094] (cv_bridge) StdoutLine: {'line': b'[ 68%] \x1b[32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_endian.cpp.o\x1b[0m\n'}
+[47.395640] (-) TimerEvent: {}
+[47.497129] (-) TimerEvent: {}
+[47.599191] (-) TimerEvent: {}
+[47.699904] (-) TimerEvent: {}
+[47.801112] (-) TimerEvent: {}
+[47.902238] (-) TimerEvent: {}
+[48.002967] (-) TimerEvent: {}
+[48.106314] (-) TimerEvent: {}
+[48.207175] (-) TimerEvent: {}
+[48.308033] (-) TimerEvent: {}
+[48.408712] (-) TimerEvent: {}
+[48.509919] (-) TimerEvent: {}
+[48.611263] (-) TimerEvent: {}
+[48.712572] (-) TimerEvent: {}
+[48.813851] (-) TimerEvent: {}
+[48.915081] (-) TimerEvent: {}
+[49.016304] (-) TimerEvent: {}
+[49.117696] (-) TimerEvent: {}
+[49.218881] (-) TimerEvent: {}
+[49.320348] (-) TimerEvent: {}
+[49.421496] (-) TimerEvent: {}
+[49.522672] (-) TimerEvent: {}
+[49.623777] (-) TimerEvent: {}
+[49.724977] (-) TimerEvent: {}
+[49.826130] (-) TimerEvent: {}
+[49.927404] (-) TimerEvent: {}
+[50.028578] (-) TimerEvent: {}
+[50.129742] (-) TimerEvent: {}
+[50.230931] (-) TimerEvent: {}
+[50.332152] (-) TimerEvent: {}
+[50.435524] (-) TimerEvent: {}
+[50.536731] (-) TimerEvent: {}
+[50.637895] (-) TimerEvent: {}
+[50.739111] (-) TimerEvent: {}
+[50.840130] (-) TimerEvent: {}
+[50.941312] (-) TimerEvent: {}
+[51.042531] (-) TimerEvent: {}
+[51.143642] (-) TimerEvent: {}
+[51.244828] (-) TimerEvent: {}
+[51.345985] (-) TimerEvent: {}
+[51.447191] (-) TimerEvent: {}
+[51.548338] (-) TimerEvent: {}
+[51.649518] (-) TimerEvent: {}
+[51.750705] (-) TimerEvent: {}
+[51.851867] (-) TimerEvent: {}
+[51.953028] (-) TimerEvent: {}
+[52.053752] (-) TimerEvent: {}
+[52.154544] (-) TimerEvent: {}
+[52.256008] (-) TimerEvent: {}
+[52.357177] (-) TimerEvent: {}
+[52.457972] (-) TimerEvent: {}
+[52.559222] (-) TimerEvent: {}
+[52.665480] (-) TimerEvent: {}
+[52.766209] (-) TimerEvent: {}
+[52.866953] (-) TimerEvent: {}
+[52.968130] (-) TimerEvent: {}
+[53.069433] (-) TimerEvent: {}
+[53.170665] (-) TimerEvent: {}
+[53.272089] (-) TimerEvent: {}
+[53.373297] (-) TimerEvent: {}
+[53.449579] (cv_bridge) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/utest.cpp.o\x1b[0m\n'}
+[53.473469] (-) TimerEvent: {}
+[53.574666] (-) TimerEvent: {}
+[53.675810] (-) TimerEvent: {}
+[53.740253] (cv_bridge) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/utest2.cpp.o\x1b[0m\n'}
+[53.776004] (-) TimerEvent: {}
+[53.877131] (-) TimerEvent: {}
+[53.978285] (-) TimerEvent: {}
+[54.079041] (-) TimerEvent: {}
+[54.179776] (-) TimerEvent: {}
+[54.281050] (-) TimerEvent: {}
+[54.382032] (-) TimerEvent: {}
+[54.483214] (-) TimerEvent: {}
+[54.583949] (-) TimerEvent: {}
+[54.684682] (-) TimerEvent: {}
+[54.785427] (-) TimerEvent: {}
+[54.886698] (-) TimerEvent: {}
+[54.987877] (-) TimerEvent: {}
+[55.089043] (-) TimerEvent: {}
+[55.190216] (-) TimerEvent: {}
+[55.291459] (-) TimerEvent: {}
+[55.392669] (-) TimerEvent: {}
+[55.493898] (-) TimerEvent: {}
+[55.595121] (-) TimerEvent: {}
+[55.696315] (-) TimerEvent: {}
+[55.797531] (-) TimerEvent: {}
+[55.898700] (-) TimerEvent: {}
+[55.999941] (-) TimerEvent: {}
+[56.101308] (-) TimerEvent: {}
+[56.202547] (-) TimerEvent: {}
+[56.322759] (-) TimerEvent: {}
+[56.423979] (-) TimerEvent: {}
+[56.525160] (-) TimerEvent: {}
+[56.627455] (-) TimerEvent: {}
+[56.728672] (-) TimerEvent: {}
+[56.829455] (-) TimerEvent: {}
+[56.930736] (-) TimerEvent: {}
+[57.032001] (-) TimerEvent: {}
+[57.132903] (-) TimerEvent: {}
+[57.234179] (-) TimerEvent: {}
+[57.342585] (-) TimerEvent: {}
+[57.443403] (-) TimerEvent: {}
+[57.545097] (-) TimerEvent: {}
+[57.646304] (-) TimerEvent: {}
+[57.747609] (-) TimerEvent: {}
+[57.848808] (-) TimerEvent: {}
+[57.950028] (-) TimerEvent: {}
+[58.050820] (-) TimerEvent: {}
+[58.151610] (-) TimerEvent: {}
+[58.252401] (-) TimerEvent: {}
+[58.356243] (-) TimerEvent: {}
+[58.457394] (-) TimerEvent: {}
+[58.558556] (-) TimerEvent: {}
+[58.659772] (-) TimerEvent: {}
+[58.760987] (-) TimerEvent: {}
+[58.862193] (-) TimerEvent: {}
+[58.963451] (-) TimerEvent: {}
+[59.064199] (-) TimerEvent: {}
+[59.165410] (-) TimerEvent: {}
+[59.266621] (-) TimerEvent: {}
+[59.367852] (-) TimerEvent: {}
+[59.468652] (-) TimerEvent: {}
+[59.569440] (-) TimerEvent: {}
+[59.670648] (-) TimerEvent: {}
+[59.771852] (-) TimerEvent: {}
+[59.873112] (-) TimerEvent: {}
+[59.974366] (-) TimerEvent: {}
+[60.075579] (-) TimerEvent: {}
+[60.176846] (-) TimerEvent: {}
+[60.277574] (-) TimerEvent: {}
+[60.378692] (-) TimerEvent: {}
+[60.391390] (cv_bridge) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding CXX object test/CMakeFiles/cv_bridge-utest.dir/test_rgb_colors.cpp.o\x1b[0m\n'}
+[60.478862] (-) TimerEvent: {}
+[60.580386] (-) TimerEvent: {}
+[60.681611] (-) TimerEvent: {}
+[60.782748] (-) TimerEvent: {}
+[60.883951] (-) TimerEvent: {}
+[60.985152] (-) TimerEvent: {}
+[61.085894] (-) TimerEvent: {}
+[61.187226] (-) TimerEvent: {}
+[61.288515] (-) TimerEvent: {}
+[61.399091] (-) TimerEvent: {}
+[61.500340] (-) TimerEvent: {}
+[61.601628] (-) TimerEvent: {}
+[61.702934] (-) TimerEvent: {}
+[61.804225] (-) TimerEvent: {}
+[61.906849] (-) TimerEvent: {}
+[62.008058] (-) TimerEvent: {}
+[62.109342] (-) TimerEvent: {}
+[62.210634] (-) TimerEvent: {}
+[62.311390] (-) TimerEvent: {}
+[62.412053] (-) TimerEvent: {}
+[62.512800] (-) TimerEvent: {}
+[62.613552] (-) TimerEvent: {}
+[62.714297] (-) TimerEvent: {}
+[62.815029] (-) TimerEvent: {}
+[62.915787] (-) TimerEvent: {}
+[63.017174] (-) TimerEvent: {}
+[63.118511] (-) TimerEvent: {}
+[63.193363] (cv_bridge) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking CXX shared library boost/cv_bridge_boost.so\x1b[0m\n'}
+[63.218720] (-) TimerEvent: {}
+[63.319920] (-) TimerEvent: {}
+[63.436115] (-) TimerEvent: {}
+[63.536976] (-) TimerEvent: {}
+[63.637755] (-) TimerEvent: {}
+[63.738591] (-) TimerEvent: {}
+[63.747012] (cv_bridge) StdoutLine: {'line': b'[ 93%] Built target cv_bridge_boost\n'}
+[63.838814] (-) TimerEvent: {}
+[63.939820] (-) TimerEvent: {}
+[64.040530] (-) TimerEvent: {}
+[64.141343] (-) TimerEvent: {}
+[64.242052] (-) TimerEvent: {}
+[64.342749] (-) TimerEvent: {}
+[64.443447] (-) TimerEvent: {}
+[64.544166] (-) TimerEvent: {}
+[64.644814] (-) TimerEvent: {}
+[64.745517] (-) TimerEvent: {}
+[64.846228] (-) TimerEvent: {}
+[64.946977] (-) TimerEvent: {}
+[65.047686] (-) TimerEvent: {}
+[65.148401] (-) TimerEvent: {}
+[65.249113] (-) TimerEvent: {}
+[65.349801] (-) TimerEvent: {}
+[65.450853] (-) TimerEvent: {}
+[65.551555] (-) TimerEvent: {}
+[65.652275] (-) TimerEvent: {}
+[65.753046] (-) TimerEvent: {}
+[65.853774] (-) TimerEvent: {}
+[65.954550] (-) TimerEvent: {}
+[66.055261] (-) TimerEvent: {}
+[66.155983] (-) TimerEvent: {}
+[66.256698] (-) TimerEvent: {}
+[66.357351] (-) TimerEvent: {}
+[66.458760] (-) TimerEvent: {}
+[66.559480] (-) TimerEvent: {}
+[66.660198] (-) TimerEvent: {}
+[66.760940] (-) TimerEvent: {}
+[66.861664] (-) TimerEvent: {}
+[66.962369] (-) TimerEvent: {}
+[67.063180] (-) TimerEvent: {}
+[67.163892] (-) TimerEvent: {}
+[67.264618] (-) TimerEvent: {}
+[67.365305] (-) TimerEvent: {}
+[67.466049] (-) TimerEvent: {}
+[67.566841] (-) TimerEvent: {}
+[67.667531] (-) TimerEvent: {}
+[67.768260] (-) TimerEvent: {}
+[67.868976] (-) TimerEvent: {}
+[67.969686] (-) TimerEvent: {}
+[68.070339] (-) TimerEvent: {}
+[68.173850] (-) TimerEvent: {}
+[68.275118] (-) TimerEvent: {}
+[68.375820] (-) TimerEvent: {}
+[68.476487] (-) TimerEvent: {}
+[68.577270] (-) TimerEvent: {}
+[68.678097] (-) TimerEvent: {}
+[68.779057] (-) TimerEvent: {}
+[68.879784] (-) TimerEvent: {}
+[68.980545] (-) TimerEvent: {}
+[69.081250] (-) TimerEvent: {}
+[69.181898] (-) TimerEvent: {}
+[69.282576] (-) TimerEvent: {}
+[69.345207] (cv_bridge) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable cv_bridge-utest\x1b[0m\n'}
+[69.382742] (-) TimerEvent: {}
+[69.483446] (-) TimerEvent: {}
+[69.584248] (-) TimerEvent: {}
+[69.684990] (-) TimerEvent: {}
+[69.785722] (-) TimerEvent: {}
+[69.886527] (-) TimerEvent: {}
+[69.987164] (-) TimerEvent: {}
+[70.087893] (-) TimerEvent: {}
+[70.188555] (-) TimerEvent: {}
+[70.289248] (-) TimerEvent: {}
+[70.328124] (cv_bridge) StdoutLine: {'line': b'[100%] Built target cv_bridge-utest\n'}
+[70.372244] (cv_bridge) CommandEnded: {'returncode': 0}
+[70.380930] (cv_bridge) JobProgress: {'identifier': 'cv_bridge', 'progress': 'install'}
+[70.381267] (cv_bridge) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jetson/code/cv_bridge_ws/build/cv_bridge'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/cv_bridge', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/cv_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/opt/ros/foxy')]), 'shell': False}
+[70.389442] (-) TimerEvent: {}
+[70.415262] (cv_bridge) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[70.417699] (cv_bridge) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[70.419067] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/pythonpath.sh\n'}
+[70.452234] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/pythonpath.dsv\n'}
+[70.489668] (-) TimerEvent: {}
+[70.491119] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge/__init__.py\n'}
+[70.525585] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge/core.py\n'}
+[70.559153] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/libcv_bridge.so\n'}
+[70.589898] (-) TimerEvent: {}
+[70.592944] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/include/cv_bridge/cv_bridge_export.h\n'}
+[70.628044] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge/boost//cv_bridge_boost.so\n'}
+[70.662546] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/library_path.sh\n'}
+[70.690139] (-) TimerEvent: {}
+[70.695785] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/library_path.dsv\n'}
+[70.730084] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/include/cv_bridge/cv_bridge.h\n'}
+[70.763472] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/include/cv_bridge/rgb_colors.h\n'}
+[70.790372] (-) TimerEvent: {}
+[70.798194] (cv_bridge) StdoutLine: {'line': b'-- Up-to-date symlink: /home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/libcv_bridge.so\n'}
+[70.799645] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/ament_index/resource_index/package_run_dependencies/cv_bridge\n'}
+[70.833085] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/ament_index/resource_index/parent_prefix_path/cv_bridge\n'}
+[70.866049] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/ament_prefix_path.sh\n'}
+[70.890593] (-) TimerEvent: {}
+[70.899325] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/ament_prefix_path.dsv\n'}
+[70.932511] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/path.sh\n'}
+[70.966332] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/environment/path.dsv\n'}
+[70.990753] (-) TimerEvent: {}
+[71.000490] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/local_setup.bash\n'}
+[71.033810] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/local_setup.sh\n'}
+[71.068497] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/local_setup.zsh\n'}
+[71.090932] (-) TimerEvent: {}
+[71.101893] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/local_setup.dsv\n'}
+[71.136096] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/package.dsv\n'}
+[71.170234] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/ament_index/resource_index/packages/cv_bridge\n'}
+[71.191137] (-) TimerEvent: {}
+[71.203488] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridge-extras.cmake\n'}
+[71.236970] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[71.269459] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[71.291375] (-) TimerEvent: {}
+[71.303075] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[71.337280] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig.cmake\n'}
+[71.370919] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/cmake/cv_bridgeConfig-version.cmake\n'}
+[71.391582] (-) TimerEvent: {}
+[71.404975] (cv_bridge) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/cv_bridge/share/cv_bridge/package.xml\n'}
+[71.491807] (-) TimerEvent: {}
+[71.570646] (cv_bridge) StdoutLine: {'line': b"Listing '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge'...\n"}
+[71.571290] (cv_bridge) StdoutLine: {'line': b"Compiling '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge/__init__.py'...\n"}
+[71.571746] (cv_bridge) StdoutLine: {'line': b"Listing '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge/boost'...\n"}
+[71.572172] (cv_bridge) StdoutLine: {'line': b"Compiling '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages/cv_bridge/core.py'...\n"}
+[71.591968] (-) TimerEvent: {}
+[71.598775] (cv_bridge) CommandEnded: {'returncode': 0}
+[71.678515] (cv_bridge) JobEnded: {'identifier': 'cv_bridge', 'rc': 0}
+[71.683027] (opencv_tests) JobStarted: {'identifier': 'opencv_tests'}
+[71.692162] (-) TimerEvent: {}
+[71.713546] (vision_opencv) JobStarted: {'identifier': 'vision_opencv'}
+[71.792512] (-) TimerEvent: {}
+[71.893629] (-) TimerEvent: {}
+[71.994346] (-) TimerEvent: {}
+[72.095048] (-) TimerEvent: {}
+[72.195763] (-) TimerEvent: {}
+[72.296487] (-) TimerEvent: {}
+[72.398725] (-) TimerEvent: {}
+[72.499789] (-) TimerEvent: {}
+[72.600541] (-) TimerEvent: {}
+[72.701275] (-) TimerEvent: {}
+[72.802030] (-) TimerEvent: {}
+[72.903218] (-) TimerEvent: {}
+[73.003874] (-) TimerEvent: {}
+[73.104512] (-) TimerEvent: {}
+[73.205364] (-) TimerEvent: {}
+[73.306132] (-) TimerEvent: {}
+[73.407437] (-) TimerEvent: {}
+[73.508069] (-) TimerEvent: {}
+[73.608759] (-) TimerEvent: {}
+[73.710231] (-) TimerEvent: {}
+[73.811344] (-) TimerEvent: {}
+[73.820944] (vision_opencv) JobProgress: {'identifier': 'vision_opencv', 'progress': 'cmake'}
+[73.827859] (vision_opencv) Command: {'cmd': ['/usr/bin/cmake', '/home/jetson/code/cv_bridge_ws/src/vision_opencv/vision_opencv', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/jetson/code/cv_bridge_ws/install/vision_opencv'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/vision_opencv', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/vision_opencv'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy')]), 'shell': False}
+[73.911487] (-) TimerEvent: {}
+[74.012347] (-) TimerEvent: {}
+[74.113022] (-) TimerEvent: {}
+[74.213724] (-) TimerEvent: {}
+[74.286630] (vision_opencv) StdoutLine: {'line': b'-- The C compiler identification is GNU 8.4.0\n'}
+[74.313933] (-) TimerEvent: {}
+[74.414718] (-) TimerEvent: {}
+[74.515396] (-) TimerEvent: {}
+[74.518216] (vision_opencv) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 8.4.0\n'}
+[74.550890] (vision_opencv) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[74.615611] (-) TimerEvent: {}
+[74.716263] (-) TimerEvent: {}
+[74.817007] (-) TimerEvent: {}
+[74.858074] (vision_opencv) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[74.867481] (vision_opencv) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[74.917240] (-) TimerEvent: {}
+[75.017968] (-) TimerEvent: {}
+[75.118847] (-) TimerEvent: {}
+[75.139313] (vision_opencv) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[75.189255] (vision_opencv) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[75.191314] (vision_opencv) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[75.204435] (vision_opencv) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[75.219002] (-) TimerEvent: {}
+[75.320062] (-) TimerEvent: {}
+[75.420771] (-) TimerEvent: {}
+[75.516439] (vision_opencv) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[75.520940] (-) TimerEvent: {}
+[75.521863] (vision_opencv) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[75.621150] (-) TimerEvent: {}
+[75.721838] (-) TimerEvent: {}
+[75.822642] (-) TimerEvent: {}
+[75.826377] (vision_opencv) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[75.885636] (vision_opencv) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[75.887759] (vision_opencv) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[75.922836] (-) TimerEvent: {}
+[75.948818] (vision_opencv) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[76.023043] (-) TimerEvent: {}
+[76.102225] (vision_opencv) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[76.103097] (vision_opencv) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[76.123194] (-) TimerEvent: {}
+[76.223834] (-) TimerEvent: {}
+[76.324555] (-) TimerEvent: {}
+[76.425285] (-) TimerEvent: {}
+[76.526151] (-) TimerEvent: {}
+[76.540365] (opencv_tests) Command: {'cmd': ['/usr/bin/python3', '-W', 'ignore:setup.py install is deprecated', '-W', 'ignore:easy_install command is deprecated', 'setup.py', 'develop', '--editable', '--build-directory', '/home/jetson/code/cv_bridge_ws/build/opencv_tests/build', '--no-deps', 'symlink_data'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/opencv_tests', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'jetson', 'SSH_CLIENT': '192.168.50.244 33056 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64', 'BROWSER': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/jetson', 'OLDPWD': '/home/jetson/code/cv_bridge_ws/src', 'TERM_PROGRAM_VERSION': '1.98.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'VSCODE_GIT_ASKPASS_MAIN': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'nl_NL.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/certs/ca-certificates.crt', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'jetson', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1421523010890', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'DISPLAY': 'localhost:10.0', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-03999399f2.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/vscode-ssh-auth-sock-352254538', 'AMENT_PREFIX_PATH': '/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/jetson/code/cv_bridge_ws/build/opencv_tests', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.244 33056 192.168.50.197 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jetson/code/cv_bridge_ws/build/opencv_tests/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'JETSON_P_NUMBER': 'p3448-0000', 'CMAKE_PREFIX_PATH': '/home/jetson/code/cv_bridge_ws/install/cv_bridge'}, 'shell': False}
+[76.626363] (-) TimerEvent: {}
+[76.727884] (-) TimerEvent: {}
+[76.828569] (-) TimerEvent: {}
+[76.929313] (-) TimerEvent: {}
+[77.029940] (-) TimerEvent: {}
+[77.130686] (-) TimerEvent: {}
+[77.231308] (-) TimerEvent: {}
+[77.254515] (vision_opencv) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[77.331469] (-) TimerEvent: {}
+[77.432206] (-) TimerEvent: {}
+[77.532846] (-) TimerEvent: {}
+[77.633502] (-) TimerEvent: {}
+[77.734188] (-) TimerEvent: {}
+[77.757228] (vision_opencv) StdoutLine: {'line': b'-- Configuring done\n'}
+[77.765053] (vision_opencv) StdoutLine: {'line': b'-- Generating done\n'}
+[77.770508] (vision_opencv) StdoutLine: {'line': b'-- Build files have been written to: /home/jetson/code/cv_bridge_ws/build/vision_opencv\n'}
+[77.782518] (vision_opencv) CommandEnded: {'returncode': 0}
+[77.784844] (vision_opencv) JobProgress: {'identifier': 'vision_opencv', 'progress': 'build'}
+[77.785718] (vision_opencv) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/code/cv_bridge_ws/build/vision_opencv', '--', '-j4', '-l4'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/vision_opencv', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/vision_opencv'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy')]), 'shell': False}
+[77.834483] (-) TimerEvent: {}
+[77.935222] (-) TimerEvent: {}
+[77.955323] (vision_opencv) CommandEnded: {'returncode': 0}
+[77.958212] (vision_opencv) JobProgress: {'identifier': 'vision_opencv', 'progress': 'install'}
+[77.963676] (vision_opencv) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jetson/code/cv_bridge_ws/build/vision_opencv'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/vision_opencv', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/vision_opencv'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('JETSON_P_NUMBER', 'p3448-0000'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy')]), 'shell': False}
+[77.998512] (vision_opencv) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[78.000332] (vision_opencv) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[78.002264] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/ament_index/resource_index/package_run_dependencies/vision_opencv\n'}
+[78.035406] (-) TimerEvent: {}
+[78.043563] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/ament_index/resource_index/parent_prefix_path/vision_opencv\n'}
+[78.087472] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/environment/ament_prefix_path.sh\n'}
+[78.096033] (opencv_tests) StdoutLine: {'line': b'running develop\n'}
+[78.122186] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/environment/ament_prefix_path.dsv\n'}
+[78.135618] (-) TimerEvent: {}
+[78.157141] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/environment/path.sh\n'}
+[78.192107] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/environment/path.dsv\n'}
+[78.226340] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/local_setup.bash\n'}
+[78.235831] (-) TimerEvent: {}
+[78.263290] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/local_setup.sh\n'}
+[78.299000] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/local_setup.zsh\n'}
+[78.333701] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/local_setup.dsv\n'}
+[78.342557] (-) TimerEvent: {}
+[78.371125] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/package.dsv\n'}
+[78.408013] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/ament_index/resource_index/packages/vision_opencv\n'}
+[78.442775] (-) TimerEvent: {}
+[78.451650] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/cmake/vision_opencvConfig.cmake\n'}
+[78.485814] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/cmake/vision_opencvConfig-version.cmake\n'}
+[78.520682] (vision_opencv) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/cv_bridge_ws/install/vision_opencv/share/vision_opencv/package.xml\n'}
+[78.542988] (-) TimerEvent: {}
+[78.562326] (vision_opencv) CommandEnded: {'returncode': 0}
+[78.619829] (vision_opencv) JobEnded: {'identifier': 'vision_opencv', 'rc': 0}
+[78.643135] (-) TimerEvent: {}
+[78.743691] (-) TimerEvent: {}
+[78.844337] (-) TimerEvent: {}
+[78.944966] (-) TimerEvent: {}
+[79.011571] (opencv_tests) StdoutLine: {'line': b'running egg_info\n'}
+[79.012434] (opencv_tests) StdoutLine: {'line': b'creating opencv_tests.egg-info\n'}
+[79.012931] (opencv_tests) StdoutLine: {'line': b'writing opencv_tests.egg-info/PKG-INFO\n'}
+[79.014671] (opencv_tests) StdoutLine: {'line': b'writing dependency_links to opencv_tests.egg-info/dependency_links.txt\n'}
+[79.016341] (opencv_tests) StdoutLine: {'line': b'writing entry points to opencv_tests.egg-info/entry_points.txt\n'}
+[79.016778] (opencv_tests) StdoutLine: {'line': b'writing requirements to opencv_tests.egg-info/requires.txt\n'}
+[79.017161] (opencv_tests) StdoutLine: {'line': b'writing top-level names to opencv_tests.egg-info/top_level.txt\n'}
+[79.032207] (opencv_tests) StdoutLine: {'line': b"writing manifest file 'opencv_tests.egg-info/SOURCES.txt'\n"}
+[79.038878] (opencv_tests) StdoutLine: {'line': b"reading manifest file 'opencv_tests.egg-info/SOURCES.txt'\n"}
+[79.041890] (opencv_tests) StdoutLine: {'line': b"writing manifest file 'opencv_tests.egg-info/SOURCES.txt'\n"}
+[79.045168] (-) TimerEvent: {}
+[79.145789] (-) TimerEvent: {}
+[79.210431] (opencv_tests) StdoutLine: {'line': b'running build_ext\n'}
+[79.211272] (opencv_tests) StdoutLine: {'line': b'Creating /home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages/opencv-tests.egg-link (link to .)\n'}
+[79.214566] (opencv_tests) StdoutLine: {'line': b'Installing broadcast script to /home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/opencv_tests\n'}
+[79.215250] (opencv_tests) StdoutLine: {'line': b'Installing rosfacedetect script to /home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/opencv_tests\n'}
+[79.215836] (opencv_tests) StdoutLine: {'line': b'Installing source script to /home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/opencv_tests\n'}
+[79.216341] (opencv_tests) StdoutLine: {'line': b'\n'}
+[79.216845] (opencv_tests) StdoutLine: {'line': b'Installed /home/jetson/code/cv_bridge_ws/build/opencv_tests\n'}
+[79.217489] (opencv_tests) StdoutLine: {'line': b'running symlink_data\n'}
+[79.218057] (opencv_tests) StdoutLine: {'line': b'creating /home/jetson/code/cv_bridge_ws/install/opencv_tests/share/ament_index\n'}
+[79.218629] (opencv_tests) StdoutLine: {'line': b'creating /home/jetson/code/cv_bridge_ws/install/opencv_tests/share/ament_index/resource_index\n'}
+[79.219151] (opencv_tests) StdoutLine: {'line': b'creating /home/jetson/code/cv_bridge_ws/install/opencv_tests/share/ament_index/resource_index/packages\n'}
+[79.219589] (opencv_tests) StdoutLine: {'line': b'symbolically linking /home/jetson/code/cv_bridge_ws/build/opencv_tests/resource/opencv_tests -> /home/jetson/code/cv_bridge_ws/install/opencv_tests/share/ament_index/resource_index/packages\n'}
+[79.220022] (opencv_tests) StdoutLine: {'line': b'symbolically linking /home/jetson/code/cv_bridge_ws/build/opencv_tests/package.xml -> /home/jetson/code/cv_bridge_ws/install/opencv_tests/share/opencv_tests\n'}
+[79.246025] (-) TimerEvent: {}
+[79.346873] (-) TimerEvent: {}
+[79.356374] (opencv_tests) CommandEnded: {'returncode': 0}
+[79.393495] (opencv_tests) JobEnded: {'identifier': 'opencv_tests', 'rc': 0}
+[79.396776] (-) EventReactorShutdown: {}

@@ -1,0 +1,1062 @@
+[0.000000] (-) TimerEvent: {}
+[0.000858] (cv_bridge) JobQueued: {'identifier': 'cv_bridge', 'dependencies': OrderedDict([('cv_bridge', '/home/jetson/code/cv_bridge_ws/install/cv_bridge')])}
+[0.001527] (image_geometry) JobQueued: {'identifier': 'image_geometry', 'dependencies': OrderedDict([('image_geometry', '/home/jetson/code/cv_bridge_ws/install/image_geometry')])}
+[0.001724] (opencv_tests) JobQueued: {'identifier': 'opencv_tests', 'dependencies': OrderedDict([('cv_bridge', '/home/jetson/code/cv_bridge_ws/install/cv_bridge'), ('opencv_tests', '/home/jetson/code/cv_bridge_ws/install/opencv_tests')])}
+[0.001933] (vision_opencv) JobQueued: {'identifier': 'vision_opencv', 'dependencies': OrderedDict([('cv_bridge', '/home/jetson/code/cv_bridge_ws/install/cv_bridge'), ('image_geometry', '/home/jetson/code/cv_bridge_ws/install/image_geometry'), ('vision_opencv', '/home/jetson/code/cv_bridge_ws/install/vision_opencv')])}
+[0.002089] (cv_bridge) JobStarted: {'identifier': 'cv_bridge'}
+[0.057159] (image_geometry) JobStarted: {'identifier': 'image_geometry'}
+[0.098261] (-) TimerEvent: {}
+[0.199749] (-) TimerEvent: {}
+[0.205120] (image_geometry) Command: {'cmd': ['/usr/bin/ctest', '-C', 'Release', '-D', 'ExperimentalTest', '--no-compress-output', '-V', '--force-new-ctest-process'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/image_geometry', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/image_geometry'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/cv_bridge'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[0.236383] (cv_bridge) Command: {'cmd': ['/usr/bin/ctest', '-C', 'Release', '-D', 'ExperimentalTest', '--no-compress-output', '-V', '--force-new-ctest-process'], 'cwd': '/home/jetson/code/cv_bridge_ws/build/cv_bridge', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 33056 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code/cv_bridge_ws/src'), ('TERM_PROGRAM_VERSION', '1.98.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-352254538'), ('AMENT_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/cv_bridge_ws/build/cv_bridge'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 33056 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[0.259380] (image_geometry) StdoutLine: {'line': b'UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini\n'}
+[0.261157] (image_geometry) StdoutLine: {'line': b'Parse Config file:/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini\n'}
+[0.261766] (image_geometry) StdoutLine: {'line': b'   Site: nano\n'}
+[0.270145] (image_geometry) StdoutLine: {'line': b'   Build name: (empty)\n'}
+[0.270851] (image_geometry) StdoutLine: {'line': b' Add coverage exclude regular expressions.\n'}
+[0.271345] (image_geometry) StdoutLine: {'line': b'SetCTestConfiguration:CMakeCommand:/usr/bin/cmake\n'}
+[0.271831] (image_geometry) StdoutLine: {'line': b'Create new tag: 20250325-1049 - Experimental\n'}
+[0.272901] (image_geometry) StdoutLine: {'line': b'UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini\n'}
+[0.273358] (image_geometry) StdoutLine: {'line': b'Parse Config file:/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini\n'}
+[0.273763] (image_geometry) StdoutLine: {'line': b'Test project /home/jetson/code/cv_bridge_ws/build/image_geometry\n'}
+[0.274205] (image_geometry) StdoutLine: {'line': b'Constructing a list of tests\n'}
+[0.275206] (image_geometry) StdoutLine: {'line': b'Done constructing a list of tests\n'}
+[0.275873] (image_geometry) StdoutLine: {'line': b'Updating test list for fixtures\n'}
+[0.276337] (image_geometry) StdoutLine: {'line': b'Added 0 tests to meet fixture requirements\n'}
+[0.276768] (image_geometry) StdoutLine: {'line': b'Checking test dependency graph...\n'}
+[0.277131] (image_geometry) StdoutLine: {'line': b'Checking test dependency graph end\n'}
+[0.277482] (image_geometry) StdoutLine: {'line': b'test 1\n'}
+[0.277831] (image_geometry) StdoutLine: {'line': b'    Start 1: image_geometry-utest\n'}
+[0.278172] (image_geometry) StdoutLine: {'line': b'\n'}
+[0.278595] (image_geometry) StdoutLine: {'line': b'1: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml" "--package-name" "image_geometry" "--output-file" "/home/jetson/code/cv_bridge_ws/build/image_geometry/ament_cmake_gtest/image_geometry-utest.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/image_geometry" "--command" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml"\n'}
+[0.279109] (image_geometry) StdoutLine: {'line': b'1: Test timeout computed to be: 60\n'}
+[0.279485] (cv_bridge) StdoutLine: {'line': b'UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini\n'}
+[0.279915] (cv_bridge) StdoutLine: {'line': b'Parse Config file:/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini\n'}
+[0.280277] (cv_bridge) StdoutLine: {'line': b'   Site: nano\n'}
+[0.280623] (cv_bridge) StdoutLine: {'line': b'   Build name: (empty)\n'}
+[0.280977] (cv_bridge) StdoutLine: {'line': b' Add coverage exclude regular expressions.\n'}
+[0.281357] (cv_bridge) StdoutLine: {'line': b'SetCTestConfiguration:CMakeCommand:/usr/bin/cmake\n'}
+[0.281757] (cv_bridge) StdoutLine: {'line': b'Create new tag: 20250325-1049 - Experimental\n'}
+[0.282235] (cv_bridge) StdoutLine: {'line': b'UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini\n'}
+[0.282755] (cv_bridge) StdoutLine: {'line': b'Parse Config file:/home/jetson/code/cv_bridge_ws/build/cv_bridge/CTestConfiguration.ini\n'}
+[0.283854] (cv_bridge) StdoutLine: {'line': b'Test project /home/jetson/code/cv_bridge_ws/build/cv_bridge\n'}
+[0.284365] (cv_bridge) StdoutLine: {'line': b'Constructing a list of tests\n'}
+[0.284855] (cv_bridge) StdoutLine: {'line': b'Done constructing a list of tests\n'}
+[0.285338] (cv_bridge) StdoutLine: {'line': b'Updating test list for fixtures\n'}
+[0.285808] (cv_bridge) StdoutLine: {'line': b'Added 0 tests to meet fixture requirements\n'}
+[0.286272] (cv_bridge) StdoutLine: {'line': b'Checking test dependency graph...\n'}
+[0.286961] (cv_bridge) StdoutLine: {'line': b'Checking test dependency graph end\n'}
+[0.287511] (cv_bridge) StdoutLine: {'line': b'test 1\n'}
+[0.288022] (cv_bridge) StdoutLine: {'line': b'    Start 1: cv_bridge-utest\n'}
+[0.288514] (cv_bridge) StdoutLine: {'line': b'\n'}
+[0.288999] (cv_bridge) StdoutLine: {'line': b'1: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_gtest/cv_bridge-utest.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src" "--command" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml"\n'}
+[0.289522] (cv_bridge) StdoutLine: {'line': b'1: Test timeout computed to be: 60\n'}
+[0.299850] (-) TimerEvent: {}
+[0.400640] (-) TimerEvent: {}
+[0.501855] (-) TimerEvent: {}
+[0.571008] (image_geometry) StdoutLine: {'line': b'1: -- run_test.py: extra environment variables to append:\n'}
+[0.571609] (image_geometry) StdoutLine: {'line': b'1:  - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/image_geometry\n'}
+[0.572143] (image_geometry) StdoutLine: {'line': b"1: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/image_geometry/test':\n"}
+[0.572745] (image_geometry) StdoutLine: {'line': b'1:  - /home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml\n'}
+[0.573545] (cv_bridge) StdoutLine: {'line': b'1: -- run_test.py: extra environment variables to append:\n'}
+[0.574160] (cv_bridge) StdoutLine: {'line': b'1:  - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src\n'}
+[0.574723] (cv_bridge) StdoutLine: {'line': b"1: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':\n"}
+[0.575226] (cv_bridge) StdoutLine: {'line': b'1:  - /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml\n'}
+[0.602082] (-) TimerEvent: {}
+[0.702893] (-) TimerEvent: {}
+[0.803891] (-) TimerEvent: {}
+[0.897199] (image_geometry) StdoutLine: {'line': b'1: [==========] Running 12 tests from 1 test case.\n'}
+[0.897784] (image_geometry) StdoutLine: {'line': b'1: [----------] Global test environment set-up.\n'}
+[0.898136] (image_geometry) StdoutLine: {'line': b'1: [----------] 12 tests from PinholeTest\n'}
+[0.898462] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.accessorsCorrect\n'}
+[0.902109] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.accessorsCorrect (0 ms)\n'}
+[0.902493] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.projectPoint\n'}
+[0.903653] (cv_bridge) StdoutLine: {'line': b'1: [==========] Running 9 tests from 3 test cases.\n'}
+[0.904167] (-) TimerEvent: {}
+[0.906831] (cv_bridge) StdoutLine: {'line': b'1: [----------] Global test environment set-up.\n'}
+[0.907290] (cv_bridge) StdoutLine: {'line': b'1: [----------] 7 tests from CvBridgeTest\n'}
+[0.907627] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.endianness\n'}
+[0.907948] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.endianness (2 ms)\n'}
+[0.908268] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.projectPoint (2 ms)\n'}
+[0.908595] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.rectifyPoint\n'}
+[0.911840] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.compression\n'}
+[0.913792] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.compression (2 ms)\n'}
+[0.914457] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.NonContinuous\n'}
+[0.920317] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.NonContinuous (0 ms)\n'}
+[0.920714] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.ChannelOrder\n'}
+[0.921049] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.ChannelOrder (1 ms)\n'}
+[0.921371] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.initialization\n'}
+[0.967313] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.initialization (52 ms)\n'}
+[0.969282] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.imageMessageStep\n'}
+[0.969903] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.imageMessageStep (0 ms)\n'}
+[0.971589] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] CvBridgeTest.imageMessageConversion\n'}
+[0.980041] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] CvBridgeTest.imageMessageConversion (12 ms)\n'}
+[0.991031] (cv_bridge) StdoutLine: {'line': b'1: [----------] 7 tests from CvBridgeTest (87 ms total)\n'}
+[0.991610] (cv_bridge) StdoutLine: {'line': b'1: \n'}
+[0.991974] (cv_bridge) StdoutLine: {'line': b'1: [----------] 1 test from OpencvTests\n'}
+[0.992346] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] OpencvTests.testCase_encode_decode\n'}
+[1.004344] (-) TimerEvent: {}
+[1.106460] (-) TimerEvent: {}
+[1.207861] (-) TimerEvent: {}
+[1.308553] (-) TimerEvent: {}
+[1.409695] (-) TimerEvent: {}
+[1.420747] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.rectifyPoint (516 ms)\n'}
+[1.426268] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.getDeltas\n'}
+[1.429036] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.getDeltas (0 ms)\n'}
+[1.429600] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.initialization\n'}
+[1.430013] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.initialization (0 ms)\n'}
+[1.430366] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.rectifyIfCalibrated\n'}
+[1.509863] (-) TimerEvent: {}
+[1.513231] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.rectifyIfCalibrated (85 ms)\n'}
+[1.514691] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.unrectifyImage\n'}
+[1.610024] (-) TimerEvent: {}
+[1.711381] (-) TimerEvent: {}
+[1.812768] (-) TimerEvent: {}
+[1.914140] (-) TimerEvent: {}
+[2.014835] (-) TimerEvent: {}
+[2.115544] (-) TimerEvent: {}
+[2.216226] (-) TimerEvent: {}
+[2.316940] (-) TimerEvent: {}
+[2.417625] (-) TimerEvent: {}
+[2.518336] (-) TimerEvent: {}
+[2.619373] (-) TimerEvent: {}
+[2.720398] (-) TimerEvent: {}
+[2.821423] (-) TimerEvent: {}
+[2.922853] (-) TimerEvent: {}
+[3.023923] (-) TimerEvent: {}
+[3.124983] (-) TimerEvent: {}
+[3.226056] (-) TimerEvent: {}
+[3.327740] (-) TimerEvent: {}
+[3.429245] (-) TimerEvent: {}
+[3.530696] (-) TimerEvent: {}
+[3.631834] (-) TimerEvent: {}
+[3.732924] (-) TimerEvent: {}
+[3.834024] (-) TimerEvent: {}
+[3.935117] (-) TimerEvent: {}
+[4.036169] (-) TimerEvent: {}
+[4.137586] (-) TimerEvent: {}
+[4.238959] (-) TimerEvent: {}
+[4.341308] (-) TimerEvent: {}
+[4.442647] (-) TimerEvent: {}
+[4.544424] (-) TimerEvent: {}
+[4.645710] (-) TimerEvent: {}
+[4.747045] (-) TimerEvent: {}
+[4.848561] (-) TimerEvent: {}
+[4.956503] (-) TimerEvent: {}
+[5.057859] (-) TimerEvent: {}
+[5.159201] (-) TimerEvent: {}
+[5.191582] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] OpencvTests.testCase_encode_decode (4202 ms)\n'}
+[5.194431] (cv_bridge) StdoutLine: {'line': b'1: [----------] 1 test from OpencvTests (4205 ms total)\n'}
+[5.195419] (cv_bridge) StdoutLine: {'line': b'1: \n'}
+[5.197039] (cv_bridge) StdoutLine: {'line': b'1: [----------] 1 test from RGBColors\n'}
+[5.197415] (cv_bridge) StdoutLine: {'line': b'1: [ RUN      ] RGBColors.testGetRGBColor\n'}
+[5.197747] (cv_bridge) StdoutLine: {'line': b'1: [       OK ] RGBColors.testGetRGBColor (0 ms)\n'}
+[5.198069] (cv_bridge) StdoutLine: {'line': b'1: [----------] 1 test from RGBColors (0 ms total)\n'}
+[5.198392] (cv_bridge) StdoutLine: {'line': b'1: \n'}
+[5.198851] (cv_bridge) StdoutLine: {'line': b'1: [----------] Global test environment tear-down\n'}
+[5.199191] (cv_bridge) StdoutLine: {'line': b'1: [==========] 9 tests from 3 test cases ran. (4293 ms total)\n'}
+[5.199511] (cv_bridge) StdoutLine: {'line': b'1: [  PASSED  ] 9 tests.\n'}
+[5.214974] (cv_bridge) StdoutLine: {'line': b'1: -- run_test.py: return code 0\n'}
+[5.215644] (cv_bridge) StdoutLine: {'line': b"1: -- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'\n"}
+[5.216157] (cv_bridge) StdoutLine: {'line': b"1: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'\n"}
+[5.259366] (-) TimerEvent: {}
+[5.292031] (cv_bridge) StdoutLine: {'line': b'1/4 Test #1: cv_bridge-utest ..................   Passed    5.02 sec\n'}
+[5.292659] (cv_bridge) StdoutLine: {'line': b'test 2\n'}
+[5.293089] (cv_bridge) StdoutLine: {'line': b'    Start 2: enumerants.py\n'}
+[5.294620] (cv_bridge) StdoutLine: {'line': b'\n'}
+[5.295123] (cv_bridge) StdoutLine: {'line': b'2: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/enumerants.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--junit-prefix=cv_bridge"\n'}
+[5.295577] (cv_bridge) StdoutLine: {'line': b'2: Test timeout computed to be: 60\n'}
+[5.359508] (-) TimerEvent: {}
+[5.460199] (-) TimerEvent: {}
+[5.560923] (-) TimerEvent: {}
+[5.598474] (cv_bridge) StdoutLine: {'line': b"2: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':\n"}
+[5.599121] (cv_bridge) StdoutLine: {'line': b'2:  - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml --junit-prefix=cv_bridge\n'}
+[5.661089] (-) TimerEvent: {}
+[5.761749] (-) TimerEvent: {}
+[5.862418] (-) TimerEvent: {}
+[5.963428] (-) TimerEvent: {}
+[6.064101] (-) TimerEvent: {}
+[6.168174] (-) TimerEvent: {}
+[6.268881] (-) TimerEvent: {}
+[6.370190] (-) TimerEvent: {}
+[6.472333] (-) TimerEvent: {}
+[6.574357] (-) TimerEvent: {}
+[6.675697] (-) TimerEvent: {}
+[6.777006] (-) TimerEvent: {}
+[6.878348] (-) TimerEvent: {}
+[6.979878] (-) TimerEvent: {}
+[7.081282] (-) TimerEvent: {}
+[7.182464] (-) TimerEvent: {}
+[7.283123] (-) TimerEvent: {}
+[7.385150] (-) TimerEvent: {}
+[7.486146] (-) TimerEvent: {}
+[7.587530] (-) TimerEvent: {}
+[7.689109] (-) TimerEvent: {}
+[7.790399] (-) TimerEvent: {}
+[7.891760] (-) TimerEvent: {}
+[7.993103] (-) TimerEvent: {}
+[8.094385] (-) TimerEvent: {}
+[8.195891] (-) TimerEvent: {}
+[8.297208] (-) TimerEvent: {}
+[8.398584] (-) TimerEvent: {}
+[8.502705] (-) TimerEvent: {}
+[8.604275] (-) TimerEvent: {}
+[8.705719] (-) TimerEvent: {}
+[8.806728] (-) TimerEvent: {}
+[8.907703] (-) TimerEvent: {}
+[9.008704] (-) TimerEvent: {}
+[9.110117] (-) TimerEvent: {}
+[9.211484] (-) TimerEvent: {}
+[9.312936] (-) TimerEvent: {}
+[9.414233] (-) TimerEvent: {}
+[9.515495] (-) TimerEvent: {}
+[9.616773] (-) TimerEvent: {}
+[9.706355] (cv_bridge) StdoutLine: {'line': b'2: ============================= test session starts ==============================\n'}
+[9.707939] (cv_bridge) StdoutLine: {'line': b'2: platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0\n'}
+[9.716909] (-) TimerEvent: {}
+[9.762311] (cv_bridge) StdoutLine: {'line': b'2: cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache\n'}
+[9.764040] (cv_bridge) StdoutLine: {'line': b'2: rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini\n'}
+[9.764464] (cv_bridge) StdoutLine: {'line': b'2: plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1\n'}
+[9.817061] (-) TimerEvent: {}
+[9.918264] (-) TimerEvent: {}
+[10.018944] (-) TimerEvent: {}
+[10.119608] (-) TimerEvent: {}
+[10.220284] (-) TimerEvent: {}
+[10.320941] (-) TimerEvent: {}
+[10.421588] (-) TimerEvent: {}
+[10.522230] (-) TimerEvent: {}
+[10.622921] (-) TimerEvent: {}
+[10.723581] (-) TimerEvent: {}
+[10.824896] (-) TimerEvent: {}
+[10.926372] (-) TimerEvent: {}
+[11.027748] (-) TimerEvent: {}
+[11.130346] (-) TimerEvent: {}
+[11.231655] (-) TimerEvent: {}
+[11.332924] (-) TimerEvent: {}
+[11.434465] (-) TimerEvent: {}
+[11.535810] (-) TimerEvent: {}
+[11.637199] (-) TimerEvent: {}
+[11.738795] (-) TimerEvent: {}
+[11.841474] (-) TimerEvent: {}
+[11.942783] (-) TimerEvent: {}
+[12.044071] (-) TimerEvent: {}
+[12.145675] (-) TimerEvent: {}
+[12.247517] (-) TimerEvent: {}
+[12.349873] (-) TimerEvent: {}
+[12.451586] (-) TimerEvent: {}
+[12.552644] (-) TimerEvent: {}
+[12.653690] (-) TimerEvent: {}
+[12.754995] (-) TimerEvent: {}
+[12.856283] (-) TimerEvent: {}
+[12.957622] (-) TimerEvent: {}
+[13.058964] (-) TimerEvent: {}
+[13.160290] (-) TimerEvent: {}
+[13.261324] (-) TimerEvent: {}
+[13.362651] (-) TimerEvent: {}
+[13.463971] (-) TimerEvent: {}
+[13.565518] (-) TimerEvent: {}
+[13.667144] (-) TimerEvent: {}
+[13.771663] (-) TimerEvent: {}
+[13.872322] (-) TimerEvent: {}
+[13.973656] (-) TimerEvent: {}
+[14.074981] (-) TimerEvent: {}
+[14.176271] (-) TimerEvent: {}
+[14.277562] (-) TimerEvent: {}
+[14.378590] (-) TimerEvent: {}
+[14.479573] (-) TimerEvent: {}
+[14.553884] (cv_bridge) StdoutLine: {'line': b'2: collected 2 items\n'}
+[14.562172] (cv_bridge) StdoutLine: {'line': b'2: \n'}
+[14.579733] (-) TimerEvent: {}
+[14.680991] (-) TimerEvent: {}
+[14.782347] (-) TimerEvent: {}
+[14.883779] (-) TimerEvent: {}
+[14.987010] (-) TimerEvent: {}
+[15.088270] (-) TimerEvent: {}
+[15.189546] (-) TimerEvent: {}
+[15.290861] (-) TimerEvent: {}
+[15.325616] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.unrectifyImage (13810 ms)\n'}
+[15.333537] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.unrectifyImageWithBinning\n'}
+[15.391019] (-) TimerEvent: {}
+[15.492427] (-) TimerEvent: {}
+[15.593466] (-) TimerEvent: {}
+[15.694473] (-) TimerEvent: {}
+[15.795770] (-) TimerEvent: {}
+[15.897052] (-) TimerEvent: {}
+[15.998371] (-) TimerEvent: {}
+[16.099390] (-) TimerEvent: {}
+[16.200687] (-) TimerEvent: {}
+[16.302248] (-) TimerEvent: {}
+[16.371282] (cv_bridge) StdoutLine: {'line': b'2: ../../../src/vision_opencv/cv_bridge/test/enumerants.py ..               [100%]\n'}
+[16.373969] (cv_bridge) StdoutLine: {'line': b'2: \n'}
+[16.376107] (cv_bridge) StdoutLine: {'line': b'2: - generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml -\n'}
+[16.378296] (cv_bridge) StdoutLine: {'line': b'2: =========================== 2 passed in 6.67 seconds ===========================\n'}
+[16.402413] (-) TimerEvent: {}
+[16.503163] (-) TimerEvent: {}
+[16.604309] (-) TimerEvent: {}
+[16.705028] (-) TimerEvent: {}
+[16.806587] (-) TimerEvent: {}
+[16.907894] (-) TimerEvent: {}
+[17.009248] (-) TimerEvent: {}
+[17.110563] (-) TimerEvent: {}
+[17.211908] (-) TimerEvent: {}
+[17.313196] (-) TimerEvent: {}
+[17.414529] (-) TimerEvent: {}
+[17.515871] (-) TimerEvent: {}
+[17.616859] (-) TimerEvent: {}
+[17.718075] (-) TimerEvent: {}
+[17.819365] (-) TimerEvent: {}
+[17.920648] (-) TimerEvent: {}
+[18.021951] (-) TimerEvent: {}
+[18.123355] (-) TimerEvent: {}
+[18.224656] (-) TimerEvent: {}
+[18.326097] (-) TimerEvent: {}
+[18.427212] (-) TimerEvent: {}
+[18.528481] (-) TimerEvent: {}
+[18.629814] (-) TimerEvent: {}
+[18.731133] (-) TimerEvent: {}
+[18.832425] (-) TimerEvent: {}
+[18.933401] (-) TimerEvent: {}
+[19.038112] (-) TimerEvent: {}
+[19.146266] (-) TimerEvent: {}
+[19.247610] (-) TimerEvent: {}
+[19.348864] (-) TimerEvent: {}
+[19.450915] (-) TimerEvent: {}
+[19.552753] (-) TimerEvent: {}
+[19.654084] (-) TimerEvent: {}
+[19.669065] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.unrectifyImageWithBinning (4332 ms)\n'}
+[19.672855] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.unrectifyImageWithRoi\n'}
+[19.754227] (-) TimerEvent: {}
+[19.855510] (-) TimerEvent: {}
+[19.956878] (-) TimerEvent: {}
+[20.058050] (-) TimerEvent: {}
+[20.159395] (-) TimerEvent: {}
+[20.261005] (-) TimerEvent: {}
+[20.362011] (-) TimerEvent: {}
+[20.463147] (-) TimerEvent: {}
+[20.564577] (-) TimerEvent: {}
+[20.665865] (-) TimerEvent: {}
+[20.767336] (-) TimerEvent: {}
+[20.868698] (-) TimerEvent: {}
+[20.934748] (cv_bridge) StdoutLine: {'line': b'2: -- run_test.py: return code 0\n'}
+[20.935887] (cv_bridge) StdoutLine: {'line': b"2: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml'\n"}
+[20.968869] (-) TimerEvent: {}
+[20.977288] (cv_bridge) StdoutLine: {'line': b'2/4 Test #2: enumerants.py ....................   Passed   15.68 sec\n'}
+[20.978162] (cv_bridge) StdoutLine: {'line': b'test 3\n'}
+[20.978721] (cv_bridge) StdoutLine: {'line': b'    Start 3: conversions.py\n'}
+[20.979122] (cv_bridge) StdoutLine: {'line': b'\n'}
+[20.979452] (cv_bridge) StdoutLine: {'line': b'3: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/conversions.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--junit-prefix=cv_bridge"\n'}
+[20.979826] (cv_bridge) StdoutLine: {'line': b'3: Test timeout computed to be: 600\n'}
+[21.069069] (-) TimerEvent: {}
+[21.169721] (-) TimerEvent: {}
+[21.224375] (cv_bridge) StdoutLine: {'line': b"3: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':\n"}
+[21.225385] (cv_bridge) StdoutLine: {'line': b'3:  - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml --junit-prefix=cv_bridge\n'}
+[21.269875] (-) TimerEvent: {}
+[21.370643] (-) TimerEvent: {}
+[21.471543] (-) TimerEvent: {}
+[21.572573] (-) TimerEvent: {}
+[21.673349] (-) TimerEvent: {}
+[21.774588] (-) TimerEvent: {}
+[21.875225] (-) TimerEvent: {}
+[21.976108] (-) TimerEvent: {}
+[22.076775] (-) TimerEvent: {}
+[22.177742] (-) TimerEvent: {}
+[22.278395] (-) TimerEvent: {}
+[22.379858] (-) TimerEvent: {}
+[22.481187] (-) TimerEvent: {}
+[22.582177] (-) TimerEvent: {}
+[22.682892] (-) TimerEvent: {}
+[22.783579] (-) TimerEvent: {}
+[22.884254] (-) TimerEvent: {}
+[22.984980] (-) TimerEvent: {}
+[23.085707] (-) TimerEvent: {}
+[23.186410] (-) TimerEvent: {}
+[23.287358] (-) TimerEvent: {}
+[23.388356] (-) TimerEvent: {}
+[23.489067] (-) TimerEvent: {}
+[23.589732] (-) TimerEvent: {}
+[23.690807] (-) TimerEvent: {}
+[23.696972] (cv_bridge) StdoutLine: {'line': b'3: ============================= test session starts ==============================\n'}
+[23.698622] (cv_bridge) StdoutLine: {'line': b'3: platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0\n'}
+[23.722494] (cv_bridge) StdoutLine: {'line': b'3: cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache\n'}
+[23.723153] (cv_bridge) StdoutLine: {'line': b'3: rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini\n'}
+[23.724545] (cv_bridge) StdoutLine: {'line': b'3: plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1\n'}
+[23.790957] (-) TimerEvent: {}
+[23.891598] (-) TimerEvent: {}
+[23.992625] (-) TimerEvent: {}
+[24.093968] (-) TimerEvent: {}
+[24.195043] (-) TimerEvent: {}
+[24.295703] (-) TimerEvent: {}
+[24.396993] (-) TimerEvent: {}
+[24.498345] (-) TimerEvent: {}
+[24.599721] (-) TimerEvent: {}
+[24.701054] (-) TimerEvent: {}
+[24.802367] (-) TimerEvent: {}
+[24.903736] (-) TimerEvent: {}
+[25.005168] (-) TimerEvent: {}
+[25.106588] (-) TimerEvent: {}
+[25.207876] (-) TimerEvent: {}
+[25.244699] (cv_bridge) StdoutLine: {'line': b'3: collected 4 items\n'}
+[25.249691] (cv_bridge) StdoutLine: {'line': b'3: \n'}
+[25.308036] (-) TimerEvent: {}
+[25.409295] (-) TimerEvent: {}
+[25.510673] (-) TimerEvent: {}
+[25.612023] (-) TimerEvent: {}
+[25.713307] (-) TimerEvent: {}
+[25.717780] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.unrectifyImageWithRoi (6044 ms)\n'}
+[25.720323] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.unrectifyImageWithBinningAndRoi\n'}
+[25.813503] (-) TimerEvent: {}
+[25.915208] (-) TimerEvent: {}
+[26.016489] (-) TimerEvent: {}
+[26.117633] (-) TimerEvent: {}
+[26.218744] (-) TimerEvent: {}
+[26.320065] (-) TimerEvent: {}
+[26.421375] (-) TimerEvent: {}
+[26.522730] (-) TimerEvent: {}
+[26.624037] (-) TimerEvent: {}
+[26.725421] (-) TimerEvent: {}
+[26.826761] (-) TimerEvent: {}
+[26.928221] (-) TimerEvent: {}
+[27.029551] (-) TimerEvent: {}
+[27.130869] (-) TimerEvent: {}
+[27.232238] (-) TimerEvent: {}
+[27.333796] (-) TimerEvent: {}
+[27.435183] (-) TimerEvent: {}
+[27.540715] (-) TimerEvent: {}
+[27.642115] (-) TimerEvent: {}
+[27.743454] (-) TimerEvent: {}
+[27.844770] (-) TimerEvent: {}
+[27.946242] (-) TimerEvent: {}
+[28.047673] (-) TimerEvent: {}
+[28.148714] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.unrectifyImageWithBinningAndRoi (2426 ms)\n'}
+[28.149355] (-) TimerEvent: {}
+[28.159730] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.rectifiedRoiSize\n'}
+[28.160462] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.rectifiedRoiSize (0 ms)\n'}
+[28.161012] (image_geometry) StdoutLine: {'line': b'1: [ RUN      ] PinholeTest.rectifiedRoiCaching\n'}
+[28.161368] (image_geometry) StdoutLine: {'line': b'1: [       OK ] PinholeTest.rectifiedRoiCaching (0 ms)\n'}
+[28.161713] (image_geometry) StdoutLine: {'line': b'1: [----------] 12 tests from PinholeTest (27251 ms total)\n'}
+[28.162126] (image_geometry) StdoutLine: {'line': b'1: \n'}
+[28.167538] (image_geometry) StdoutLine: {'line': b'1: [----------] Global test environment tear-down\n'}
+[28.168210] (image_geometry) StdoutLine: {'line': b'1: [==========] 12 tests from 1 test case ran. (27251 ms total)\n'}
+[28.168635] (image_geometry) StdoutLine: {'line': b'1: [  PASSED  ] 12 tests.\n'}
+[28.169033] (image_geometry) StdoutLine: {'line': b'1: -- run_test.py: return code 0\n'}
+[28.169433] (image_geometry) StdoutLine: {'line': b"1: -- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml'\n"}
+[28.169921] (image_geometry) StdoutLine: {'line': b"1: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml'\n"}
+[28.249572] (-) TimerEvent: {}
+[28.292926] (image_geometry) StdoutLine: {'line': b'1/2 Test #1: image_geometry-utest .............   Passed   28.03 sec\n'}
+[28.294964] (image_geometry) StdoutLine: {'line': b'test 2\n'}
+[28.297799] (image_geometry) StdoutLine: {'line': b'    Start 2: image_geometry-utest-equi\n'}
+[28.298281] (image_geometry) StdoutLine: {'line': b'\n'}
+[28.298664] (image_geometry) StdoutLine: {'line': b'2: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml" "--package-name" "image_geometry" "--output-file" "/home/jetson/code/cv_bridge_ws/build/image_geometry/ament_cmake_gtest/image_geometry-utest-equi.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/image_geometry" "--command" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest-equi" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml"\n'}
+[28.299071] (image_geometry) StdoutLine: {'line': b'2: Test timeout computed to be: 60\n'}
+[28.349755] (-) TimerEvent: {}
+[28.451120] (-) TimerEvent: {}
+[28.552445] (-) TimerEvent: {}
+[28.653771] (-) TimerEvent: {}
+[28.755143] (-) TimerEvent: {}
+[28.856626] (-) TimerEvent: {}
+[28.915531] (image_geometry) StdoutLine: {'line': b'2: -- run_test.py: extra environment variables to append:\n'}
+[28.917767] (image_geometry) StdoutLine: {'line': b'2:  - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/image_geometry\n'}
+[28.918361] (image_geometry) StdoutLine: {'line': b"2: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/image_geometry/test':\n"}
+[28.919000] (image_geometry) StdoutLine: {'line': b'2:  - /home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest-equi --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml\n'}
+[28.956800] (-) TimerEvent: {}
+[28.988769] (image_geometry) StdoutLine: {'line': b'2: [==========] Running 6 tests from 1 test case.\n'}
+[28.991549] (image_geometry) StdoutLine: {'line': b'2: [----------] Global test environment set-up.\n'}
+[28.992034] (image_geometry) StdoutLine: {'line': b'2: [----------] 6 tests from EquidistantTest\n'}
+[28.992400] (image_geometry) StdoutLine: {'line': b'2: [ RUN      ] EquidistantTest.accessorsCorrect\n'}
+[28.992728] (image_geometry) StdoutLine: {'line': b'2: [       OK ] EquidistantTest.accessorsCorrect (1 ms)\n'}
+[28.993049] (image_geometry) StdoutLine: {'line': b'2: [ RUN      ] EquidistantTest.projectPoint\n'}
+[28.995962] (image_geometry) StdoutLine: {'line': b'2: [       OK ] EquidistantTest.projectPoint (2 ms)\n'}
+[28.996539] (image_geometry) StdoutLine: {'line': b'2: [ RUN      ] EquidistantTest.rectifyPoint\n'}
+[29.058003] (-) TimerEvent: {}
+[29.159076] (-) TimerEvent: {}
+[29.260478] (-) TimerEvent: {}
+[29.364038] (-) TimerEvent: {}
+[29.465035] (-) TimerEvent: {}
+[29.566323] (-) TimerEvent: {}
+[29.667652] (-) TimerEvent: {}
+[29.768674] (-) TimerEvent: {}
+[29.869706] (-) TimerEvent: {}
+[29.971106] (-) TimerEvent: {}
+[29.988502] (image_geometry) StdoutLine: {'line': b'2: [       OK ] EquidistantTest.rectifyPoint (992 ms)\n'}
+[29.997221] (image_geometry) StdoutLine: {'line': b'2: [ RUN      ] EquidistantTest.getDeltas\n'}
+[29.997953] (image_geometry) StdoutLine: {'line': b'2: [       OK ] EquidistantTest.getDeltas (0 ms)\n'}
+[29.999457] (image_geometry) StdoutLine: {'line': b'2: [ RUN      ] EquidistantTest.initialization\n'}
+[30.000667] (image_geometry) StdoutLine: {'line': b'2: [       OK ] EquidistantTest.initialization (0 ms)\n'}
+[30.002077] (image_geometry) StdoutLine: {'line': b'2: [ RUN      ] EquidistantTest.rectifyIfCalibrated\n'}
+[30.071255] (-) TimerEvent: {}
+[30.171912] (-) TimerEvent: {}
+[30.272614] (-) TimerEvent: {}
+[30.341595] (image_geometry) StdoutLine: {'line': b'2: [       OK ] EquidistantTest.rectifyIfCalibrated (338 ms)\n'}
+[30.343425] (image_geometry) StdoutLine: {'line': b'2: [----------] 6 tests from EquidistantTest (1354 ms total)\n'}
+[30.343867] (image_geometry) StdoutLine: {'line': b'2: \n'}
+[30.345290] (image_geometry) StdoutLine: {'line': b'2: [----------] Global test environment tear-down\n'}
+[30.348222] (image_geometry) StdoutLine: {'line': b'2: [==========] 6 tests from 1 test case ran. (1358 ms total)\n'}
+[30.348917] (image_geometry) StdoutLine: {'line': b'2: [  PASSED  ] 6 tests.\n'}
+[30.356242] (image_geometry) StdoutLine: {'line': b'2: -- run_test.py: return code 0\n'}
+[30.357179] (image_geometry) StdoutLine: {'line': b"2: -- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml'\n"}
+[30.357909] (image_geometry) StdoutLine: {'line': b"2: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml'\n"}
+[30.372776] (-) TimerEvent: {}
+[30.446468] (image_geometry) StdoutLine: {'line': b'2/2 Test #2: image_geometry-utest-equi ........   Passed    2.15 sec\n'}
+[30.448420] (image_geometry) StdoutLine: {'line': b'\n'}
+[30.455008] (image_geometry) StdoutLine: {'line': b'\x1b[0;32m100% tests passed\x1b[0;0m, 0 tests failed\x1b[0;0m out of 2\n'}
+[30.455778] (image_geometry) StdoutLine: {'line': b'\n'}
+[30.456291] (image_geometry) StdoutLine: {'line': b'Label Time Summary:\n'}
+[30.456754] (image_geometry) StdoutLine: {'line': b'gtest    =  30.18 sec*proc (2 tests)\n'}
+[30.457215] (image_geometry) StdoutLine: {'line': b'\n'}
+[30.457670] (image_geometry) StdoutLine: {'line': b'Total Test time (real) =  30.19 sec\n'}
+[30.467869] (image_geometry) CommandEnded: {'returncode': 0}
+[30.470064] (image_geometry) JobEnded: {'identifier': 'image_geometry', 'rc': 0}
+[30.473318] (-) TimerEvent: {}
+[30.574645] (-) TimerEvent: {}
+[30.675312] (-) TimerEvent: {}
+[30.776289] (-) TimerEvent: {}
+[30.877595] (-) TimerEvent: {}
+[30.978880] (-) TimerEvent: {}
+[31.080234] (-) TimerEvent: {}
+[31.181598] (-) TimerEvent: {}
+[31.282256] (-) TimerEvent: {}
+[31.382908] (-) TimerEvent: {}
+[31.483931] (-) TimerEvent: {}
+[31.585205] (-) TimerEvent: {}
+[31.686925] (-) TimerEvent: {}
+[31.790648] (-) TimerEvent: {}
+[31.892056] (-) TimerEvent: {}
+[31.993042] (-) TimerEvent: {}
+[32.094079] (-) TimerEvent: {}
+[32.195401] (-) TimerEvent: {}
+[32.296788] (-) TimerEvent: {}
+[32.398161] (-) TimerEvent: {}
+[32.499329] (-) TimerEvent: {}
+[32.603016] (-) TimerEvent: {}
+[32.704309] (-) TimerEvent: {}
+[32.805638] (-) TimerEvent: {}
+[32.906974] (-) TimerEvent: {}
+[33.008274] (-) TimerEvent: {}
+[33.112332] (-) TimerEvent: {}
+[33.213687] (-) TimerEvent: {}
+[33.314754] (-) TimerEvent: {}
+[33.415757] (-) TimerEvent: {}
+[33.517240] (-) TimerEvent: {}
+[33.618579] (-) TimerEvent: {}
+[33.719862] (-) TimerEvent: {}
+[33.821171] (-) TimerEvent: {}
+[33.922494] (-) TimerEvent: {}
+[34.023197] (-) TimerEvent: {}
+[34.123846] (-) TimerEvent: {}
+[34.224512] (-) TimerEvent: {}
+[34.325537] (-) TimerEvent: {}
+[34.426635] (-) TimerEvent: {}
+[34.528036] (-) TimerEvent: {}
+[34.629476] (-) TimerEvent: {}
+[34.730848] (-) TimerEvent: {}
+[34.831943] (-) TimerEvent: {}
+[34.933324] (-) TimerEvent: {}
+[35.034374] (-) TimerEvent: {}
+[35.135443] (-) TimerEvent: {}
+[35.236499] (-) TimerEvent: {}
+[35.337919] (-) TimerEvent: {}
+[35.439356] (-) TimerEvent: {}
+[35.540662] (-) TimerEvent: {}
+[35.641972] (-) TimerEvent: {}
+[35.743382] (-) TimerEvent: {}
+[35.846853] (-) TimerEvent: {}
+[35.954647] (-) TimerEvent: {}
+[36.055870] (-) TimerEvent: {}
+[36.157169] (-) TimerEvent: {}
+[36.258589] (-) TimerEvent: {}
+[36.359952] (-) TimerEvent: {}
+[36.463400] (-) TimerEvent: {}
+[36.564487] (-) TimerEvent: {}
+[36.665192] (-) TimerEvent: {}
+[36.776534] (-) TimerEvent: {}
+[36.884330] (-) TimerEvent: {}
+[36.985637] (-) TimerEvent: {}
+[37.086984] (-) TimerEvent: {}
+[37.188319] (-) TimerEvent: {}
+[37.289713] (-) TimerEvent: {}
+[37.390373] (-) TimerEvent: {}
+[37.498332] (-) TimerEvent: {}
+[37.599383] (-) TimerEvent: {}
+[37.700807] (-) TimerEvent: {}
+[37.801570] (-) TimerEvent: {}
+[37.902908] (-) TimerEvent: {}
+[38.004335] (-) TimerEvent: {}
+[38.105713] (-) TimerEvent: {}
+[38.207201] (-) TimerEvent: {}
+[38.307983] (-) TimerEvent: {}
+[38.408755] (-) TimerEvent: {}
+[38.509503] (-) TimerEvent: {}
+[38.610189] (-) TimerEvent: {}
+[38.711391] (-) TimerEvent: {}
+[38.812063] (-) TimerEvent: {}
+[38.912810] (-) TimerEvent: {}
+[39.013667] (-) TimerEvent: {}
+[39.114623] (-) TimerEvent: {}
+[39.215418] (-) TimerEvent: {}
+[39.316399] (-) TimerEvent: {}
+[39.417141] (-) TimerEvent: {}
+[39.517977] (-) TimerEvent: {}
+[39.618719] (-) TimerEvent: {}
+[39.719406] (-) TimerEvent: {}
+[39.820180] (-) TimerEvent: {}
+[39.920921] (-) TimerEvent: {}
+[40.021736] (-) TimerEvent: {}
+[40.122577] (-) TimerEvent: {}
+[40.223530] (-) TimerEvent: {}
+[40.324283] (-) TimerEvent: {}
+[40.424991] (-) TimerEvent: {}
+[40.525894] (-) TimerEvent: {}
+[40.626908] (-) TimerEvent: {}
+[40.727716] (-) TimerEvent: {}
+[40.828375] (-) TimerEvent: {}
+[40.929204] (-) TimerEvent: {}
+[41.030008] (-) TimerEvent: {}
+[41.130855] (-) TimerEvent: {}
+[41.231589] (-) TimerEvent: {}
+[41.332348] (-) TimerEvent: {}
+[41.433068] (-) TimerEvent: {}
+[41.533814] (-) TimerEvent: {}
+[41.634709] (-) TimerEvent: {}
+[41.735473] (-) TimerEvent: {}
+[41.836149] (-) TimerEvent: {}
+[41.936915] (-) TimerEvent: {}
+[42.037677] (-) TimerEvent: {}
+[42.138703] (-) TimerEvent: {}
+[42.239868] (-) TimerEvent: {}
+[42.340671] (-) TimerEvent: {}
+[42.441380] (-) TimerEvent: {}
+[42.542230] (-) TimerEvent: {}
+[42.643102] (-) TimerEvent: {}
+[42.743846] (-) TimerEvent: {}
+[42.844695] (-) TimerEvent: {}
+[42.945454] (-) TimerEvent: {}
+[43.046209] (-) TimerEvent: {}
+[43.147073] (-) TimerEvent: {}
+[43.247972] (-) TimerEvent: {}
+[43.348740] (-) TimerEvent: {}
+[43.449528] (-) TimerEvent: {}
+[43.550285] (-) TimerEvent: {}
+[43.651130] (-) TimerEvent: {}
+[43.751908] (-) TimerEvent: {}
+[43.852713] (-) TimerEvent: {}
+[43.953520] (-) TimerEvent: {}
+[44.054333] (-) TimerEvent: {}
+[44.155305] (-) TimerEvent: {}
+[44.256094] (-) TimerEvent: {}
+[44.356807] (-) TimerEvent: {}
+[44.457768] (-) TimerEvent: {}
+[44.558676] (-) TimerEvent: {}
+[44.659422] (-) TimerEvent: {}
+[44.760156] (-) TimerEvent: {}
+[44.861231] (-) TimerEvent: {}
+[44.962031] (-) TimerEvent: {}
+[45.062850] (-) TimerEvent: {}
+[45.163634] (-) TimerEvent: {}
+[45.264408] (-) TimerEvent: {}
+[45.365174] (-) TimerEvent: {}
+[45.466064] (-) TimerEvent: {}
+[45.566923] (-) TimerEvent: {}
+[45.667713] (-) TimerEvent: {}
+[45.768535] (-) TimerEvent: {}
+[45.869517] (-) TimerEvent: {}
+[45.970305] (-) TimerEvent: {}
+[46.071068] (-) TimerEvent: {}
+[46.171871] (-) TimerEvent: {}
+[46.272658] (-) TimerEvent: {}
+[46.373335] (-) TimerEvent: {}
+[46.474127] (-) TimerEvent: {}
+[46.574931] (-) TimerEvent: {}
+[46.675649] (-) TimerEvent: {}
+[46.776465] (-) TimerEvent: {}
+[46.877159] (-) TimerEvent: {}
+[46.978019] (-) TimerEvent: {}
+[47.078906] (-) TimerEvent: {}
+[47.179878] (-) TimerEvent: {}
+[47.280597] (-) TimerEvent: {}
+[47.382468] (-) TimerEvent: {}
+[47.483254] (-) TimerEvent: {}
+[47.584000] (-) TimerEvent: {}
+[47.684730] (-) TimerEvent: {}
+[47.785488] (-) TimerEvent: {}
+[47.886245] (-) TimerEvent: {}
+[47.987337] (-) TimerEvent: {}
+[48.088156] (-) TimerEvent: {}
+[48.188921] (-) TimerEvent: {}
+[48.289699] (-) TimerEvent: {}
+[48.390494] (-) TimerEvent: {}
+[48.491253] (-) TimerEvent: {}
+[48.591921] (-) TimerEvent: {}
+[48.692629] (-) TimerEvent: {}
+[48.793352] (-) TimerEvent: {}
+[48.894146] (-) TimerEvent: {}
+[48.994888] (-) TimerEvent: {}
+[49.095621] (-) TimerEvent: {}
+[49.196349] (-) TimerEvent: {}
+[49.297045] (-) TimerEvent: {}
+[49.397666] (-) TimerEvent: {}
+[49.498381] (-) TimerEvent: {}
+[49.599219] (-) TimerEvent: {}
+[49.699915] (-) TimerEvent: {}
+[49.800549] (-) TimerEvent: {}
+[49.901299] (-) TimerEvent: {}
+[50.002037] (-) TimerEvent: {}
+[50.102748] (-) TimerEvent: {}
+[50.203463] (-) TimerEvent: {}
+[50.304274] (-) TimerEvent: {}
+[50.404979] (-) TimerEvent: {}
+[50.505786] (-) TimerEvent: {}
+[50.606577] (-) TimerEvent: {}
+[50.707397] (-) TimerEvent: {}
+[50.808103] (-) TimerEvent: {}
+[50.908843] (-) TimerEvent: {}
+[51.009881] (-) TimerEvent: {}
+[51.110630] (-) TimerEvent: {}
+[51.211344] (-) TimerEvent: {}
+[51.312060] (-) TimerEvent: {}
+[51.412782] (-) TimerEvent: {}
+[51.513498] (-) TimerEvent: {}
+[51.614266] (-) TimerEvent: {}
+[51.715053] (-) TimerEvent: {}
+[51.815702] (-) TimerEvent: {}
+[51.916452] (-) TimerEvent: {}
+[52.017257] (-) TimerEvent: {}
+[52.118040] (-) TimerEvent: {}
+[52.219572] (-) TimerEvent: {}
+[52.320301] (-) TimerEvent: {}
+[52.420977] (-) TimerEvent: {}
+[52.521762] (-) TimerEvent: {}
+[52.622606] (-) TimerEvent: {}
+[52.723441] (-) TimerEvent: {}
+[52.824515] (-) TimerEvent: {}
+[52.925236] (-) TimerEvent: {}
+[53.025944] (-) TimerEvent: {}
+[53.126692] (-) TimerEvent: {}
+[53.227629] (-) TimerEvent: {}
+[53.328388] (-) TimerEvent: {}
+[53.429110] (-) TimerEvent: {}
+[53.529864] (-) TimerEvent: {}
+[53.630656] (-) TimerEvent: {}
+[53.731360] (-) TimerEvent: {}
+[53.832039] (-) TimerEvent: {}
+[53.932780] (-) TimerEvent: {}
+[54.033568] (-) TimerEvent: {}
+[54.134348] (-) TimerEvent: {}
+[54.235160] (-) TimerEvent: {}
+[54.337143] (-) TimerEvent: {}
+[54.437875] (-) TimerEvent: {}
+[54.539158] (-) TimerEvent: {}
+[54.639974] (-) TimerEvent: {}
+[54.740766] (-) TimerEvent: {}
+[54.841762] (-) TimerEvent: {}
+[54.942623] (-) TimerEvent: {}
+[55.043405] (-) TimerEvent: {}
+[55.144147] (-) TimerEvent: {}
+[55.244936] (-) TimerEvent: {}
+[55.345858] (-) TimerEvent: {}
+[55.446650] (-) TimerEvent: {}
+[55.547346] (-) TimerEvent: {}
+[55.648054] (-) TimerEvent: {}
+[55.748779] (-) TimerEvent: {}
+[55.849513] (-) TimerEvent: {}
+[55.950266] (-) TimerEvent: {}
+[56.051135] (-) TimerEvent: {}
+[56.151876] (-) TimerEvent: {}
+[56.252629] (-) TimerEvent: {}
+[56.353356] (-) TimerEvent: {}
+[56.454112] (-) TimerEvent: {}
+[56.554862] (-) TimerEvent: {}
+[56.655627] (-) TimerEvent: {}
+[56.756281] (-) TimerEvent: {}
+[56.857043] (-) TimerEvent: {}
+[56.957773] (-) TimerEvent: {}
+[57.058590] (-) TimerEvent: {}
+[57.159344] (-) TimerEvent: {}
+[57.260124] (-) TimerEvent: {}
+[57.360880] (-) TimerEvent: {}
+[57.461658] (-) TimerEvent: {}
+[57.562422] (-) TimerEvent: {}
+[57.663169] (-) TimerEvent: {}
+[57.764053] (-) TimerEvent: {}
+[57.864814] (-) TimerEvent: {}
+[57.965572] (-) TimerEvent: {}
+[58.066344] (-) TimerEvent: {}
+[58.167127] (-) TimerEvent: {}
+[58.267789] (-) TimerEvent: {}
+[58.368565] (-) TimerEvent: {}
+[58.469276] (-) TimerEvent: {}
+[58.570068] (-) TimerEvent: {}
+[58.670859] (-) TimerEvent: {}
+[58.771642] (-) TimerEvent: {}
+[58.872389] (-) TimerEvent: {}
+[58.973131] (-) TimerEvent: {}
+[59.073849] (-) TimerEvent: {}
+[59.174658] (-) TimerEvent: {}
+[59.275322] (-) TimerEvent: {}
+[59.377439] (-) TimerEvent: {}
+[59.478230] (-) TimerEvent: {}
+[59.579105] (-) TimerEvent: {}
+[59.679846] (-) TimerEvent: {}
+[59.780712] (-) TimerEvent: {}
+[59.881548] (-) TimerEvent: {}
+[59.982282] (-) TimerEvent: {}
+[60.082993] (-) TimerEvent: {}
+[60.183665] (-) TimerEvent: {}
+[60.284450] (-) TimerEvent: {}
+[60.385241] (-) TimerEvent: {}
+[60.485978] (-) TimerEvent: {}
+[60.586752] (-) TimerEvent: {}
+[60.687463] (-) TimerEvent: {}
+[60.788180] (-) TimerEvent: {}
+[60.888968] (-) TimerEvent: {}
+[60.989750] (-) TimerEvent: {}
+[61.090486] (-) TimerEvent: {}
+[61.191218] (-) TimerEvent: {}
+[61.291985] (-) TimerEvent: {}
+[61.392781] (-) TimerEvent: {}
+[61.493565] (-) TimerEvent: {}
+[61.594401] (-) TimerEvent: {}
+[61.695259] (-) TimerEvent: {}
+[61.796022] (-) TimerEvent: {}
+[61.896808] (-) TimerEvent: {}
+[61.997612] (-) TimerEvent: {}
+[62.098452] (-) TimerEvent: {}
+[62.199262] (-) TimerEvent: {}
+[62.300001] (-) TimerEvent: {}
+[62.400657] (-) TimerEvent: {}
+[62.501436] (-) TimerEvent: {}
+[62.602168] (-) TimerEvent: {}
+[62.703029] (-) TimerEvent: {}
+[62.803792] (-) TimerEvent: {}
+[62.904613] (-) TimerEvent: {}
+[63.005435] (-) TimerEvent: {}
+[63.106158] (-) TimerEvent: {}
+[63.206939] (-) TimerEvent: {}
+[63.307776] (-) TimerEvent: {}
+[63.408533] (-) TimerEvent: {}
+[63.509274] (-) TimerEvent: {}
+[63.610188] (-) TimerEvent: {}
+[63.711012] (-) TimerEvent: {}
+[63.811660] (-) TimerEvent: {}
+[63.912693] (-) TimerEvent: {}
+[64.013434] (-) TimerEvent: {}
+[64.114287] (-) TimerEvent: {}
+[64.215093] (-) TimerEvent: {}
+[64.315815] (-) TimerEvent: {}
+[64.417869] (-) TimerEvent: {}
+[64.518647] (-) TimerEvent: {}
+[64.619435] (-) TimerEvent: {}
+[64.720158] (-) TimerEvent: {}
+[64.820931] (-) TimerEvent: {}
+[64.921668] (-) TimerEvent: {}
+[65.022430] (-) TimerEvent: {}
+[65.123290] (-) TimerEvent: {}
+[65.224153] (-) TimerEvent: {}
+[65.324895] (-) TimerEvent: {}
+[65.425675] (-) TimerEvent: {}
+[65.526358] (-) TimerEvent: {}
+[65.627131] (-) TimerEvent: {}
+[65.727799] (-) TimerEvent: {}
+[65.828508] (-) TimerEvent: {}
+[65.929243] (-) TimerEvent: {}
+[66.030016] (-) TimerEvent: {}
+[66.130836] (-) TimerEvent: {}
+[66.231589] (-) TimerEvent: {}
+[66.332307] (-) TimerEvent: {}
+[66.433043] (-) TimerEvent: {}
+[66.533768] (-) TimerEvent: {}
+[66.634598] (-) TimerEvent: {}
+[66.735373] (-) TimerEvent: {}
+[66.836045] (-) TimerEvent: {}
+[66.936720] (-) TimerEvent: {}
+[67.037579] (-) TimerEvent: {}
+[67.138347] (-) TimerEvent: {}
+[67.210854] (cv_bridge) StdoutLine: {'line': b'3: ../../../src/vision_opencv/cv_bridge/test/conversions.py ....            [100%]\n'}
+[67.211971] (cv_bridge) StdoutLine: {'line': b'3: \n'}
+[67.212771] (cv_bridge) StdoutLine: {'line': b'3: - generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml -\n'}
+[67.213602] (cv_bridge) StdoutLine: {'line': b'3: ========================== 4 passed in 43.52 seconds ===========================\n'}
+[67.238653] (-) TimerEvent: {}
+[67.339444] (-) TimerEvent: {}
+[67.440176] (-) TimerEvent: {}
+[67.540964] (-) TimerEvent: {}
+[67.641628] (-) TimerEvent: {}
+[67.742297] (-) TimerEvent: {}
+[67.842986] (-) TimerEvent: {}
+[67.943647] (-) TimerEvent: {}
+[68.044285] (-) TimerEvent: {}
+[68.144937] (-) TimerEvent: {}
+[68.245590] (-) TimerEvent: {}
+[68.346723] (-) TimerEvent: {}
+[68.447462] (-) TimerEvent: {}
+[68.548161] (-) TimerEvent: {}
+[68.633704] (cv_bridge) StdoutLine: {'line': b'3: -- run_test.py: return code 0\n'}
+[68.634417] (cv_bridge) StdoutLine: {'line': b"3: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml'\n"}
+[68.648409] (-) TimerEvent: {}
+[68.678991] (cv_bridge) StdoutLine: {'line': b'3/4 Test #3: conversions.py ...................   Passed   47.70 sec\n'}
+[68.679650] (cv_bridge) StdoutLine: {'line': b'test 4\n'}
+[68.680095] (cv_bridge) StdoutLine: {'line': b'    Start 4: python_bindings.py\n'}
+[68.680504] (cv_bridge) StdoutLine: {'line': b'\n'}
+[68.680934] (cv_bridge) StdoutLine: {'line': b'4: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/python_bindings.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--junit-prefix=cv_bridge"\n'}
+[68.681413] (cv_bridge) StdoutLine: {'line': b'4: Test timeout computed to be: 60\n'}
+[68.748613] (-) TimerEvent: {}
+[68.849323] (-) TimerEvent: {}
+[68.924924] (cv_bridge) StdoutLine: {'line': b"4: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':\n"}
+[68.925666] (cv_bridge) StdoutLine: {'line': b'4:  - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml --junit-prefix=cv_bridge\n'}
+[68.949537] (-) TimerEvent: {}
+[69.050300] (-) TimerEvent: {}
+[69.151067] (-) TimerEvent: {}
+[69.251687] (-) TimerEvent: {}
+[69.352349] (-) TimerEvent: {}
+[69.453083] (-) TimerEvent: {}
+[69.554109] (-) TimerEvent: {}
+[69.654773] (-) TimerEvent: {}
+[69.755364] (-) TimerEvent: {}
+[69.856036] (-) TimerEvent: {}
+[69.956708] (-) TimerEvent: {}
+[70.057375] (-) TimerEvent: {}
+[70.158043] (-) TimerEvent: {}
+[70.258761] (-) TimerEvent: {}
+[70.359422] (-) TimerEvent: {}
+[70.460070] (-) TimerEvent: {}
+[70.560734] (-) TimerEvent: {}
+[70.661429] (-) TimerEvent: {}
+[70.762115] (-) TimerEvent: {}
+[70.862837] (-) TimerEvent: {}
+[70.963531] (-) TimerEvent: {}
+[71.064190] (-) TimerEvent: {}
+[71.164850] (-) TimerEvent: {}
+[71.265504] (-) TimerEvent: {}
+[71.366169] (-) TimerEvent: {}
+[71.383086] (cv_bridge) StdoutLine: {'line': b'4: ============================= test session starts ==============================\n'}
+[71.383698] (cv_bridge) StdoutLine: {'line': b'4: platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0\n'}
+[71.406245] (cv_bridge) StdoutLine: {'line': b'4: cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache\n'}
+[71.407104] (cv_bridge) StdoutLine: {'line': b'4: rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini\n'}
+[71.407496] (cv_bridge) StdoutLine: {'line': b'4: plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1\n'}
+[71.466394] (-) TimerEvent: {}
+[71.567085] (-) TimerEvent: {}
+[71.668355] (-) TimerEvent: {}
+[71.769643] (-) TimerEvent: {}
+[71.870950] (-) TimerEvent: {}
+[71.972227] (-) TimerEvent: {}
+[72.073500] (-) TimerEvent: {}
+[72.174860] (-) TimerEvent: {}
+[72.276332] (-) TimerEvent: {}
+[72.377621] (-) TimerEvent: {}
+[72.478630] (-) TimerEvent: {}
+[72.579627] (-) TimerEvent: {}
+[72.680621] (-) TimerEvent: {}
+[72.781606] (-) TimerEvent: {}
+[72.823912] (cv_bridge) StdoutLine: {'line': b'4: collected 1 item\n'}
+[72.828674] (cv_bridge) StdoutLine: {'line': b'4: \n'}
+[72.881766] (-) TimerEvent: {}
+[72.983023] (-) TimerEvent: {}
+[73.084276] (-) TimerEvent: {}
+[73.185698] (-) TimerEvent: {}
+[73.242862] (cv_bridge) StdoutLine: {'line': b'4: ../../../src/vision_opencv/cv_bridge/test/python_bindings.py .           [100%]\n'}
+[73.243466] (cv_bridge) StdoutLine: {'line': b'4: \n'}
+[73.244069] (cv_bridge) StdoutLine: {'line': b'4: - generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml -\n'}
+[73.244639] (cv_bridge) StdoutLine: {'line': b'4: =========================== 1 passed in 1.86 seconds ===========================\n'}
+[73.285889] (-) TimerEvent: {}
+[73.387268] (-) TimerEvent: {}
+[73.488258] (-) TimerEvent: {}
+[73.588917] (-) TimerEvent: {}
+[73.689904] (-) TimerEvent: {}
+[73.790628] (-) TimerEvent: {}
+[73.891320] (-) TimerEvent: {}
+[73.992272] (-) TimerEvent: {}
+[74.093276] (-) TimerEvent: {}
+[74.194343] (-) TimerEvent: {}
+[74.295747] (-) TimerEvent: {}
+[74.397154] (-) TimerEvent: {}
+[74.498543] (-) TimerEvent: {}
+[74.599876] (-) TimerEvent: {}
+[74.701209] (-) TimerEvent: {}
+[74.802541] (-) TimerEvent: {}
+[74.903865] (-) TimerEvent: {}
+[75.005201] (-) TimerEvent: {}
+[75.106496] (-) TimerEvent: {}
+[75.208047] (-) TimerEvent: {}
+[75.309326] (-) TimerEvent: {}
+[75.410652] (-) TimerEvent: {}
+[75.511922] (-) TimerEvent: {}
+[75.613147] (-) TimerEvent: {}
+[75.714124] (-) TimerEvent: {}
+[75.815104] (-) TimerEvent: {}
+[75.916123] (-) TimerEvent: {}
+[76.017106] (-) TimerEvent: {}
+[76.118103] (-) TimerEvent: {}
+[76.219315] (-) TimerEvent: {}
+[76.320581] (-) TimerEvent: {}
+[76.385000] (cv_bridge) StdoutLine: {'line': b'4: -- run_test.py: return code 0\n'}
+[76.385955] (cv_bridge) StdoutLine: {'line': b"4: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml'\n"}
+[76.420830] (-) TimerEvent: {}
+[76.429473] (cv_bridge) StdoutLine: {'line': b'4/4 Test #4: python_bindings.py ...............   Passed    7.75 sec\n'}
+[76.430422] (cv_bridge) StdoutLine: {'line': b'\n'}
+[76.431005] (cv_bridge) StdoutLine: {'line': b'\x1b[0;32m100% tests passed\x1b[0;0m, 0 tests failed\x1b[0;0m out of 4\n'}
+[76.432714] (cv_bridge) StdoutLine: {'line': b'\n'}
+[76.433214] (cv_bridge) StdoutLine: {'line': b'Label Time Summary:\n'}
+[76.433645] (cv_bridge) StdoutLine: {'line': b'gtest     =   5.02 sec*proc (1 test)\n'}
+[76.434064] (cv_bridge) StdoutLine: {'line': b'pytest    =  71.14 sec*proc (3 tests)\n'}
+[76.434470] (cv_bridge) StdoutLine: {'line': b'\n'}
+[76.435495] (cv_bridge) StdoutLine: {'line': b'Total Test time (real) =  76.16 sec\n'}
+[76.441029] (cv_bridge) CommandEnded: {'returncode': 0}
+[76.445673] (cv_bridge) JobEnded: {'identifier': 'cv_bridge', 'rc': 0}
+[76.447941] (opencv_tests) JobStarted: {'identifier': 'opencv_tests'}
+[76.470372] (vision_opencv) JobStarted: {'identifier': 'vision_opencv'}
+[76.521155] (-) TimerEvent: {}
+[76.622648] (-) TimerEvent: {}
+[76.723377] (-) TimerEvent: {}
+[76.824074] (-) TimerEvent: {}
+[76.925317] (-) TimerEvent: {}
+[77.026157] (-) TimerEvent: {}
+[77.127215] (-) TimerEvent: {}
+[77.227886] (-) TimerEvent: {}
+[77.328546] (-) TimerEvent: {}
+[77.429244] (-) TimerEvent: {}
+[77.530200] (-) TimerEvent: {}
+[77.630969] (-) TimerEvent: {}
+[77.731683] (-) TimerEvent: {}
+[77.832396] (-) TimerEvent: {}
+[77.933162] (-) TimerEvent: {}
+[77.995788] (opencv_tests) Command: {'cmd': ['/usr/bin/python3', '-m', 'pytest'], 'cwd': '/home/jetson/code/cv_bridge_ws/src/vision_opencv/opencv_tests', 'env': {'LESSOPEN': '| /usr/bin/lesspipe %s', 'USER': 'jetson', 'SSH_CLIENT': '192.168.50.244 33056 22', 'LC_TIME': 'nl_NL.UTF-8', 'XDG_SESSION_TYPE': 'tty', 'GIT_ASKPASS': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass.sh', 'SHLVL': '2', 'LD_LIBRARY_PATH': '/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64', 'BROWSER': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/helpers/browser.sh', 'MOTD_SHOWN': 'pam', 'HOME': '/home/jetson', 'OLDPWD': '/home/jetson/code/cv_bridge_ws/src', 'TERM_PROGRAM_VERSION': '1.98.2', 'VSCODE_IPC_HOOK_CLI': '/run/user/1000/vscode-ipc-fbfce6e8-85ba-4aa1-a832-2cdf553bae1b.sock', 'JETSON_L4T': '32.6.1', 'ROS_PYTHON_VERSION': '3', 'JETSON_MODEL': 'NVIDIA Jetson Nano Developer Kit', 'VSCODE_GIT_ASKPASS_MAIN': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/extensions/git/dist/askpass-main.js', 'LC_MONETARY': 'nl_NL.UTF-8', 'VSCODE_GIT_ASKPASS_NODE': '/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/node', 'SSL_CERT_FILE': '/usr/lib/ssl/certs/ca-certificates.crt', 'PYDEVD_DISABLE_FILE_VALIDATION': '1', 'BUNDLED_DEBUGPY_PATH': '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/libs/debugpy', 'DBUS_SESSION_BUS_ADDRESS': 'unix:path=/run/user/1000/bus', 'COLORTERM': 'truecolor', 'COLCON_PREFIX_PATH': '/home/jetson/code/cv_bridge_ws/install', 'ROS_DISTRO': 'foxy', 'LOGNAME': 'jetson', 'JETSON_MODULE': 'NVIDIA Jetson Nano (4 GB ram)', 'JETSON_SERIAL_NUMBER': '1421523010890', '_': '/usr/bin/colcon', 'ROS_VERSION': '2', 'JETSON_CODENAME': 'Porg', 'XDG_SESSION_CLASS': 'user', 'TERM': 'xterm-256color', 'XDG_SESSION_ID': '1', 'ROS_LOCALHOST_ONLY': '0', 'PATH': '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-ddc367ed5c8936efe395cffeec279b04ffd7db78/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/bundled/scripts/noConfigScripts:/usr/local/cuda/bin', 'LC_ADDRESS': 'nl_NL.UTF-8', 'XDG_RUNTIME_DIR': '/run/user/1000', 'SSL_CERT_DIR': '/usr/lib/ssl/certs', 'DISPLAY': 'localhost:10.0', 'VSCODE_DEBUGPY_ADAPTER_ENDPOINTS': '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.4.1/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt', 'LANG': 'en_US.UTF-8', 'LC_TELEPHONE': 'nl_NL.UTF-8', 'LS_COLORS': 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:', 'JETSON_SOC': 'tegra210', 'VSCODE_GIT_IPC_HANDLE': '/run/user/1000/vscode-git-03999399f2.sock', 'TERM_PROGRAM': 'vscode', 'SSH_AUTH_SOCK': '/run/user/1000/vscode-ssh-auth-sock-352254538', 'AMENT_PREFIX_PATH': '/home/jetson/code/cv_bridge_ws/install/opencv_tests:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy', 'SHELL': '/bin/bash', 'LC_NAME': 'nl_NL.UTF-8', 'LESSCLOSE': '/usr/bin/lesspipe %s %s', 'JETSON_BOARDIDS': 'p3448', 'LC_MEASUREMENT': 'nl_NL.UTF-8', 'LC_IDENTIFICATION': 'nl_NL.UTF-8', 'VSCODE_GIT_ASKPASS_EXTRA_ARGS': '', 'JETSON_CUDA_ARCH_BIN': '5.3', 'PWD': '/home/jetson/code/cv_bridge_ws/build/opencv_tests', 'LC_ALL': 'en_US.UTF-8', 'SSH_CONNECTION': '192.168.50.244 33056 192.168.50.197 22', 'XDG_DATA_DIRS': '/usr/local/share:/usr/share:/var/lib/snapd/desktop', 'PYTHONPATH': '/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages', 'LC_NUMERIC': 'nl_NL.UTF-8', 'LC_PAPER': 'nl_NL.UTF-8', 'COLCON': '1', 'JETSON_JETPACK': '4.6', 'CMAKE_PREFIX_PATH': '/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry', 'JETSON_P_NUMBER': 'p3448-0000', 'PYTHONDONTWRITEBYTECODE': '1', 'PYTEST_ADDOPTS': '--tb=short --junit-xml=/home/jetson/code/cv_bridge_ws/build/opencv_tests/pytest.xml --junit-prefix=opencv_tests -o cache_dir=/home/jetson/code/cv_bridge_ws/build/opencv_tests/.pytest_cache'}, 'shell': False}
+[78.033492] (-) TimerEvent: {}
+[78.051461] (vision_opencv) JobEnded: {'identifier': 'vision_opencv', 'rc': 0}
+[78.133668] (-) TimerEvent: {}
+[78.234288] (-) TimerEvent: {}
+[78.335035] (-) TimerEvent: {}
+[78.435733] (-) TimerEvent: {}
+[78.536460] (-) TimerEvent: {}
+[78.637527] (-) TimerEvent: {}
+[78.738169] (-) TimerEvent: {}
+[78.838802] (-) TimerEvent: {}
+[78.939430] (-) TimerEvent: {}
+[79.040119] (-) TimerEvent: {}
+[79.140725] (-) TimerEvent: {}
+[79.241374] (-) TimerEvent: {}
+[79.342020] (-) TimerEvent: {}
+[79.442636] (-) TimerEvent: {}
+[79.543212] (-) TimerEvent: {}
+[79.643801] (-) TimerEvent: {}
+[79.744463] (-) TimerEvent: {}
+[79.845130] (-) TimerEvent: {}
+[79.945739] (-) TimerEvent: {}
+[80.046385] (-) TimerEvent: {}
+[80.147086] (-) TimerEvent: {}
+[80.247670] (-) TimerEvent: {}
+[80.348261] (-) TimerEvent: {}
+[80.448922] (-) TimerEvent: {}
+[80.481741] (opencv_tests) StdoutLine: {'line': b'\x1b[1m============================= test session starts ==============================\x1b[0m\n'}
+[80.482440] (opencv_tests) StdoutLine: {'line': b'platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0\n'}
+[80.504014] (opencv_tests) StdoutLine: {'line': b'cachedir: /home/jetson/code/cv_bridge_ws/build/opencv_tests/.pytest_cache\n'}
+[80.505453] (opencv_tests) StdoutLine: {'line': b'rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini\n'}
+[80.505911] (opencv_tests) StdoutLine: {'line': b'plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1\n'}
+[80.539634] (opencv_tests) StdoutLine: {'line': b'\x1b[1mcollecting ... \x1b[0m\x1b[1m\n'}
+[80.540215] (opencv_tests) StdoutLine: {'line': b'collected 0 items                                                              \x1b[0m\n'}
+[80.543026] (opencv_tests) StdoutLine: {'line': b'\n'}
+[80.543693] (opencv_tests) StdoutLine: {'line': b'- generated xml file: /home/jetson/code/cv_bridge_ws/build/opencv_tests/pytest.xml -\n'}
+[80.544201] (opencv_tests) StdoutLine: {'line': b'\x1b[33m\x1b[1m========================= no tests ran in 0.06 seconds =========================\x1b[0m\n'}
+[80.549083] (-) TimerEvent: {}
+[80.649846] (-) TimerEvent: {}
+[80.748399] (opencv_tests) CommandEnded: {'returncode': 5}
+[80.751132] (-) TimerEvent: {}
+[80.751939] (opencv_tests) JobEnded: {'identifier': 'opencv_tests', 'rc': 0}
+[80.753064] (-) EventReactorShutdown: {}

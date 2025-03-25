@@ -1,0 +1,103 @@
+[0.151s] Invoking command in '/home/jetson/code/cv_bridge_ws/build/image_geometry': CMAKE_PREFIX_PATH=/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/cv_bridge LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64 PYTHONPATH=/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/ctest -C Release -D ExperimentalTest --no-compress-output -V --force-new-ctest-process
+[0.202s] UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini
+[0.204s] Parse Config file:/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini
+[0.212s]    Site: nano
+[0.213s]    Build name: (empty)
+[0.213s]  Add coverage exclude regular expressions.
+[0.214s] SetCTestConfiguration:CMakeCommand:/usr/bin/cmake
+[0.215s] Create new tag: 20250325-1049 - Experimental
+[0.215s] UpdateCTestConfiguration  from :/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini
+[0.216s] Parse Config file:/home/jetson/code/cv_bridge_ws/build/image_geometry/CTestConfiguration.ini
+[0.216s] Test project /home/jetson/code/cv_bridge_ws/build/image_geometry
+[0.217s] Constructing a list of tests
+[0.218s] Done constructing a list of tests
+[0.218s] Updating test list for fixtures
+[0.219s] Added 0 tests to meet fixture requirements
+[0.219s] Checking test dependency graph...
+[0.219s] Checking test dependency graph end
+[0.220s] test 1
+[0.220s]     Start 1: image_geometry-utest
+[0.221s] 
+[0.221s] 1: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml" "--package-name" "image_geometry" "--output-file" "/home/jetson/code/cv_bridge_ws/build/image_geometry/ament_cmake_gtest/image_geometry-utest.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/image_geometry" "--command" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml"
+[0.221s] 1: Test timeout computed to be: 60
+[0.514s] 1: -- run_test.py: extra environment variables to append:
+[0.514s] 1:  - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/image_geometry
+[0.515s] 1: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/image_geometry/test':
+[0.515s] 1:  - /home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml
+[0.840s] 1: [==========] Running 12 tests from 1 test case.
+[0.840s] 1: [----------] Global test environment set-up.
+[0.840s] 1: [----------] 12 tests from PinholeTest
+[0.844s] 1: [ RUN      ] PinholeTest.accessorsCorrect
+[0.844s] 1: [       OK ] PinholeTest.accessorsCorrect (0 ms)
+[0.845s] 1: [ RUN      ] PinholeTest.projectPoint
+[0.851s] 1: [       OK ] PinholeTest.projectPoint (2 ms)
+[0.851s] 1: [ RUN      ] PinholeTest.rectifyPoint
+[1.363s] 1: [       OK ] PinholeTest.rectifyPoint (516 ms)
+[1.369s] 1: [ RUN      ] PinholeTest.getDeltas
+[1.372s] 1: [       OK ] PinholeTest.getDeltas (0 ms)
+[1.372s] 1: [ RUN      ] PinholeTest.initialization
+[1.372s] 1: [       OK ] PinholeTest.initialization (0 ms)
+[1.373s] 1: [ RUN      ] PinholeTest.rectifyIfCalibrated
+[1.456s] 1: [       OK ] PinholeTest.rectifyIfCalibrated (85 ms)
+[1.457s] 1: [ RUN      ] PinholeTest.unrectifyImage
+[15.268s] 1: [       OK ] PinholeTest.unrectifyImage (13810 ms)
+[15.276s] 1: [ RUN      ] PinholeTest.unrectifyImageWithBinning
+[19.612s] 1: [       OK ] PinholeTest.unrectifyImageWithBinning (4332 ms)
+[19.615s] 1: [ RUN      ] PinholeTest.unrectifyImageWithRoi
+[25.660s] 1: [       OK ] PinholeTest.unrectifyImageWithRoi (6044 ms)
+[25.663s] 1: [ RUN      ] PinholeTest.unrectifyImageWithBinningAndRoi
+[28.091s] 1: [       OK ] PinholeTest.unrectifyImageWithBinningAndRoi (2426 ms)
+[28.102s] 1: [ RUN      ] PinholeTest.rectifiedRoiSize
+[28.103s] 1: [       OK ] PinholeTest.rectifiedRoiSize (0 ms)
+[28.103s] 1: [ RUN      ] PinholeTest.rectifiedRoiCaching
+[28.104s] 1: [       OK ] PinholeTest.rectifiedRoiCaching (0 ms)
+[28.104s] 1: [----------] 12 tests from PinholeTest (27251 ms total)
+[28.104s] 1: 
+[28.110s] 1: [----------] Global test environment tear-down
+[28.111s] 1: [==========] 12 tests from 1 test case ran. (27251 ms total)
+[28.111s] 1: [  PASSED  ] 12 tests.
+[28.111s] 1: -- run_test.py: return code 0
+[28.112s] 1: -- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml'
+[28.112s] 1: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml'
+[28.235s] 1/2 Test #1: image_geometry-utest .............   Passed   28.03 sec
+[28.237s] test 2
+[28.240s]     Start 2: image_geometry-utest-equi
+[28.241s] 
+[28.241s] 2: Test command: /usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml" "--package-name" "image_geometry" "--output-file" "/home/jetson/code/cv_bridge_ws/build/image_geometry/ament_cmake_gtest/image_geometry-utest-equi.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/image_geometry" "--command" "/home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest-equi" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml"
+[28.241s] 2: Test timeout computed to be: 60
+[28.858s] 2: -- run_test.py: extra environment variables to append:
+[28.860s] 2:  - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/image_geometry
+[28.861s] 2: -- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/image_geometry/test':
+[28.867s] 2:  - /home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest-equi --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml
+[28.931s] 2: [==========] Running 6 tests from 1 test case.
+[28.934s] 2: [----------] Global test environment set-up.
+[28.934s] 2: [----------] 6 tests from EquidistantTest
+[28.935s] 2: [ RUN      ] EquidistantTest.accessorsCorrect
+[28.935s] 2: [       OK ] EquidistantTest.accessorsCorrect (1 ms)
+[28.935s] 2: [ RUN      ] EquidistantTest.projectPoint
+[28.938s] 2: [       OK ] EquidistantTest.projectPoint (2 ms)
+[28.939s] 2: [ RUN      ] EquidistantTest.rectifyPoint
+[29.931s] 2: [       OK ] EquidistantTest.rectifyPoint (992 ms)
+[29.940s] 2: [ RUN      ] EquidistantTest.getDeltas
+[29.940s] 2: [       OK ] EquidistantTest.getDeltas (0 ms)
+[29.942s] 2: [ RUN      ] EquidistantTest.initialization
+[29.943s] 2: [       OK ] EquidistantTest.initialization (0 ms)
+[29.944s] 2: [ RUN      ] EquidistantTest.rectifyIfCalibrated
+[30.284s] 2: [       OK ] EquidistantTest.rectifyIfCalibrated (338 ms)
+[30.286s] 2: [----------] 6 tests from EquidistantTest (1354 ms total)
+[30.286s] 2: 
+[30.288s] 2: [----------] Global test environment tear-down
+[30.291s] 2: [==========] 6 tests from 1 test case ran. (1358 ms total)
+[30.291s] 2: [  PASSED  ] 6 tests.
+[30.299s] 2: -- run_test.py: return code 0
+[30.300s] 2: -- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml'
+[30.300s] 2: -- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml'
+[30.389s] 2/2 Test #2: image_geometry-utest-equi ........   Passed    2.15 sec
+[30.391s] 
+[30.398s] [0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 2
+[30.398s] 
+[30.399s] Label Time Summary:
+[30.399s] gtest    =  30.18 sec*proc (2 tests)
+[30.400s] 
+[30.400s] Total Test time (real) =  30.19 sec
+[30.411s] Invoked command in '/home/jetson/code/cv_bridge_ws/build/image_geometry' returned '0': CMAKE_PREFIX_PATH=/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/cv_bridge LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib:/usr/local/cuda/lib64 PYTHONPATH=/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages /usr/bin/ctest -C Release -D ExperimentalTest --no-compress-output -V --force-new-ctest-process

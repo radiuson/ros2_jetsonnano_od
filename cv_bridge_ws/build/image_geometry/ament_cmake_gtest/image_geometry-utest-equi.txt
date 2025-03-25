@@ -1,0 +1,30 @@
+-- run_test.py: extra environment variables to append:
+ - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/image_geometry
+-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/image_geometry/test':
+ - /home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest-equi --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml
+
+[==========] Running 6 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 6 tests from EquidistantTest
+[ RUN      ] EquidistantTest.accessorsCorrect
+[       OK ] EquidistantTest.accessorsCorrect (1 ms)
+[ RUN      ] EquidistantTest.projectPoint
+[       OK ] EquidistantTest.projectPoint (2 ms)
+[ RUN      ] EquidistantTest.rectifyPoint
+[       OK ] EquidistantTest.rectifyPoint (992 ms)
+[ RUN      ] EquidistantTest.getDeltas
+[       OK ] EquidistantTest.getDeltas (0 ms)
+[ RUN      ] EquidistantTest.initialization
+[       OK ] EquidistantTest.initialization (0 ms)
+[ RUN      ] EquidistantTest.rectifyIfCalibrated
+[       OK ] EquidistantTest.rectifyIfCalibrated (338 ms)
+[----------] 6 tests from EquidistantTest (1354 ms total)
+
+[----------] Global test environment tear-down
+[==========] 6 tests from 1 test case ran. (1358 ms total)
+[  PASSED  ] 6 tests.
+
+
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml'
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest-equi.gtest.xml'

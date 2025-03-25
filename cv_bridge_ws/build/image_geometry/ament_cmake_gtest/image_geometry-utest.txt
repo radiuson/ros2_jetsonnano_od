@@ -1,0 +1,42 @@
+-- run_test.py: extra environment variables to append:
+ - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/image_geometry
+-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/image_geometry/test':
+ - /home/jetson/code/cv_bridge_ws/build/image_geometry/test/image_geometry-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml
+
+[==========] Running 12 tests from 1 test case.
+[----------] Global test environment set-up.
+[----------] 12 tests from PinholeTest
+[ RUN      ] PinholeTest.accessorsCorrect
+[       OK ] PinholeTest.accessorsCorrect (0 ms)
+[ RUN      ] PinholeTest.projectPoint
+[       OK ] PinholeTest.projectPoint (2 ms)
+[ RUN      ] PinholeTest.rectifyPoint
+[       OK ] PinholeTest.rectifyPoint (516 ms)
+[ RUN      ] PinholeTest.getDeltas
+[       OK ] PinholeTest.getDeltas (0 ms)
+[ RUN      ] PinholeTest.initialization
+[       OK ] PinholeTest.initialization (0 ms)
+[ RUN      ] PinholeTest.rectifyIfCalibrated
+[       OK ] PinholeTest.rectifyIfCalibrated (85 ms)
+[ RUN      ] PinholeTest.unrectifyImage
+[       OK ] PinholeTest.unrectifyImage (13810 ms)
+[ RUN      ] PinholeTest.unrectifyImageWithBinning
+[       OK ] PinholeTest.unrectifyImageWithBinning (4332 ms)
+[ RUN      ] PinholeTest.unrectifyImageWithRoi
+[       OK ] PinholeTest.unrectifyImageWithRoi (6044 ms)
+[ RUN      ] PinholeTest.unrectifyImageWithBinningAndRoi
+[       OK ] PinholeTest.unrectifyImageWithBinningAndRoi (2426 ms)
+[ RUN      ] PinholeTest.rectifiedRoiSize
+[       OK ] PinholeTest.rectifiedRoiSize (0 ms)
+[ RUN      ] PinholeTest.rectifiedRoiCaching
+[       OK ] PinholeTest.rectifiedRoiCaching (0 ms)
+[----------] 12 tests from PinholeTest (27251 ms total)
+
+[----------] Global test environment tear-down
+[==========] 12 tests from 1 test case ran. (27251 ms total)
+[  PASSED  ] 12 tests.
+
+
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml'
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/image_geometry/test_results/image_geometry/image_geometry-utest.gtest.xml'

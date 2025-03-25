@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="6" failures="0" disabled="0" errors="0" timestamp="2025-03-25T11:49:41" time="1.358" name="AllTests">
+  <testsuite name="EquidistantTest" tests="6" failures="0" disabled="0" errors="0" time="1.354">
+    <testcase name="accessorsCorrect" status="run" time="0.001" classname="image_geometry.EquidistantTest" />
+    <testcase name="projectPoint" status="run" time="0.002" classname="image_geometry.EquidistantTest" />
+    <testcase name="rectifyPoint" status="run" time="0.992" classname="image_geometry.EquidistantTest" />
+    <testcase name="getDeltas" status="run" time="0" classname="image_geometry.EquidistantTest" />
+    <testcase name="initialization" status="run" time="0" classname="image_geometry.EquidistantTest" />
+    <testcase name="rectifyIfCalibrated" status="run" time="0.338" classname="image_geometry.EquidistantTest" />
+  </testsuite>
+</testsuites>

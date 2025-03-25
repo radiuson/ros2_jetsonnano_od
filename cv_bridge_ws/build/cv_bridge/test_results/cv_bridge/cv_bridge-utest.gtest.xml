@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="9" failures="0" disabled="0" errors="0" timestamp="2025-03-25T11:49:13" time="4.293" name="AllTests">
+  <testsuite name="CvBridgeTest" tests="7" failures="0" disabled="0" errors="0" time="0.087">
+    <testcase name="endianness" status="run" time="0.002" classname="cv_bridge.CvBridgeTest" />
+    <testcase name="compression" status="run" time="0.002" classname="cv_bridge.CvBridgeTest" />
+    <testcase name="NonContinuous" status="run" time="0" classname="cv_bridge.CvBridgeTest" />
+    <testcase name="ChannelOrder" status="run" time="0.001" classname="cv_bridge.CvBridgeTest" />
+    <testcase name="initialization" status="run" time="0.052" classname="cv_bridge.CvBridgeTest" />
+    <testcase name="imageMessageStep" status="run" time="0" classname="cv_bridge.CvBridgeTest" />
+    <testcase name="imageMessageConversion" status="run" time="0.012" classname="cv_bridge.CvBridgeTest" />
+  </testsuite>
+  <testsuite name="OpencvTests" tests="1" failures="0" disabled="0" errors="0" time="4.205">
+    <testcase name="testCase_encode_decode" status="run" time="4.202" classname="cv_bridge.OpencvTests" />
+  </testsuite>
+  <testsuite name="RGBColors" tests="1" failures="0" disabled="0" errors="0" time="0">
+    <testcase name="testGetRGBColor" status="run" time="0" classname="cv_bridge.RGBColors" />
+  </testsuite>
+</testsuites>

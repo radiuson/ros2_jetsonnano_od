@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites tests="12" failures="0" disabled="0" errors="0" timestamp="2025-03-25T11:49:13" time="27.251" name="AllTests">
+  <testsuite name="PinholeTest" tests="12" failures="0" disabled="0" errors="0" time="27.251">
+    <testcase name="accessorsCorrect" status="run" time="0" classname="image_geometry.PinholeTest" />
+    <testcase name="projectPoint" status="run" time="0.002" classname="image_geometry.PinholeTest" />
+    <testcase name="rectifyPoint" status="run" time="0.516" classname="image_geometry.PinholeTest" />
+    <testcase name="getDeltas" status="run" time="0" classname="image_geometry.PinholeTest" />
+    <testcase name="initialization" status="run" time="0" classname="image_geometry.PinholeTest" />
+    <testcase name="rectifyIfCalibrated" status="run" time="0.085" classname="image_geometry.PinholeTest" />
+    <testcase name="unrectifyImage" status="run" time="13.81" classname="image_geometry.PinholeTest" />
+    <testcase name="unrectifyImageWithBinning" status="run" time="4.332" classname="image_geometry.PinholeTest" />
+    <testcase name="unrectifyImageWithRoi" status="run" time="6.044" classname="image_geometry.PinholeTest" />
+    <testcase name="unrectifyImageWithBinningAndRoi" status="run" time="2.426" classname="image_geometry.PinholeTest" />
+    <testcase name="rectifiedRoiSize" status="run" time="0" classname="image_geometry.PinholeTest" />
+    <testcase name="rectifiedRoiCaching" status="run" time="0" classname="image_geometry.PinholeTest" />
+  </testsuite>
+</testsuites>

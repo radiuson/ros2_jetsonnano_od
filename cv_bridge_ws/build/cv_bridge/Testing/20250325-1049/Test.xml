@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Site BuildName="(empty)"
+	BuildStamp="20250325-1049-Experimental"
+	Name="nano"
+	Generator="ctest-3.16.3"
+	CompilerName="/usr/bin/c++"
+	CompilerVersion="8.4.0"
+	OSName="Linux"
+	Hostname="nano"
+	OSRelease="4.9.253-tegra"
+	OSVersion="#1 SMP PREEMPT Mon Jul 26 12:13:06 PDT 2021"
+	OSPlatform="aarch64"
+	Is64Bits="1"
+	VendorString=""
+	VendorID="Unknown Manufacturer"
+	FamilyID="8"
+	ModelID="0"
+	ProcessorCacheSize="0"
+	NumberOfLogicalCPU="4"
+	NumberOfPhysicalCPU="1"
+	TotalVirtualMemory="1982"
+	TotalPhysicalMemory="3964"
+	LogicalProcessorsPerPhysical="4"
+	ProcessorClockFrequency="0"
+	>
+	<Testing>
+		<StartDateTime>Mar 25 11:49 CET</StartDateTime>
+		<StartTestTime>1742899753</StartTestTime>
+		<TestList>
+			<Test>./test/cv_bridge-utest</Test>
+			<Test>./test/enumerants.py</Test>
+			<Test>./test/conversions.py</Test>
+			<Test>./test/python_bindings.py</Test>
+		</TestList>
+		<Test Status="passed">
+			<Name>cv_bridge-utest</Name>
+			<Path>./test</Path>
+			<FullName>./test/cv_bridge-utest</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_gtest/cv_bridge-utest.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src" "--command" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>5.01568</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_gtest/cv_bridge-utest.txt" "--append-env" "LD_LIBRARY_PATH=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src" "--command" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest" "--gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: extra environment variables to append:
+ - LD_LIBRARY_PATH+=/home/jetson/code/cv_bridge_ws/build/cv_bridge/src
+-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+ - /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/cv_bridge-utest --gtest_output=xml:/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml
+[==========] Running 9 tests from 3 test cases.
+[----------] Global test environment set-up.
+[----------] 7 tests from CvBridgeTest
+[ RUN      ] CvBridgeTest.endianness
+[       OK ] CvBridgeTest.endianness (2 ms)
+[ RUN      ] CvBridgeTest.compression
+[       OK ] CvBridgeTest.compression (2 ms)
+[ RUN      ] CvBridgeTest.NonContinuous
+[       OK ] CvBridgeTest.NonContinuous (0 ms)
+[ RUN      ] CvBridgeTest.ChannelOrder
+[       OK ] CvBridgeTest.ChannelOrder (1 ms)
+[ RUN      ] CvBridgeTest.initialization
+[       OK ] CvBridgeTest.initialization (52 ms)
+[ RUN      ] CvBridgeTest.imageMessageStep
+[       OK ] CvBridgeTest.imageMessageStep (0 ms)
+[ RUN      ] CvBridgeTest.imageMessageConversion
+[       OK ] CvBridgeTest.imageMessageConversion (12 ms)
+[----------] 7 tests from CvBridgeTest (87 ms total)
+
+[----------] 1 test from OpencvTests
+[ RUN      ] OpencvTests.testCase_encode_decode
+[       OK ] OpencvTests.testCase_encode_decode (4202 ms)
+[----------] 1 test from OpencvTests (4205 ms total)
+
+[----------] 1 test from RGBColors
+[ RUN      ] RGBColors.testGetRGBColor
+[       OK ] RGBColors.testGetRGBColor (0 ms)
+[----------] 1 test from RGBColors (0 ms total)
+
+[----------] Global test environment tear-down
+[==========] 9 tests from 3 test cases ran. (4293 ms total)
+[  PASSED  ] 9 tests.
+-- run_test.py: return code 0
+-- run_test.py: inject classname prefix into gtest result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/cv_bridge-utest.gtest.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>gtest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>enumerants.py</Name>
+			<Path>./test</Path>
+			<FullName>./test/enumerants.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/enumerants.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--junit-prefix=cv_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>15.6846</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/enumerants.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml" "--junit-prefix=cv_bridge"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+ - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/enumerants.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml --junit-prefix=cv_bridge
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/enumerants.py/.cache
+rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+collected 2 items
+
+../../../src/vision_opencv/cv_bridge/test/enumerants.py ..               [100%]
+
+- generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml -
+=========================== 2 passed in 6.67 seconds ===========================
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/enumerants.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>pytest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>conversions.py</Name>
+			<Path>./test</Path>
+			<FullName>./test/conversions.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/conversions.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--junit-prefix=cv_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>47.698</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/conversions.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml" "--junit-prefix=cv_bridge"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+ - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/conversions.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml --junit-prefix=cv_bridge
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/conversions.py/.cache
+rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+collected 4 items
+
+../../../src/vision_opencv/cv_bridge/test/conversions.py ....            [100%]
+
+- generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml -
+========================== 4 passed in 43.52 seconds ===========================
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/conversions.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>pytest</Label>
+			</Labels>
+		</Test>
+		<Test Status="passed">
+			<Name>python_bindings.py</Name>
+			<Path>./test</Path>
+			<FullName>./test/python_bindings.py</FullName>
+			<FullCommandLine>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/python_bindings.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--junit-prefix=cv_bridge"</FullCommandLine>
+			<Results>
+				<NamedMeasurement type="numeric/double" name="Execution Time">
+					<Value>7.75273</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="numeric/double" name="Processors">
+					<Value>1</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Completion Status">
+					<Value>Completed</Value>
+				</NamedMeasurement>
+				<NamedMeasurement type="text/string" name="Command Line">
+					<Value>/usr/bin/python3 "-u" "/opt/ros/foxy/share/ament_cmake_test/cmake/run_test.py" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--package-name" "cv_bridge" "--output-file" "/home/jetson/code/cv_bridge_ws/build/cv_bridge/ament_cmake_pytest/python_bindings.py.txt" "--command" "/usr/bin/python3" "-u" "-m" "pytest" "/home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py" "-o" "cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache" "--junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml" "--junit-prefix=cv_bridge"</Value>
+				</NamedMeasurement>
+				<Measurement>
+					<Value>-- run_test.py: invoking following command in '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test':
+ - /usr/bin/python3 -u -m pytest /home/jetson/code/cv_bridge_ws/src/vision_opencv/cv_bridge/test/python_bindings.py -o cache_dir=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache --junit-xml=/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml --junit-prefix=cv_bridge
+============================= test session starts ==============================
+platform linux -- Python 3.8.10, pytest-4.6.9, py-1.8.1, pluggy-0.13.0
+cachedir: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test/ament_cmake_pytest/python_bindings.py/.cache
+rootdir: /home/jetson/code/cv_bridge_ws/src/vision_opencv, inifile: pytest.ini
+plugins: launch-testing-0.10.10, ament-pep257-0.9.8, ament-lint-0.9.8, ament-flake8-0.9.8, ament-xmllint-0.9.8, launch-testing-ros-0.11.7, ament-copyright-0.9.8, colcon-core-0.18.4, cov-2.8.1
+collected 1 item
+
+../../../src/vision_opencv/cv_bridge/test/python_bindings.py .           [100%]
+
+- generated xml file: /home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml -
+=========================== 1 passed in 1.86 seconds ===========================
+-- run_test.py: return code 0
+-- run_test.py: verify result file '/home/jetson/code/cv_bridge_ws/build/cv_bridge/test_results/cv_bridge/python_bindings.py.xunit.xml'
+</Value>
+				</Measurement>
+			</Results>
+			<Labels>
+				<Label>pytest</Label>
+			</Labels>
+		</Test>
+		<EndDateTime>Mar 25 11:50 CET</EndDateTime>
+		<EndTestTime>1742899829</EndTestTime>
+		<ElapsedMinutes>1</ElapsedMinutes>
+	</Testing>
+</Site>

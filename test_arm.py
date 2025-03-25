@@ -29,12 +29,7 @@ acive_links_mask = [False, True, True, True, True,True,False]
 urdf_path = os.path.join(os.path.dirname(__file__), 'ros2_vision_arm_control','src','urdf', 'dofbot.urdf')
 chain = Chain.from_urdf_file(urdf_path,active_links_mask=acive_links_mask)
 # 绘制机器人
-joints = [90,0,180,90,90,90]
 target_position = [0.0, 0.2, 0.2]
-converted = [(90 - x) for x in joints]
-converted = [0, *converted]
-converted = np.radians(converted)
-chain.plot(converted,ax=None)
 ik_result = chain.inverse_kinematics(util_ikpy_convert_coor(target_position))
 chain.plot(ik_result,ax=None)
 
