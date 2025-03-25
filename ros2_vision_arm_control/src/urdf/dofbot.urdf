@@ -160,7 +160,7 @@
 
     <!-- joint6 -->
     <joint name="joint6" type="fixed">
-        <origin xyz="0 -0.001 -0.09" rpy="0 -1.57 0"/>
+        <origin xyz="0 -0.001 0.09" rpy="0 -1.57 0"/>
         <parent link="link5"/>
         <child link="link6"/>
     </joint>
