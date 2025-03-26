@@ -6,7 +6,7 @@ import time
 import ikpy.chain
 import os
 import utils
-from utils import ikpy_utils
+from ros2_vision_arm_control.utils import ikpy_utils
 
 class ArmControl(Node):
     def __init__(self,urdf_path):

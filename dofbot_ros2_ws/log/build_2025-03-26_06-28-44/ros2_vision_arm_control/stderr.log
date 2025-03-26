@@ -1,0 +1,6 @@
+CMake Error at cmake_install.cmake:66 (file):
+  file INSTALL cannot find
+  "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/urdf": No
+  such file or directory.
+
+

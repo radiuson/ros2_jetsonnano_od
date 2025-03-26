@@ -6,7 +6,7 @@ from cv_bridge import CvBridge
 import pyrealsense2 as rs
 import numpy as np
 
-from utils import TOPIC_CAMERA_DEPTH, TOPIC_CAMERA_RGB
+from ros2_vision_arm_control.utils import TOPIC_CAMERA_DEPTH, TOPIC_CAMERA_RGB
 
 class CameraNode(Node):
     def __init__(self):

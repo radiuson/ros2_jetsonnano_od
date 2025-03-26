@@ -1,13 +1,13 @@
 import cv2
 import numpy as np
 import torch
-from utils.general import non_max_suppression, scale_coords
-from utils.torch_utils import select_device, load_model
+from ros2_vision_arm_control.utils.general import non_max_suppression, scale_coords
+from ros2_vision_arm_control.utils.torch_utils import select_device, load_model
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB
+from ros2_vision_arm_control.utils import WEIGHT_PATH,TOPIC_CAMERA_RGB
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device=''):
         super().__init__('yolo_detector_node')

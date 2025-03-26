@@ -5,18 +5,42 @@ project(ros2_vision_arm_control)
 find_package(ament_cmake REQUIRED)
 find_package(rclpy REQUIRED)
 
+# 安装 Python 脚本
 install(
     PROGRAMS
+    __init__.py
     camera_node.py
     arm_control.py
     yolo_detector.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
-# 安装 launch 文件（如果有）
+# 安装 launch 文件
 install(
     DIRECTORY launch
     DESTINATION share/${PROJECT_NAME}
 )
+
+# 安装 utils 目录（如果需要）
+install(
+    DIRECTORY utils
+    DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+    DIRECTORY meshes
+    DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+    DIRECTORY yolo_weight
+    DESTINATION lib/${PROJECT_NAME}
+)
+
+install(
+    DIRECTORY urdf
+    DESTINATION lib/${PROJECT_NAME}
+)
+
 
 ament_package()

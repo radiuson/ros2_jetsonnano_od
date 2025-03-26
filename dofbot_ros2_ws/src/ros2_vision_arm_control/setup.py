@@ -1,34 +1,22 @@
 from setuptools import setup
-
-package_name = 'ros2_vision_arm_control'
+from setuptools import find_packages
 
 setup(
-    name=package_name,
+    name='ros2_vision_arm_control',
     version='0.0.1',
-    packages=[package_name],
-    install_requires=[
-        'setuptools',
-        'opencv-python',
-        'torch',
-        'torchvision',
-        'pyrealsense2',
-        'numpy',
-        'matplotlib',
-        'rclpy',
-        'sensor_msgs',
-        'cv_bridge',
-        'ikpy',
-    ],
+    packages=find_packages(),
+    package_dir={'': '.'},  # 让 Python 识别 `utils`
+    install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='Runqian Zhang',
+    maintainer='Runqian zhang',
     maintainer_email='runqianzhang@imzrq.cn',
-    description='A ROS2 package for controlling a robotic arm with YOLO, .',
+    description='ROS 2 package for vision-based robotic arm control',
     license='MIT',
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'camera_node = ros2_vision_arm_control.camera_node:main',
             'arm_control = ros2_vision_arm_control.arm_control:main',
+            'camera_node = ros2_vision_arm_control.camera_node:main',
         ],
     },
 )

@@ -38,7 +38,91 @@ if(NOT DEFINED CMAKE_CROSSCOMPILING)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros2_vision_arm_control" TYPE PROGRAM FILES
+    "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/__init__.py"
+    "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/camera_node.py"
+    "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/arm_control.py"
+    "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/yolo_detector.py"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE DIRECTORY FILES "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/launch")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros2_vision_arm_control" TYPE DIRECTORY FILES "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/utils")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros2_vision_arm_control" TYPE DIRECTORY FILES "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/meshes")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros2_vision_arm_control" TYPE DIRECTORY FILES "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/yolo_weight")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/ros2_vision_arm_control" TYPE DIRECTORY FILES "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/urdf")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ros2_vision_arm_control")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ros2_vision_arm_control")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control/environment" TYPE FILE FILES "/opt/ros/foxy/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control/environment" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control/environment" TYPE FILE FILES "/opt/ros/foxy/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control/environment" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/path.dsv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/local_setup.bash")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/local_setup.sh")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/local_setup.zsh")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/local_setup.dsv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_environment_hooks/package.dsv")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_index/share/ament_index/resource_index/packages/ros2_vision_arm_control")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control/cmake" TYPE FILE FILES
+    "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_core/ros2_vision_arm_controlConfig.cmake"
+    "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ament_cmake_core/ros2_vision_arm_controlConfig-version.cmake"
+    )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ros2_vision_arm_control" TYPE FILE FILES "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
