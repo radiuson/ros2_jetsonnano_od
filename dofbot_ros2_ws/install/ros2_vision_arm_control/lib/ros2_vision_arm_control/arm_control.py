@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import rclpy
 from rclpy.node import Node
 from Arm_Lib import Arm_Device
@@ -6,7 +8,7 @@ import time
 import ikpy.chain
 import os
 import utils
-from ros2_vision_arm_control.utils import ikpy_utils
+from utils import ikpy_utils
 
 class ArmControl(Node):
     def __init__(self,urdf_path):

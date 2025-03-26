@@ -1,18 +1,22 @@
+#!/usr/bin/env python3
+
 import cv2
 import numpy as np
 import torch
-from ros2_vision_arm_control.utils.general import non_max_suppression, scale_coords
-from ros2_vision_arm_control.utils.torch_utils import select_device, load_model
+from models.experimental import attempt_load
+from utils.general import non_max_suppression, scale_coords
+from utils.torch_utils import select_device
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from ros2_vision_arm_control.utils import WEIGHT_PATH,TOPIC_CAMERA_RGB
+from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB
+
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device=''):
         super().__init__('yolo_detector_node')
         self.device = select_device(device)
-        self.model = self.load_model(model_path)
+        self.model = self.load_model(model_path,device=self.device)
         self.bridge = CvBridge()
         self.subscription = self.create_subscription(
             Image,
@@ -22,9 +26,10 @@ class YoloDetector(Node):
         )
         self.get_logger().info("YoloDetector Node Initialized")
 
-    def load_model(self, model_path):
-        model = load_model(model_path, device=self.device).float()  # load to FP32
+    def load_model(self, model_path,device):
+        model = attempt_load(model_path,map_location=device).float()  # load to FP32
         model.eval()
+        self.get_logger().info("Model Loaded")
         return model
 
     def image_callback(self, msg):
@@ -50,14 +55,31 @@ class YoloDetector(Node):
         return pred
 
     def preprocess_image(self, img):
+        # 转换为 RGB
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+        
+        # 确保通道数是3 (RGB)
+        if img.shape[-1] != 3:  # 检查通道数是否为3
+            raise ValueError(f"Expected image with 3 channels, but got {img.shape[-1]} channels.")
+
+        # 保证数据连续性
         img = np.ascontiguousarray(img)
+
+        # 转换为 PyTorch 张量，并移到指定设备
         img = torch.from_numpy(img).to(self.device)
-        img = img.half() if self.device.type != 'cpu' else img.float()  # uint8 to fp16/32
-        img /= 255.0  # 0 - 255 to 0.0 - 1.0
+
+        # 转换为浮点型
+        img = img.float()
+
+        # 标准化：将像素值从 0-255 归一化到 0-1
+        img /= 255.0
+        
+        # 如果图像是三维（H, W, C），增加 batch 维度
         if img.ndimension() == 3:
             img = img.unsqueeze(0)
+    
         return img
+
 
     def postprocess_detections(self, detections, img_shape):
         results = []

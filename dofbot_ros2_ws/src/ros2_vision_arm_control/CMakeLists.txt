@@ -5,6 +5,10 @@ project(ros2_vision_arm_control)
 find_package(ament_cmake REQUIRED)
 find_package(rclpy REQUIRED)
 
+find_package(ament_cmake_python REQUIRED)
+ament_python_install_package("utils")
+ament_python_install_package("models")
+
 # 安装 Python 脚本
 install(
     PROGRAMS
@@ -19,12 +23,6 @@ install(
 install(
     DIRECTORY launch
     DESTINATION share/${PROJECT_NAME}
-)
-
-# 安装 utils 目录（如果需要）
-install(
-    DIRECTORY utils
-    DESTINATION lib/${PROJECT_NAME}
 )
 
 install(

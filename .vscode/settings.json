@@ -1,5 +1,6 @@
 {
     "python.analysis.extraPaths": [
-        "./rclpy_ws/src/rclpy/rclpy"
+        "./rclpy_ws/src/rclpy/rclpy",
+        "./dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages"
     ]
 }

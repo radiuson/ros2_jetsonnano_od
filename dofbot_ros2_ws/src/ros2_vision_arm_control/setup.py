@@ -4,7 +4,7 @@ from setuptools import find_packages
 setup(
     name='ros2_vision_arm_control',
     version='0.0.1',
-    packages=find_packages(),
+    packages=find_packages(where='src'),
     package_dir={'': '.'},  # 让 Python 识别 `utils`
     install_requires=['setuptools'],
     zip_safe=True,
@@ -17,6 +17,7 @@ setup(
         'console_scripts': [
             'arm_control = ros2_vision_arm_control.arm_control:main',
             'camera_node = ros2_vision_arm_control.camera_node:main',
+            'yolo_detector = ros2_vision_arm_control.yolo_detector:main',
         ],
     },
 )
