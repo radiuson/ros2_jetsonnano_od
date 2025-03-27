@@ -8,14 +8,14 @@ from cv_bridge import CvBridge
 import pyrealsense2 as rs
 import numpy as np
 
-from utils import TOPIC_CAMERA_DEPTH, TOPIC_CAMERA_RGB, FRAME_RATE
+from utils import TOPIC_CAMERA_DEPTH, TOPIC_CAMERA_RGB
 
 class CameraNode(Node):
     def __init__(self):
         super().__init__('camera_node')
         self.rgb_publisher = self.create_publisher(Image, TOPIC_CAMERA_RGB, 10)
         self.depth_publisher = self.create_publisher(Image, TOPIC_CAMERA_DEPTH, 10)
-        self.timer = self.create_timer(round(1 / FRAME_RATE, 2), self.timer_callback)
+        self.timer = self.create_timer(0.1, self.timer_callback)
         self.bridge = CvBridge()
 
         # Initialize RealSense pipeline

@@ -1,0 +1,100 @@
+[0.064s] Invoking command in '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake /home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control -DCMAKE_INSTALL_PREFIX=/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control
+[0.931s] -- The C compiler identification is GNU 8.4.0
+[1.420s] -- The CXX compiler identification is GNU 8.4.0
+[1.453s] -- Check for working C compiler: /usr/bin/cc
+[1.750s] -- Check for working C compiler: /usr/bin/cc -- works
+[1.760s] -- Detecting C compiler ABI info
+[2.055s] -- Detecting C compiler ABI info - done
+[2.108s] -- Detecting C compile features
+[2.110s] -- Detecting C compile features - done
+[2.123s] -- Check for working CXX compiler: /usr/bin/c++
+[2.493s] -- Check for working CXX compiler: /usr/bin/c++ -- works
+[2.497s] -- Detecting CXX compiler ABI info
+[2.815s] -- Detecting CXX compiler ABI info - done
+[2.868s] -- Detecting CXX compile features
+[2.871s] -- Detecting CXX compile features - done
+[2.906s] -- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+[3.058s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+[3.059s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[4.560s] -- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+[5.031s] -- Configuring done
+[5.039s] -- Generating done
+[5.045s] -- Build files have been written to: /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control
+[5.059s] Invoked command in '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake /home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control -DCMAKE_INSTALL_PREFIX=/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control
+[5.071s] Invoking command in '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control -- -j4 -l4
+[5.242s] Invoked command in '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --build /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control -- -j4 -l4
+[5.289s] Invoking command in '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --install /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control
+[5.334s] -- Install configuration: ""
+[5.335s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/pythonpath.sh
+[5.336s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/pythonpath.dsv
+[5.337s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils
+[5.337s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/activations.py
+[5.338s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/google_utils.py
+[5.338s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/torch_utils.py
+[5.339s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/general.py
+[5.340s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/ikpy_utils.py
+[5.340s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/datasets.py
+[5.341s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/__init__.py
+[5.600s] Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils'...
+[5.601s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/__init__.py'...
+[5.601s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/activations.py'...
+[5.602s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/datasets.py'...
+[5.602s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/general.py'...
+[5.603s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/google_utils.py'...
+[5.603s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/ikpy_utils.py'...
+[5.604s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/torch_utils.py'...
+[5.627s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models
+[5.628s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/experimental.py
+[5.628s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/common.py
+[5.629s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5s.yaml
+[5.632s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5x.yaml
+[5.642s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5m.yaml
+[5.643s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolo.py
+[5.643s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/__init__.py
+[5.644s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub
+[5.644s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov3-spp.yaml
+[5.645s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov5-fpn.yaml
+[5.645s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov5-panet.yaml
+[5.646s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/export.py
+[5.647s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5l.yaml
+[5.647s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5n.yaml
+[5.863s] Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models'...
+[5.864s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/__init__.py'...
+[5.864s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/common.py'...
+[5.865s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/experimental.py'...
+[5.866s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/export.py'...
+[5.866s] Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub'...
+[5.873s] Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolo.py'...
+[5.888s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/__init__.py
+[5.889s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/camera_node.py
+[5.894s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/arm_control.py
+[5.895s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_detector.py
+[5.895s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/launch
+[5.898s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/launch/vision_arm_launch.py
+[5.899s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes
+[5.899s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link4.STL
+[6.088s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/base_link.STL
+[6.185s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link3.STL
+[6.308s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link2.STL
+[6.449s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link5.STL
+[6.578s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link1.STL
+[6.710s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_weight
+[6.712s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_weight/yolov5n_0214.pt
+[6.758s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/urdf
+[6.759s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/urdf/dofbot.urdf
+[6.761s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/package_run_dependencies/ros2_vision_arm_control
+[6.762s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/parent_prefix_path/ros2_vision_arm_control
+[6.763s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/ament_prefix_path.sh
+[6.763s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/ament_prefix_path.dsv
+[6.764s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/path.sh
+[6.765s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/path.dsv
+[6.766s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.bash
+[6.767s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.sh
+[6.768s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.zsh
+[6.769s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.dsv
+[6.771s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/package.dsv
+[6.771s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/packages/ros2_vision_arm_control
+[6.772s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_controlConfig.cmake
+[6.773s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_controlConfig-version.cmake
+[6.774s] -- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/package.xml
+[6.784s] Invoked command in '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy /usr/bin/cmake --install /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control

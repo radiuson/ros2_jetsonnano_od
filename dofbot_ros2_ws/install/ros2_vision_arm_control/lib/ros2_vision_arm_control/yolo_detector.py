@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-
+import json
 import cv2
 import numpy as np
 import torch
@@ -8,25 +8,33 @@ from utils.general import non_max_suppression, scale_coords
 from utils.torch_utils import select_device
 import rclpy
 from rclpy.node import Node
+from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB
+from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
 
 class YoloDetector(Node):
-    def __init__(self, model_path=WEIGHT_PATH, device=''):
+    def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):
         super().__init__('yolo_detector_node')
         self.device = select_device(device)
         self.model = self.load_model(model_path,device=self.device)
         self.bridge = CvBridge()
+        self.visualization = visualization
         self.subscription = self.create_subscription(
             Image,
             TOPIC_CAMERA_RGB,  
             self.image_callback,
             10
         )
+        self.test_img_path = test_img_path
+        _ = self.model(self.get_test_img())
+        self.get_logger().info("First inference done")
+
+        self.publisher = self.create_publisher(String, 'yolo_detections', 10)
         self.get_logger().info("YoloDetector Node Initialized")
 
     def load_model(self, model_path,device):
+        self.get_logger().info("Start loading weight...")
         model = attempt_load(model_path,map_location=device).float()  # load to FP32
         model.eval()
         self.get_logger().info("Model Loaded")
@@ -37,21 +45,28 @@ class YoloDetector(Node):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             detections = self.detect(cv_image)
-            processed_image = self.draw_detections(cv_image, detections, names=["class1", "class2", "class3"])  # 替换为实际类别
-            
-            # 显示检测结果
-            cv2.imshow("YOLO Detection", processed_image)
-            cv2.waitKey(1)  # 必须调用以刷新窗口
+
+            pred_message = self.format_detections(detections)
+            self.publisher.publish(pred_message)
+            self.get_logger().info(f"Published detections")
+
+            if self.visualization:
+                processed_image = self.draw_detections(cv_image, detections, names=CLASS_NAMES)  # 替换为实际类别
+                # 显示检测结果
+                cv2.imshow("YOLO Detection", processed_image)
+                cv2.waitKey(1)  # 必须调用以刷新窗口
 
             # 可在此处发布处理后的图片或其他操作
         except Exception as e:
             self.get_logger().error(f"Failed to process image: {e}")
 
-    def detect(self, img, conf_threshold=0.25, iou_threshold=0.45):
+    def detect(self, img, conf_threshold=0.3, iou_threshold=0.45):
         img = self.preprocess_image(img)
         with torch.no_grad():
-            pred = self.model(img, augment=False)[0]
+            pred, *_ = self.model(img)
             pred = non_max_suppression(pred, conf_threshold, iou_threshold)
+            self.get_logger().info(f"Detected {len(pred)} objects")
+
         return pred
 
     def preprocess_image(self, img):
@@ -74,6 +89,9 @@ class YoloDetector(Node):
         # 标准化：将像素值从 0-255 归一化到 0-1
         img /= 255.0
         
+        # 调整通道顺序：从 (H, W, C) -> (C, H, W)
+        img = img.permute(2, 0, 1)  # 变成 (3, 480, 640)
+
         # 如果图像是三维（H, W, C），增加 batch 维度
         if img.ndimension() == 3:
             img = img.unsqueeze(0)
@@ -90,16 +108,53 @@ class YoloDetector(Node):
         return results
 
     def draw_detections(self, img, detections, names):
+
+        if detections is None:
+            return img
+        # 定义类别颜色映射（可以根据实际类别调整）
+        colors = {
+            0: (255, 0, 0),   # 类别0 - 红色
+            1: (0, 255, 0),   # 类别1 - 绿色
+            2: (0, 0, 255),   # 类别2 - 蓝色
+            3: (255, 255, 0), # 类别3 - 青色
+            4: (255, 0, 255), # 类别4 - 紫色
+            5: (0, 255, 255)  # 类别5 - 黄色
+        }
+
         for det in detections:
             for *xyxy, conf, cls in reversed(det):
-                label = f'{names[int(cls)]} {conf:.2f}'
-                cv2.rectangle(img, (int(xyxy[0]), int(xyxy[1])), (int(xyxy[2]), int(xyxy[3])), (255, 0, 0), 2)
-                cv2.putText(img, label, (int(xyxy[0]), int(xyxy[1]) - 5), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)
+                cls = int(cls)  # 确保类别索引是整数
+                color = colors.get(cls, (200, 200, 200))  # 如果类别不在字典中，使用灰色
+                
+                label = f'{names[cls]} {conf:.2f}'
+                cv2.rectangle(img, (int(xyxy[0]), int(xyxy[1])), (int(xyxy[2]), int(xyxy[3])), color, 2)
+                cv2.putText(img, label, (int(xyxy[0]), int(xyxy[1]) - 5), 
+                            cv2.FONT_HERSHEY_SIMPLEX, 0.5, color, 2)
         return img
-
+    
+    def format_detections(self, detections):
+        """ 将检测结果转换为 JSON 格式，方便发布到 ROS 话题 """
+        results = []
+        for det in detections:
+            for *xyxy, conf, cls in reversed(det):
+                result = {
+                    "class": CLASS_NAMES[int(cls)],
+                    "confidence": float(conf),
+                    "bbox": [int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])]
+                }
+                results.append(result)
+        
+        json_message = json.dumps(results)
+        ros_message = String()
+        ros_message.data = json_message
+        return ros_message
+    def get_test_img(self):
+        _img = cv2.imread(self.test_img_path)
+        _img = self.preprocess_image(_img)
+        return _img
 def main(args=None):
     rclpy.init(args=args)
-    model_path = WEIGHT_PATH 
+    model_path = WEIGHT_PATH
     node = YoloDetector(model_path)
     try:
         rclpy.spin(node)
@@ -113,3 +168,13 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
+
+    # 测试单张图片
+    # test_img = "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/output0113_mov-0057.jpg"
+    # rclpy.init(args=None)
+    # model_path = WEIGHT_PATH
+    # node = YoloDetector(model_path)
+    # _img = cv2.imread(test_img)
+    # detections = node.detect(_img)
+    # YoloDetector.get_logger(node).info("detected an image")
+    # print("Done")

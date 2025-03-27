@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+from collections import defaultdict
 import json
 import cv2
 import numpy as np
@@ -11,10 +12,10 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
+from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB,VISUALIZATION,CLASS_NAMES
 
 class YoloDetector(Node):
-    def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):
+    def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION):
         super().__init__('yolo_detector_node')
         self.device = select_device(device)
         self.model = self.load_model(model_path,device=self.device)
@@ -26,12 +27,10 @@ class YoloDetector(Node):
             self.image_callback,
             10
         )
-        self.test_img_path = test_img_path
-        _ = self.model(self.get_test_img())
-        self.get_logger().info("First inference done")
-
         self.publisher = self.create_publisher(String, 'yolo_detections', 10)
         self.get_logger().info("YoloDetector Node Initialized")
+        # 颜色字典（用 defaultdict 生成新类别的随机颜色）
+        self.class_colors = defaultdict(lambda: tuple(np.random.randint(0, 256, 3).tolist()))
 
     def load_model(self, model_path,device):
         self.get_logger().info("Start loading weight...")
@@ -108,23 +107,12 @@ class YoloDetector(Node):
         return results
 
     def draw_detections(self, img, detections, names):
-
         if detections is None:
             return img
-        # 定义类别颜色映射（可以根据实际类别调整）
-        colors = {
-            0: (255, 0, 0),   # 类别0 - 红色
-            1: (0, 255, 0),   # 类别1 - 绿色
-            2: (0, 0, 255),   # 类别2 - 蓝色
-            3: (255, 255, 0), # 类别3 - 青色
-            4: (255, 0, 255), # 类别4 - 紫色
-            5: (0, 255, 255)  # 类别5 - 黄色
-        }
-
         for det in detections:
             for *xyxy, conf, cls in reversed(det):
                 cls = int(cls)  # 确保类别索引是整数
-                color = colors.get(cls, (200, 200, 200))  # 如果类别不在字典中，使用灰色
+                color = self.class_colors[cls]  # 获取或生成该类别的颜色
                 
                 label = f'{names[cls]} {conf:.2f}'
                 cv2.rectangle(img, (int(xyxy[0]), int(xyxy[1])), (int(xyxy[2]), int(xyxy[3])), color, 2)
@@ -148,14 +136,11 @@ class YoloDetector(Node):
         ros_message = String()
         ros_message.data = json_message
         return ros_message
-    def get_test_img(self):
-        _img = cv2.imread(self.test_img_path)
-        _img = self.preprocess_image(_img)
-        return _img
+
 def main(args=None):
     rclpy.init(args=args)
     model_path = WEIGHT_PATH
-    node = YoloDetector(model_path)
+    node = YoloDetector(model_path,visualization=VISUALIZATION)
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
