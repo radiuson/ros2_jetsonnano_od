@@ -7,7 +7,6 @@ from std_msgs.msg import String
 import numpy as np
 import time
 import ikpy.chain
-import os
 import utils
 from utils import ikpy_utils
 from utils import ROBOT_STATUS,ROBOT_JOINTS,JOINT_INTERVAL,ARM_CONTROL

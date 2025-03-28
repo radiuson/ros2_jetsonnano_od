@@ -18,7 +18,7 @@ setup(
             'arm_control = ros2_vision_arm_control.arm_control:main',
             'camera_node = ros2_vision_arm_control.camera_node:main',
             'yolo_detector = ros2_vision_arm_control.yolo_detector:main',
-            'test_camera_node = ros2_vision_arm_control.test_camera_node:main',
+            'motion_planner = ros2_vision_arm_control.motion_planner:main',
         ],
     },
 )

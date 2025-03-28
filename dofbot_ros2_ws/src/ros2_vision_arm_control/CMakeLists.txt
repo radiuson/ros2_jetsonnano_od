@@ -16,6 +16,7 @@ install(
     camera_node.py
     arm_control.py
     yolo_detector.py
+    motion_planner.py
     DESTINATION lib/${PROJECT_NAME}
 )
 
