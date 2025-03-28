@@ -11,7 +11,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import WEIGHT_PATH,TOPIC_CAMERA_RGB,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
+from utils import YOLO_DEPTH,YOLO_DETECTION,WEIGHT_PATH,TOPIC_CAMERA_RGB,TOPIC_CAMERA_DEPTH,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
 
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):
@@ -26,11 +26,20 @@ class YoloDetector(Node):
             self.image_callback,
             10
         )
+        
         self.test_img_path = test_img_path
         _ = self.model(self.get_test_img())
         self.get_logger().info("First inference done")
 
-        self.publisher = self.create_publisher(String, 'yolo_detections', 10)
+        self.depth_subscription = self.create_subscription(
+            Image,
+            TOPIC_CAMERA_DEPTH,  
+            self.depth_callback,
+            10
+        )
+        self.depth_publisher = self.create_publisher(Image, YOLO_DEPTH, 10)
+        
+        self.publisher = self.create_publisher(String, YOLO_DETECTION, 10)
         self.get_logger().info("YoloDetector Node Initialized")
 
     def load_model(self, model_path,device):
@@ -68,7 +77,18 @@ class YoloDetector(Node):
             self.get_logger().info(f"Detected {len(pred)} objects")
 
         return pred
+    def depth_callback(self, msg):
+        self.get_logger().info("Received a depth image")
+        try:
+            # 转换 ROS 图像消息到 OpenCV 格式
+            depth_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="passthrough")
+            # **发布深度图**
+            yolo_depth_msg = self.bridge.cv2_to_imgmsg(depth_image, encoding="bgr8")
+            self.depth_publisher.publish(yolo_depth_msg)
 
+        except Exception as e:
+            self.get_logger().error(f"Failed to process depth image: {e}")
+            
     def preprocess_image(self, img):
         # 转换为 RGB
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
