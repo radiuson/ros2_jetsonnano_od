@@ -9,7 +9,7 @@ import time
 import ikpy.chain
 import utils
 from utils import ikpy_utils
-from utils import ROBOT_STATUS,ROBOT_JOINTS,JOINT_INTERVAL,ARM_CONTROL
+from utils import TOPIC_ROBOT_STATUS,TOPIC_ROBOT_TRANSFORM,TOPIC_ARM_CONTROL
 
 class ArmControl(Node):
     def __init__(self,urdf_path):
@@ -25,25 +25,24 @@ class ArmControl(Node):
         }
         self.command_subscription = self.create_subscription(
             String,
-            ARM_CONTROL,
+            TOPIC_ARM_CONTROL,
             self.command_callback,
             10
         )
 
         self.status_msg = String()
         self.joint_msg = String()
-        self.status_publisher = self.create_publisher(String, ROBOT_STATUS, 10)
-        self.joints_publisher = self.create_publisher(String, ROBOT_JOINTS, 10)
-        self.timer = self.create_timer(JOINT_INTERVAL, self.publish_joint_angles)
+        self.status_publisher = self.create_publisher(String, TOPIC_ROBOT_STATUS, 10)
+        # self.transform_publisher = self.create_publisher(String, TOPIC_ROBOT_TRANSFORM, 10)
+        
+        # debug here
+        # self.timer = self.create_timer(1.0, self.transform_callback)
     
     def command_callback(self, msg):
         """ 处理收到的控制指令 """
         try:
             # 解析目标位置，例如 "100, 50, 30, open"
             command = msg.data.split(",")
-            if len(command) != 4:
-                self.get_logger().warn("Invalid command format. Expected: x,y,z,gripper_state")
-                return
             
             target_position = list(map(float, command[:3]))  # 转换为浮点数
             grabber_state = command[3].strip().lower()
@@ -67,12 +66,6 @@ class ArmControl(Node):
         time.sleep(0.002)
         return angle
     
-    def publish_joint_angles(self):
-        """ 持续发布当前关节角度 """
-        joint_angles = self.read_servolines()
-        self.joint_msg.data = ",".join(map(str, joint_angles))  # 角度数据用逗号分隔
-        self.joints_publisher.publish(self.joint_msg)
-        self.get_logger().info(f"Published Joint Angles: {self.joint_msg.data}")
 
     def servo_write(self, angle, s_time=None):
         calculate_time = self.calculate_servotime(angle)
@@ -88,6 +81,28 @@ class ArmControl(Node):
     def calculate_servotime(self, target):
         servotime = np.abs(np.array(self.read_servolines()) - np.array(target))
         return int(max(max(servotime) * self.servo_speed * 5, 500))
+
+    def calculate_chain_transform(self):
+        # 计算机械臂的正向运动学
+        joint_angles = self.read_servolines()
+        converted_joint_angles = ikpy_utils.util_ikpy_d2r(joint_angles)
+        chain_transform = self.chain.forward_kinematics(converted_joint_angles)
+        return chain_transform
+    
+    def transform_to_string(transform_matrix):
+        # 将 4x4 变换矩阵转换为字符串
+        return np.array2string(transform_matrix, separator=',')
+    
+    def transform_callback(self,index=4):
+        # 获取机械臂末端执行器的变换矩阵
+        chain_transform = self.calculate_chain_transform()[index]
+        # 将变换矩阵转换为字符串
+        transform_str = self.transform_to_string(chain_transform)
+        # 发布消息
+        transform_msg = String()
+        transform_msg.data = transform_str
+        self.transform_publisher.publish(transform_msg)
+        self.get_logger().info("Transform matrix published")
 
     def control_arm(self, target_position, grabber_position):
         
@@ -105,8 +120,7 @@ class ArmControl(Node):
 
     def calculate_joint_angles(self, target_position):
         # Perform inverse kinematics calculation using ikpy
-        converted_target_position = ikpy_utils.util_ikpy_convert_coor(target_position)
-        ik_results = self.chain.inverse_kinematics(target_position = converted_target_position,initial_position = None)
+        ik_results = self.chain.inverse_kinematics(target_position = target_position,initial_position = None)
         joint_angles = ikpy_utils.util_ikpy_r2d(ik_results)[:-1]
         print(joint_angles)
         return joint_angles

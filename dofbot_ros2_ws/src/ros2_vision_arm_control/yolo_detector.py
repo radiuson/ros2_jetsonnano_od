@@ -11,7 +11,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import ROBOT_STATUS,YOLO_DEPTH,YOLO_DETECTION,WEIGHT_PATH,TOPIC_CAMERA_RGB,TOPIC_CAMERA_DEPTH,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
+from utils import TOPIC_ROBOT_STATUS,TOPIC_YOLO_DEPTH,TOPIC_YOLO_DETECTION,WEIGHT_PATH,TOPIC_CAMERA_RGB,TOPIC_CAMERA_DEPTH,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
 
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):
@@ -21,7 +21,7 @@ class YoloDetector(Node):
         self.bridge = CvBridge()
         self.visualization = visualization
         self.status_subscription = self.create_subscription(
-            String, ROBOT_STATUS, self.status_callback, 10
+            String, TOPIC_ROBOT_STATUS, self.status_callback, 10
         )
         self.subscription = self.create_subscription(
             Image,
@@ -40,9 +40,9 @@ class YoloDetector(Node):
             self.depth_callback,
             10
         )
-        self.depth_publisher = self.create_publisher(Image, YOLO_DEPTH, 10)
+        self.depth_publisher = self.create_publisher(Image, TOPIC_YOLO_DEPTH, 10)
 
-        self.publisher = self.create_publisher(String, YOLO_DETECTION, 10)
+        self.publisher = self.create_publisher(String, TOPIC_YOLO_DETECTION, 10)
         self.get_logger().info("YoloDetector Node Initialized")
 
     def load_model(self, model_path,device):

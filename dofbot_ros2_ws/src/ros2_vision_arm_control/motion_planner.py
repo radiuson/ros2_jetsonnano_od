@@ -6,7 +6,7 @@ from std_msgs.msg import String
 import numpy as np
 import cv2
 from cv_bridge import CvBridge
-from utils import YOLO_DEPTH, YOLO_DETECTION, ROBOT_STATUS, TOPIC_CAMERA_RGB, TOPIC_CAMERA_DEPTH, FRAME_RATE
+from utils import TOPIC_YOLO_DEPTH, TOPIC_YOLO_DETECTION, TOPIC_ROBOT_STATUS
 
 class MotionPlanner(Node):
     def __init__(self):
@@ -14,9 +14,9 @@ class MotionPlanner(Node):
         self.bridge = CvBridge()
 
         # Subscribers
-        self.create_subscription(String, ROBOT_STATUS, self.arm_state_callback, 10)
-        self.create_subscription(Image, YOLO_DETECTION, self.yolo_callback, 10)
-        self.create_subscription(Image, YOLO_DEPTH, self.depth_callback, 10)
+        self.create_subscription(String, TOPIC_ROBOT_STATUS, self.arm_state_callback, 10)
+        self.create_subscription(Image, TOPIC_YOLO_DETECTION, self.yolo_callback, 10)
+        self.create_subscription(Image, TOPIC_YOLO_DEPTH, self.depth_callback, 10)
         self.create_subscription(CameraInfo, '/camera_info', self.camera_info_callback, 10)
 
         # Variables
