@@ -3,12 +3,14 @@
 import rclpy
 from rclpy.node import Node
 from Arm_Lib import Arm_Device
+from std_msgs.msg import String
 import numpy as np
 import time
 import ikpy.chain
 import os
 import utils
 from utils import ikpy_utils
+from utils import ROBOT_STATUS
 
 class ArmControl(Node):
     def __init__(self,urdf_path):
@@ -22,6 +24,8 @@ class ArmControl(Node):
             'open': 80,
             'close': 160,
         }
+        self.status_msg = String()
+        self.status_publisher = self.create_publisher(String, ROBOT_STATUS, 10)
 
     def read_servolines(self):
         angle = []
@@ -49,9 +53,18 @@ class ArmControl(Node):
         return int(max(max(servotime) * self.servo_speed * 5, 500))
 
     def control_arm(self, target_position, grabber_position):
+        
+        self.status_msg.data = "MOVING"
+        self.status_publisher.publish(self.status_msg)
+        self.get_logger().info("Robot Status: MOVING")
+        
         joint_angles = self.calculate_joint_angles(target_position)
         joint_angles.append(grabber_position)
         self.servo_write(joint_angles)
+
+        self.status_msg.data = "IDLE"
+        self.status_publisher.publish(self.status_msg)
+        self.get_logger().info("Robot Status: IDLE")
 
     def calculate_joint_angles(self, target_position):
         # Perform inverse kinematics calculation using ikpy

@@ -11,7 +11,7 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import YOLO_DEPTH,YOLO_DETECTION,WEIGHT_PATH,TOPIC_CAMERA_RGB,TOPIC_CAMERA_DEPTH,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
+from utils import ROBOT_STATUS,YOLO_DEPTH,YOLO_DETECTION,WEIGHT_PATH,TOPIC_CAMERA_RGB,TOPIC_CAMERA_DEPTH,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
 
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):
@@ -20,6 +20,9 @@ class YoloDetector(Node):
         self.model = self.load_model(model_path,device=self.device)
         self.bridge = CvBridge()
         self.visualization = visualization
+        self.status_subscription = self.create_subscription(
+            String, ROBOT_STATUS, self.status_callback, 10
+        )
         self.subscription = self.create_subscription(
             Image,
             TOPIC_CAMERA_RGB,  
@@ -38,7 +41,7 @@ class YoloDetector(Node):
             10
         )
         self.depth_publisher = self.create_publisher(Image, YOLO_DEPTH, 10)
-        
+
         self.publisher = self.create_publisher(String, YOLO_DETECTION, 10)
         self.get_logger().info("YoloDetector Node Initialized")
 
@@ -48,16 +51,24 @@ class YoloDetector(Node):
         model.eval()
         self.get_logger().info("Model Loaded")
         return model
+    
+    def status_callback(self, msg):
+        """ 监听机器人状态，当机械臂运动时，暂停 YOLO 推理 """
+        self.robot_status = msg.data
+        self.get_logger().info(f"Received Robot Status: {self.robot_status}")
 
     def image_callback(self, msg):
         self.get_logger().info("Received an image")
+        if self.robot_status == "MOVING":
+            self.get_logger().info("Robot is moving, skipping YOLO inference.")
+            return
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             detections = self.detect(cv_image)
 
             pred_message = self.format_detections(detections)
             self.publisher.publish(pred_message)
-            self.get_logger().info(f"Published detections")
+            self.get_logger().info(f"Published YOLO detections")
 
             if self.visualization:
                 processed_image = self.draw_detections(cv_image, detections, names=CLASS_NAMES)  # 替换为实际类别
@@ -66,6 +77,9 @@ class YoloDetector(Node):
                 cv2.waitKey(1)  # 必须调用以刷新窗口
 
             # 可在此处发布处理后的图片或其他操作
+            if self.latest_depth_image is not None:
+                self.depth_publisher.publish(self.latest_depth_image)
+                self.get_logger().info("Published corresponding depth image.")
         except Exception as e:
             self.get_logger().error(f"Failed to process image: {e}")
 
@@ -77,18 +91,9 @@ class YoloDetector(Node):
             self.get_logger().info(f"Detected {len(pred)} objects")
 
         return pred
+    
     def depth_callback(self, msg):
-        self.get_logger().info("Received a depth image")
-        try:
-            # 转换 ROS 图像消息到 OpenCV 格式
-            depth_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding="passthrough")
-            # **发布深度图**
-            yolo_depth_msg = self.bridge.cv2_to_imgmsg(depth_image, encoding="bgr8")
-            self.depth_publisher.publish(yolo_depth_msg)
-
-        except Exception as e:
-            self.get_logger().error(f"Failed to process depth image: {e}")
-            
+        self.latest_depth_image = msg
     def preprocess_image(self, img):
         # 转换为 RGB
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)

@@ -6,6 +6,7 @@ TOPIC_CAMERA_RGB = "/camera/rgb_image"
 TOPIC_CAMERA_DEPTH = "/camera/depth_image"
 YOLO_DETECTION = "/yolo_detection"
 YOLO_DEPTH = "/yolo_depth"
+ROBOT_STATUS = "/robot_status"
 TEST_IMG_PATH = "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control/output0113_mov-0057.jpg"
 VISUALIZATION = False
 FRAME_RATE = 4
