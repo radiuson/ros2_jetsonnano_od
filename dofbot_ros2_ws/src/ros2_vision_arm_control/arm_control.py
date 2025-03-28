@@ -10,7 +10,7 @@ import ikpy.chain
 import os
 import utils
 from utils import ikpy_utils
-from utils import ROBOT_STATUS
+from utils import ROBOT_STATUS,ROBOT_JOINTS,JOINT_INTERVAL,ARM_CONTROL
 
 class ArmControl(Node):
     def __init__(self,urdf_path):
@@ -24,9 +24,40 @@ class ArmControl(Node):
             'open': 80,
             'close': 160,
         }
-        self.status_msg = String()
-        self.status_publisher = self.create_publisher(String, ROBOT_STATUS, 10)
+        self.command_subscription = self.create_subscription(
+            String,
+            ARM_CONTROL,
+            self.command_callback,
+            10
+        )
 
+        self.status_msg = String()
+        self.joint_msg = String()
+        self.status_publisher = self.create_publisher(String, ROBOT_STATUS, 10)
+        self.joints_publisher = self.create_publisher(String, ROBOT_JOINTS, 10)
+        self.timer = self.create_timer(JOINT_INTERVAL, self.publish_joint_angles)
+    
+    def command_callback(self, msg):
+        """ 处理收到的控制指令 """
+        try:
+            # 解析目标位置，例如 "100, 50, 30, open"
+            command = msg.data.split(",")
+            if len(command) != 4:
+                self.get_logger().warn("Invalid command format. Expected: x,y,z,gripper_state")
+                return
+            
+            target_position = list(map(float, command[:3]))  # 转换为浮点数
+            grabber_state = command[3].strip().lower()
+            grabber_position = self.grabber_positions.get(grabber_state, 80)  # 默认打开状态
+            
+            self.get_logger().info(f"Received command: {target_position}, Grabber: {grabber_state}")
+            
+            # 控制机械臂
+            self.control_arm(target_position, grabber_position)
+
+        except Exception as e:
+            self.get_logger().error(f"Failed to process command: {e}")
+    
     def read_servolines(self):
         angle = []
         time.sleep(0.02)
@@ -36,6 +67,13 @@ class ArmControl(Node):
             time.sleep(0.002)
         time.sleep(0.002)
         return angle
+    
+    def publish_joint_angles(self):
+        """ 持续发布当前关节角度 """
+        joint_angles = self.read_servolines()
+        self.joint_msg.data = ",".join(map(str, joint_angles))  # 角度数据用逗号分隔
+        self.joints_publisher.publish(self.joint_msg)
+        self.get_logger().info(f"Published Joint Angles: {self.joint_msg.data}")
 
     def servo_write(self, angle, s_time=None):
         calculate_time = self.calculate_servotime(angle)
