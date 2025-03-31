@@ -11,7 +11,16 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-from utils import TOPIC_ROBOT_STATUS,TOPIC_YOLO_DEPTH,TOPIC_YOLO_DETECTION,WEIGHT_PATH,TOPIC_CAMERA_RGB,TOPIC_CAMERA_DEPTH,VISUALIZATION,CLASS_NAMES,TEST_IMG_PATH
+from utils import (TOPIC_ROBOT_STATUS,
+                   TOPIC_YOLO_DEPTH,
+                   TOPIC_YOLO_DETECTION,
+                   WEIGHT_PATH,
+                   TOPIC_CAMERA_RGB,
+                   TOPIC_CAMERA_DEPTH,
+                   VISUALIZATION,
+                   CLASS_NAMES,
+                   TEST_IMG_PATH
+                   )
 
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):

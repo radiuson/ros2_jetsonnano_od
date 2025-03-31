@@ -6,7 +6,12 @@ from std_msgs.msg import String
 import numpy as np
 import cv2
 from cv_bridge import CvBridge
-from utils import TOPIC_YOLO_DEPTH, TOPIC_YOLO_DETECTION, TOPIC_ROBOT_STATUS
+from utils import (TOPIC_YOLO_DEPTH,
+                   TOPIC_YOLO_DETECTION,
+                   TOPIC_ROBOT_STATUS,
+                   TOPIC_ROBOT_TRANSFORM,
+                   MOUNT_TO_CAMERA_OFFSET,
+                   )
 
 class MotionPlanner(Node):
     def __init__(self):
@@ -15,6 +20,7 @@ class MotionPlanner(Node):
 
         # Subscribers
         self.create_subscription(String, TOPIC_ROBOT_STATUS, self.arm_state_callback, 10)
+        self.create_subscription(String, TOPIC_ROBOT_TRANSFORM,self.camera_mount_transform_callback, 10)
         self.create_subscription(Image, TOPIC_YOLO_DETECTION, self.yolo_callback, 10)
         self.create_subscription(Image, TOPIC_YOLO_DEPTH, self.depth_callback, 10)
         self.create_subscription(CameraInfo, '/camera_info', self.camera_info_callback, 10)
@@ -31,6 +37,16 @@ class MotionPlanner(Node):
         # Process arm state
         self.arm_state = msg.data
         self.get_logger().info(f"Received arm state: {self.arm_state}")
+
+    def camera_mount_transform_callback(self, msg):
+        # Process robot transform
+        self.mount_transform = msg.data
+        # Perform hand-eye calibration
+        camera_transform = self.perform_hand_eye_calibration(MOUNT_TO_CAMERA_OFFSET)
+        self.get_logger().info(f"Camera transform: {camera_transform}")
+        camera_
+        
+
 
     def yolo_callback(self, msg):
         # Process YOLO results
@@ -54,7 +70,7 @@ class MotionPlanner(Node):
     def perform_hand_eye_calibration(self):
         # Perform hand-eye calibration
         # This should compute the transformation matrix between the camera and the robot arm
-        self.hand_eye_matrix = np.eye(4)  # Placeholder for actual calibration
+        return np.dot(self.mount_transform, MOUNT_TO_CAMERA_OFFSET)
 
     def locate_object(self):
         if self.yolo_results is None or self.depth_image is None or self.camera_matrix is None:

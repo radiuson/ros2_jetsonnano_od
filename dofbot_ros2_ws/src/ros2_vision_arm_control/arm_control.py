@@ -9,7 +9,12 @@ import time
 import ikpy.chain
 import utils
 from utils import ikpy_utils
-from utils import TOPIC_ROBOT_STATUS,TOPIC_ROBOT_TRANSFORM,TOPIC_ARM_CONTROL
+from utils import (URDF_PATH,
+                   CAMERA_MOUNT_INDEX,
+                   TOPIC_ROBOT_STATUS,
+                   TOPIC_ROBOT_TRANSFORM,
+                   TOPIC_ARM_CONTROL
+                   )
 
 class ArmControl(Node):
     def __init__(self,urdf_path):
@@ -33,10 +38,10 @@ class ArmControl(Node):
         self.status_msg = String()
         self.joint_msg = String()
         self.status_publisher = self.create_publisher(String, TOPIC_ROBOT_STATUS, 10)
-        # self.transform_publisher = self.create_publisher(String, TOPIC_ROBOT_TRANSFORM, 10)
+        self.transform_publisher = self.create_publisher(String, TOPIC_ROBOT_TRANSFORM, 10)
         
-        # debug here
-        # self.timer = self.create_timer(1.0, self.transform_callback)
+        
+        self.timer = self.create_timer(1.0, self.transform_callback)
     
     def command_callback(self, msg):
         """ 处理收到的控制指令 """
@@ -82,20 +87,25 @@ class ArmControl(Node):
         servotime = np.abs(np.array(self.read_servolines()) - np.array(target))
         return int(max(max(servotime) * self.servo_speed * 5, 500))
 
-    def calculate_chain_transform(self):
+    # 按照索引返回关节位置
+    def calculate_chain_transform(self,index=CAMERA_MOUNT_INDEX):
         # 计算机械臂的正向运动学
         joint_angles = self.read_servolines()
         converted_joint_angles = ikpy_utils.util_ikpy_d2r(joint_angles)
-        chain_transform = self.chain.forward_kinematics(converted_joint_angles)
-        return chain_transform
+        chain_transform = self.chain.forward_kinematics(converted_joint_angles,full_kinematics=True)
+        if index:
+            return chain_transform[index]
+        else:
+            return chain_transform
     
-    def transform_to_string(transform_matrix):
+    def transform_to_string(self,transform_matrix):
         # 将 4x4 变换矩阵转换为字符串
-        return np.array2string(transform_matrix, separator=',')
+        return np.array2string(np.array(transform_matrix), separator=',')
     
-    def transform_callback(self,index=4):
+    
+    def transform_callback(self):
         # 获取机械臂末端执行器的变换矩阵
-        chain_transform = self.calculate_chain_transform()[index]
+        chain_transform = self.calculate_chain_transform()
         # 将变换矩阵转换为字符串
         transform_str = self.transform_to_string(chain_transform)
         # 发布消息
@@ -127,10 +137,15 @@ class ArmControl(Node):
 
 def main(args=None): 
     rclpy.init(args=args)
-    arm_control = ArmControl(utils.URDF_PATH)
+    arm_control = ArmControl(URDF_PATH)
     rclpy.spin(arm_control)
     arm_control.destroy_node()
     rclpy.shutdown()
 
 if __name__ == '__main__':
     main()
+    # rclpy.init(args=None)
+    # arm_control = ArmControl(utils.URDF_PATH)
+    # test = arm_control.calculate_chain_transform()
+    # print(test)
+    # print(arm_control.transform_to_string(test))
