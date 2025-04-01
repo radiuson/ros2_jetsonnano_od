@@ -3,7 +3,7 @@
 import rclpy
 from rclpy.node import Node
 from Arm_Lib import Arm_Device
-from std_msgs.msg import String
+from std_msgs.msg import String, Float32MultiArray
 import numpy as np
 import time
 import ikpy.chain
@@ -34,12 +34,11 @@ class ArmControl(Node):
             self.command_callback,
             10
         )
-
+        self.transform_msg = Float32MultiArray()
         self.status_msg = String()
         self.joint_msg = String()
         self.status_publisher = self.create_publisher(String, TOPIC_ROBOT_STATUS, 10)
-        self.transform_publisher = self.create_publisher(String, TOPIC_ROBOT_TRANSFORM, 10)
-        
+        self.transform_publisher = self.create_publisher(Float32MultiArray, TOPIC_ROBOT_TRANSFORM, 10)
         
         self.timer = self.create_timer(1.0, self.transform_callback)
     
@@ -94,24 +93,18 @@ class ArmControl(Node):
         converted_joint_angles = ikpy_utils.util_ikpy_d2r(joint_angles)
         chain_transform = self.chain.forward_kinematics(converted_joint_angles,full_kinematics=True)
         if index:
-            return chain_transform[index]
+            return np.array(chain_transform[index], dtype=np.float32).ravel().tolist()
         else:
             return chain_transform
     
-    def transform_to_string(self,transform_matrix):
-        # 将 4x4 变换矩阵转换为字符串
-        return np.array2string(np.array(transform_matrix), separator=',')
+
     
     
     def transform_callback(self):
         # 获取机械臂末端执行器的变换矩阵
-        chain_transform = self.calculate_chain_transform()
-        # 将变换矩阵转换为字符串
-        transform_str = self.transform_to_string(chain_transform)
         # 发布消息
-        transform_msg = String()
-        transform_msg.data = transform_str
-        self.transform_publisher.publish(transform_msg)
+        self.transform_msg.data = self.calculate_chain_transform()
+        self.transform_publisher.publish(self.transform_msg)
         self.get_logger().info("Transform matrix published")
 
     def control_arm(self, target_position, grabber_position):

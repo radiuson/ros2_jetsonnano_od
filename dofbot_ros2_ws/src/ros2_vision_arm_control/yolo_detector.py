@@ -29,6 +29,9 @@ class YoloDetector(Node):
         self.model = self.load_model(model_path,device=self.device)
         self.bridge = CvBridge()
         self.visualization = visualization
+        self.robot_status = 'IDLE'
+        self.inferencing = False
+
         self.status_subscription = self.create_subscription(
             String, TOPIC_ROBOT_STATUS, self.status_callback, 10
         )
@@ -39,9 +42,9 @@ class YoloDetector(Node):
             10
         )
         
-        self.test_img_path = test_img_path
-        _ = self.model(self.get_test_img())
-        self.get_logger().info("First inference done")
+        # self.test_img_path = test_img_path
+        # _ = self.model(self.get_test_img())
+        # self.get_logger().info("First inference done")
 
         self.depth_subscription = self.create_subscription(
             Image,
@@ -67,10 +70,12 @@ class YoloDetector(Node):
         self.get_logger().info(f"Received Robot Status: {self.robot_status}")
 
     def image_callback(self, msg):
+        self.inferencing = True
         self.get_logger().info("Received an image")
+        
         if self.robot_status == "MOVING":
             self.get_logger().info("Robot is moving, skipping YOLO inference.")
-            return
+            return 
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             detections = self.detect(cv_image)
@@ -89,19 +94,23 @@ class YoloDetector(Node):
             if self.latest_depth_image is not None:
                 self.depth_publisher.publish(self.latest_depth_image)
                 self.get_logger().info("Published corresponding depth image.")
+            self.inferencing = False
         except Exception as e:
             self.get_logger().error(f"Failed to process image: {e}")
+            self.inferencing = False
 
     def detect(self, img, conf_threshold=0.3, iou_threshold=0.45):
         img = self.preprocess_image(img)
         with torch.no_grad():
             pred, *_ = self.model(img)
             pred = non_max_suppression(pred, conf_threshold, iou_threshold)
-            self.get_logger().info(f"Detected {len(pred)} objects")
+            self.get_logger().info(f"Detected {len(pred[0])} objects")
 
         return pred
     
     def depth_callback(self, msg):
+        if self.inferencing:
+            return
         self.latest_depth_image = msg
     def preprocess_image(self, img):
         # 转换为 RGB
@@ -173,7 +182,7 @@ class YoloDetector(Node):
             for *xyxy, conf, cls in reversed(det):
                 result = {
                     "class": CLASS_NAMES[int(cls)],
-                    "confidence": float(conf),
+                    "confidence": float(f"{conf:.2f}"),
                     "bbox": [int(xyxy[0]), int(xyxy[1]), int(xyxy[2]), int(xyxy[3])]
                 }
                 results.append(result)
@@ -182,6 +191,7 @@ class YoloDetector(Node):
         ros_message = String()
         ros_message.data = json_message
         return ros_message
+        
     def get_test_img(self):
         _img = cv2.imread(self.test_img_path)
         _img = self.preprocess_image(_img)
