@@ -7,12 +7,14 @@ from sensor_msgs.msg import Image, CameraInfo
 from cv_bridge import CvBridge
 import pyrealsense2 as rs
 import numpy as np
+from std_srvs.srv import Trigger
 
 from utils import (TOPIC_CAMERA_DEPTH,
                    TOPIC_CAMERA_RGB,
                    FRAME_RATE,TOPIC_CAMERA_INFO,
                    CAMERA_WIDTH,
-                   CAMERA_HEIGHT
+                   CAMERA_HEIGHT,
+                   TRIGGER_CAMERA_INFO
                    )
 
 class CameraNode(Node):
@@ -23,6 +25,7 @@ class CameraNode(Node):
         self.intrinics_publisher = self.create_publisher(CameraInfo, TOPIC_CAMERA_INFO, 10)
         self.timer = self.create_timer(round(1 / FRAME_RATE, 2), self.timer_callback)
         self.bridge = CvBridge()
+        self.srv = self.create_service(Trigger, TRIGGER_CAMERA_INFO, self.generate_camera_info)
 
         # Initialize RealSense pipeline
         self.pipeline = rs.pipeline()
@@ -33,10 +36,9 @@ class CameraNode(Node):
         self.pipeline.start(config)
         self.align_to = rs.stream.color
         self.align = rs.align(self.align_to)
-        self.camera_info_msg = self.generate_camera_info()
         
 
-    def generate_camera_info(self):
+    def generate_camera_info(self,request,response):
         # 获取深度相机的内参
         depth_intrinsics = self.pipeline.get_active_profile().get_stream(rs.stream.depth).as_video_stream_profile().intrinsics
 
@@ -51,21 +53,23 @@ class CameraNode(Node):
             float(depth_intrinsics.fx), 0.0, float(depth_intrinsics.ppx),
             0.0, float(depth_intrinsics.fy), float(depth_intrinsics.ppy),
             0.0, 0.0, 1.0
-]
+        ]
 
         # 畸变系数 D，深度相机通常有 5 个畸变系数
         camera_info_msg.d = [
-            depth_intrinsics.coeffs[0], depth_intrinsics.coeffs[1], 
-            depth_intrinsics.coeffs[2], depth_intrinsics.coeffs[3], 
+            depth_intrinsics.coeffs[0], depth_intrinsics.coeffs[1],
+            depth_intrinsics.coeffs[2], depth_intrinsics.coeffs[3],
             depth_intrinsics.coeffs[4]
         ]
         
         # 旋转矩阵 R（通常是单位矩阵）
-        camera_info_msg.r = [1.0, 0.0, 0.0,
-                             0.0, 1.0, 0.0,
-                             0.0, 0.0, 1.0]
+        camera_info_msg.r = [
+            1.0, 0.0, 0.0,
+            0.0, 1.0, 0.0,
+            0.0, 0.0, 1.0
+        ]
         
-        # 投影矩阵 P，通常深度图和 RGB 图像相同
+        # 投影矩阵 P
         camera_info_msg.p = [
             depth_intrinsics.fx, 0.0, depth_intrinsics.ppx, 0.0,
             0.0, depth_intrinsics.fy, depth_intrinsics.ppy, 0.0,
@@ -74,8 +78,15 @@ class CameraNode(Node):
 
         # 发布相机内参
         self.intrinics_publisher.publish(camera_info_msg)
-        self.get_logger().info("Camera info Generated")
-        return camera_info_msg
+        self.get_logger().info("Camera info Generated and Published")
+
+        # 设置 Trigger 响应
+        response.success = True
+        response.message = 'Camera info generated and published'
+
+        return response
+
+    
     def timer_callback(self):
         frames = self.pipeline.wait_for_frames()
         aligned_frames = self.align.process(frames)
@@ -97,7 +108,6 @@ class CameraNode(Node):
         # Publish the images
         self.rgb_publisher.publish(color_image)
         self.depth_publisher.publish(depth_image)
-        self.intrinics_publisher.publish(self.camera_info_msg)
         self.get_logger().info("Published image and intrinics successfully.")
 
     def destroy_node(self):

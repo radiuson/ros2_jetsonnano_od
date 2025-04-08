@@ -45,7 +45,8 @@ class ArmControl(Node):
     def command_callback(self, msg):
         """ 处理收到的控制指令 """
         try:
-            # 解析目标位置，例如 "100, 50, 30, open"
+            # 解析目标位置，例如 "0.2,0.2,0.2, open"
+            # ros2 topic pub /arm_control std_msgs/msg/String "data: '0.2,0.2,0.2, open'"
             command = msg.data.split(",")
             
             target_position = list(map(float, command[:3]))  # 转换为浮点数
