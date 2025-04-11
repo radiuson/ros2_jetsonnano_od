@@ -13,7 +13,8 @@ from utils import (URDF_PATH,
                    CAMERA_MOUNT_INDEX,
                    TOPIC_ROBOT_STATUS,
                    TOPIC_ROBOT_TRANSFORM,
-                   TOPIC_ARM_CONTROL
+                   TOPIC_ARM_CONTROL,
+                   INITIAL_POSITION,
                    )
 
 class ArmControl(Node):
@@ -41,12 +42,16 @@ class ArmControl(Node):
         self.transform_publisher = self.create_publisher(Float32MultiArray, TOPIC_ROBOT_TRANSFORM, 10)
         
         self.timer = self.create_timer(1.0, self.transform_callback)
-    
+
+        self.status_msg.data = "IDLE"
+        self.status_publisher.publish(self.status_msg)
+        self.get_logger().info("Robot Status: IDLE")
+
     def command_callback(self, msg):
         """ 处理收到的控制指令 """
         try:
             # 解析目标位置，例如 "0.2,0.2,0.2, open"
-            # ros2 topic pub /arm_control std_msgs/msg/String "data: '0.2,0.2,0.2, open'"
+            # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.1,0,0.23, open'"
             command = msg.data.split(",")
             
             target_position = list(map(float, command[:3]))  # 转换为浮点数
@@ -114,7 +119,9 @@ class ArmControl(Node):
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Robot Status: MOVING")
         
-        joint_angles = self.calculate_joint_angles(target_position)
+        joint_angles,ik_results = self.calculate_joint_angles(target_position)
+        error = self.calculate_error(ik_results,target_position)
+        self.get_logger().info(f"ik error: {error}")
         joint_angles.append(grabber_position)
         self.servo_write(joint_angles)
 
@@ -124,10 +131,16 @@ class ArmControl(Node):
 
     def calculate_joint_angles(self, target_position):
         # Perform inverse kinematics calculation using ikpy
-        ik_results = self.chain.inverse_kinematics(target_position = target_position,initial_position = None)
+        ik_results = self.chain.inverse_kinematics(target_position = target_position,
+                                                   initial_position = INITIAL_POSITION)
         joint_angles = ikpy_utils.util_ikpy_r2d(ik_results)[:-1]
         print(joint_angles)
-        return joint_angles
+        return joint_angles,ik_results
+    def calculate_error(self,ik_results,target_position):
+        chain_transform = self.chain.forward_kinematics(ik_results,full_kinematics=True)
+        chain_coor = chain_transform[:3,3]
+        error = np.linalg.norm(chain_coor - target_position)
+        return error
 
 def main(args=None): 
     rclpy.init(args=args)

@@ -9,47 +9,58 @@ from cv_bridge import CvBridge
 import json
 import pyrealsense2 as rs
 from std_srvs.srv import Trigger
+import time
 from utils import (TOPIC_YOLO_DEPTH,
                    TOPIC_YOLO_DETECTION,
+                   TOPIC_ARM_CONTROL,
                    TOPIC_ROBOT_STATUS,
                    TOPIC_ROBOT_TRANSFORM,
                    MOUNT_TO_CAMERA_OFFSET,
                    TOPIC_CAMERA_INFO,
                    DISTORTION_MAPPING,
                    TRIGGER_CAMERA_INFO,
+                   TRIGGER_YOLO_DEPTH,
+                   DEPTH_IMAGE_SCALE,
+                   ARM_COMPEN,
                    )
 
 class MotionPlanner(Node):
     def __init__(self):
         super().__init__('motion_planner')
         self.bridge = CvBridge()
-
-        # Subscribers
-        self.create_subscription(String, TOPIC_ROBOT_STATUS, self.arm_state_callback, 10)
-        self.create_subscription(Float32MultiArray, TOPIC_ROBOT_TRANSFORM,self.camera_mount_transform_callback, 10)
-        self.create_subscription(String, TOPIC_YOLO_DETECTION, self.yolo_callback, 10)
-        self.create_subscription(Image, TOPIC_YOLO_DEPTH, self.depth_callback, 10)
+        self.depth_intrinsics = None
+        self.depth_image = None
+        self.compen = ARM_COMPEN
+        self.arm_state = 'IDLE'
         self.create_subscription(CameraInfo, TOPIC_CAMERA_INFO, self.camera_info_callback, 10)
         
         # Clients
-        self.cli = self.create_client(Trigger, TRIGGER_CAMERA_INFO)
-
+        self.trigger_camera_info_client = self.create_client(Trigger, TRIGGER_CAMERA_INFO)
+        self.depth_image_client = self.create_client(Trigger,TRIGGER_YOLO_DEPTH)
         # Get camera info
-        while not self.cli.wait_for_service(timeout_sec=1.0):
+        while not self.trigger_camera_info_client.wait_for_service(timeout_sec=1.0):
             self.get_logger().info('Service trigger camera info not ready')
         
         self.get_logger().info('Service trigger camera info ready')
+
+
         self.send_camera_info_request()
-
-
+        # Subscribers
+        self.create_subscription(String, TOPIC_ROBOT_STATUS, self.arm_state_callback, 2)
+        self.create_subscription(Float32MultiArray, TOPIC_ROBOT_TRANSFORM,self.camera_mount_transform_callback, 2)
+        self.create_subscription(String, TOPIC_YOLO_DETECTION, self.yolo_callback, 2)
+        self.create_subscription(Image, TOPIC_YOLO_DEPTH, self.depth_callback, 2)
+        self.command_publisher = self.create_publisher(
+                String,
+                TOPIC_ARM_CONTROL,
+                10
+            )
+        init_position = [-0.05,0,0.20]
+        init_x,init_y,init_z = init_position
+        self.arm_control_msg = String()
+        self.arm_control_msg.data = f"{init_x},{init_y},{init_z},open"
+        self.command_publisher.publish(self.arm_control_msg)
         # Variables
-        self.camera_transform = None
-        self.arm_state = None
-        self.camera_matrix = None
-        self.dist_coeffs = None
-        self.depth_image = None
-        self.yolo_results = None
-        self.hand_eye_matrix = None  # Hand-eye calibration matrix
         self.get_logger().info(f"Node Initialized: {self.get_name()}")
 
     def send_camera_info_request(self):
@@ -57,10 +68,10 @@ class MotionPlanner(Node):
         req = Trigger.Request()
         
         # 异步发送请求
-        future = self.cli.call_async(req)
+        future = self.trigger_camera_info_client.call_async(req)
         
         # 注册回调
-        future.add_done_callback(self.callback)
+        future.add_done_callback(self.trigger_callback)
 
     def trigger_callback(self, future):
         try:
@@ -84,24 +95,90 @@ class MotionPlanner(Node):
         self.camera_transform = self.perform_hand_eye_calibration(mount_to_camera=MOUNT_TO_CAMERA_OFFSET)
         self.camera_coords = self.camera_transform[:3,3]
         self.camera_rotation = self.camera_transform[:3,:3]
-        self.get_logger().info(f"Camera coords: {self.camera_coords}")
-        
+        # self.get_logger().info(f"Rotation: {self.camera_rotation}")
 
+        # self.get_logger().info(f"Camera coords: {self.camera_coords}")
+        
     def yolo_callback(self, msg):
         # Process YOLO results
         self.yolo_results = self.decode_yolo_results(msg.data)
-        print(self.yolo_results)
-        tomatoes = self.yolo_results['tomato']
-        next_tomato = tomatoes[-1]
-        tomato_coor_cam = rs.rs2_deproject_pixel_to_point(self.depth_intrinsics, next_tomato['center'], self.depth_image)
-        # 如果是由绿色机械臂发布
-        tomato_coor_world = tomato_coor_cam @ self.camera_rotation + self.camera_coords
-        print(tomato_coor_world)
+        target_class = 'tomato'
+        try:
+            tomatoes = self.yolo_results[target_class]
+            next_tomato = tomatoes[-1]
+            if self.depth_intrinsics is not None and self.depth_image is not None:
+                tomato_coor_cam = self.pixel_to_camera_coords(next_tomato['center'][0],next_tomato['center'][1])
+                self.get_logger().info(f"In camera_coor is {tomato_coor_cam}")
+                # 如果是由绿色机械臂发布
+                tomato_coor_world = self.camera_rotation @ tomato_coor_cam + self.camera_coords 
+                self.get_logger().info(f"Tomato coor is {tomato_coor_world}")
+                if self.compen:
+                    tomato_coor_world = self.compensator(tomato_coor_world)
+                self.grab_tomato(init_position=[-0.05,0,0.20],tomato_position=tomato_coor_world,drop_position=[0,0.05,0.25])
+                # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.2820361, 0.04377077,0.25786347, open'"
+            else:
+                self.get_logger().info(f"Waiting for depth intrinsics and image")
+        except (KeyError,ValueError) as e:
+            if isinstance(e, KeyError):
+                    self.get_logger().info(f"No {target_class} detected (KeyError)")
+            elif isinstance(e, ValueError):
+                self.get_logger().info(f"No valid depth for {target_class} ")
+    def grab_tomato(self,init_position,tomato_position,drop_position):
+        # 格式化目标坐标
+        target_x = tomato_position[0]
+        target_y = tomato_position[1]
+        target_z = tomato_position[2]
+        
+        drop_x = drop_position[0]
+        drop_y = drop_position[1]
+        drop_z = drop_position[2]
 
-    def depth_callback(self, msg):
+        init_x = init_position[0]
+        init_y = init_position[1]
+        init_z = init_position[2]
+
+        self.wait_for_idle()
+
+        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, open"
+        self.command_publisher.publish(self.arm_control_msg)
+        self.wait_for_idle()
+
+        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, close"
+        self.command_publisher.publish(self.arm_control_msg)
+        self.wait_for_idle()
+
+        self.arm_control_msg.data = f"{drop_x},{drop_y},{drop_z}, close"
+        self.command_publisher.publish(self.arm_control_msg)
+        self.wait_for_idle()
+
+        self.arm_control_msg.data = f"{drop_x},{drop_y},{drop_z}, open"
+        self.command_publisher.publish(self.arm_control_msg)
+        self.wait_for_idle()
+
+        self.arm_control_msg.data = f"{init_x},{init_y},{init_z}, open"
+        self.command_publisher.publish(self.arm_control_msg)
+        self.wait_for_idle()
+
+    def wait_for_idle(self):
+        time.sleep(0.1)
+
+        while self.arm_state == 'MOVING':
+            self.get_logger().info(f"Waiting for idle")
+            time.sleep(0.1)
+    
+        self.get_logger().info("Arm is IDLE, ready to move.")
+
+
+    def depth_callback(self, msg, scale=DEPTH_IMAGE_SCALE):
         # Process depth image
-        self.depth_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough')
-
+        self.depth_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough') / scale
+    
+    def compensator(self,P_world):
+        z = P_world[2]
+        z = z + 0.03 * (np.abs(P_world[1])+np.abs(P_world[0])) + (0.45 - z)*0.02
+        P_world[2] = z
+        return np.array(P_world)
+    
     def camera_info_callback(self, msg):
         # Process camera intrinsic parameters
         self.camera_matrix = np.array(msg.k).reshape(3, 3)
@@ -114,7 +191,7 @@ class MotionPlanner(Node):
         w = msg.width
         h = msg.height
         
-        # 创建对应的深度相机内参对象（假设使用 RealSense API）
+        # 创建对应的深度相机内参对象
         self.depth_intrinsics = rs.pyrealsense2.intrinsics()
         self.depth_intrinsics.height = h
         self.depth_intrinsics.width = w 
@@ -161,8 +238,9 @@ class MotionPlanner(Node):
 
     def perform_hand_eye_calibration(self,mount_to_camera):
         # Perform hand-eye calibration
+        # self.get_logger().info(f"mount_transform:{self.mount_transform}")
         # This should compute the transformation matrix between the camera and the robot arm
-        return np.dot(self.mount_transform, mount_to_camera)
+        return self.mount_transform @ mount_to_camera
 
     def locate_object(self):
         if self.yolo_results is None or self.depth_image is None or self.camera_matrix is None:
@@ -182,12 +260,17 @@ class MotionPlanner(Node):
             self.get_logger().info(f"Object located at: {world_coords}")
             return world_coords
 
-    def pixel_to_camera_coords(self, pixel_x, pixel_y, depth):
-        # Convert pixel coordinates to camera coordinates using intrinsic parameters
-        x = (pixel_x - self.camera_matrix[0, 2]) * depth / self.camera_matrix[0, 0]
-        self.get_logger().warning("Hand-eye calibration not performed")
-        z = depth
-        return np.array([x, y, z])
+    def pixel_to_camera_coords(self, pixel_x, pixel_y):
+        depth = self.depth_image[pixel_y,pixel_x]
+        try:
+            if depth <0.01:
+                raise ValueError(f"Invalid depth at pixel ({pixel_x}, {pixel_y}): {depth}")
+            x,y,z = rs.rs2_deproject_pixel_to_point(self.depth_intrinsics, [pixel_x,pixel_y], depth)
+            # self.get_logger().info(f"x:{x},y:{y},z:{z}")
+            return np.array([x, y, z])
+        except ValueError as e:
+            self.get_logger().error(f"Not in the range: {e}")
+            return None
 
     def camera_to_world_coords(self, camera_coords):
         # Convert camera coordinates to world coordinates using hand-eye calibration
@@ -205,7 +288,30 @@ def main(args=None):
     motion_planner.destroy_node()
     rclpy.shutdown()
 
+
+def rotation_matrix_to_euler_xyz(R):
+    """
+    将旋转矩阵R转换为欧拉角（XYZ顺序，单位：弧度）
+    """
+    assert R.shape == (3, 3), "输入必须是3×3旋转矩阵"
+
+    if abs(R[0, 2]) < 1 - 1e-6:  # 正常情况
+        y_angle = np.arcsin(-R[0, 2])
+        x_angle = np.arctan2(R[1, 2], R[2, 2])
+        z_angle = np.arctan2(R[0, 1], R[0, 0])
+    else:  # 接近万向节锁 (gimbal lock)
+        # cos(y) == 0，sin(y) == ±1
+        y_angle = np.pi/2 if R[0, 2] < 0 else -np.pi/2
+        x_angle = np.arctan2(-R[1, 0], R[1, 1])
+        z_angle = 0
+
+    return np.array([x_angle, y_angle, z_angle])
+
+
+
+
 if __name__ == '__main__':
     main()
     # rclpy.init(args=None)
     # motion_planner = MotionPlanner()
+    

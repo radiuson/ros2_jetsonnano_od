@@ -14,18 +14,18 @@ from utils import (TOPIC_CAMERA_DEPTH,
                    FRAME_RATE,TOPIC_CAMERA_INFO,
                    CAMERA_WIDTH,
                    CAMERA_HEIGHT,
-                   TRIGGER_CAMERA_INFO
+                   TRIGGER_CAMERA_INFO,
                    )
 
 class CameraNode(Node):
     def __init__(self):
         super().__init__('camera_node')
-        self.rgb_publisher = self.create_publisher(Image, TOPIC_CAMERA_RGB, 10)
-        self.depth_publisher = self.create_publisher(Image, TOPIC_CAMERA_DEPTH, 10)
-        self.intrinics_publisher = self.create_publisher(CameraInfo, TOPIC_CAMERA_INFO, 10)
+        self.rgb_publisher = self.create_publisher(Image, TOPIC_CAMERA_RGB, 2)
+        self.depth_publisher = self.create_publisher(Image, TOPIC_CAMERA_DEPTH, 2)
+        self.intrinics_publisher = self.create_publisher(CameraInfo, TOPIC_CAMERA_INFO, 2)
         self.timer = self.create_timer(round(1 / FRAME_RATE, 2), self.timer_callback)
         self.bridge = CvBridge()
-        self.srv = self.create_service(Trigger, TRIGGER_CAMERA_INFO, self.generate_camera_info)
+        self.camera_info_trigger = self.create_service(Trigger, TRIGGER_CAMERA_INFO, self.generate_camera_info)
 
         # Initialize RealSense pipeline
         self.pipeline = rs.pipeline()

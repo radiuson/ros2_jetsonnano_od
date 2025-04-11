@@ -7,7 +7,9 @@ from models.experimental import attempt_load
 from utils.general import non_max_suppression, scale_coords
 from utils.torch_utils import select_device
 import rclpy
+import time
 from rclpy.node import Node
+from std_srvs.srv import Trigger
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
@@ -19,7 +21,8 @@ from utils import (TOPIC_ROBOT_STATUS,
                    TOPIC_CAMERA_DEPTH,
                    VISUALIZATION,
                    CLASS_NAMES,
-                   TEST_IMG_PATH
+                   TEST_IMG_PATH,
+                   TRIGGER_YOLO_DEPTH,
                    )
 
 class YoloDetector(Node):
@@ -41,7 +44,8 @@ class YoloDetector(Node):
             self.image_callback,
             10
         )
-        
+        self.depth_image_trigger = self.create_service(Trigger,TRIGGER_YOLO_DEPTH,self.depth_trigger_callback)
+
         # self.test_img_path = test_img_path
         # _ = self.model(self.get_test_img())
         # self.get_logger().info("First inference done")
@@ -71,6 +75,7 @@ class YoloDetector(Node):
 
     def image_callback(self, msg):
         self.inferencing = True
+        
         self.get_logger().info("Received an image")
         
         if self.robot_status == "MOVING":
@@ -94,17 +99,33 @@ class YoloDetector(Node):
             if self.latest_depth_image is not None:
                 self.depth_publisher.publish(self.latest_depth_image)
                 self.get_logger().info("Published corresponding depth image.")
+            time.sleep(0.3)
             self.inferencing = False
         except Exception as e:
+            if self.visualization:
+                processed_image = self.draw_detections(cv_image, None, names=CLASS_NAMES)  # 替换为实际类别
+                # 显示检测结果
+                cv2.imshow("YOLO Detection", processed_image)
+                cv2.waitKey(1)  # 必须调用以刷新窗口
             self.get_logger().error(f"Failed to process image: {e}")
+            time.sleep(0.3)
             self.inferencing = False
 
-    def detect(self, img, conf_threshold=0.3, iou_threshold=0.45):
+    def depth_trigger_callback(self,request,response):
+        self.depth_publisher.publish(self.latest_depth_image)
+        # 设置 Trigger 响应
+        response.success = True
+        response.message = 'Depth image published'
+
+        return response
+
+    def detect(self, img, conf_threshold=0.5, iou_threshold=0.45):
         img = self.preprocess_image(img)
         with torch.no_grad():
             pred, *_ = self.model(img)
             pred = non_max_suppression(pred, conf_threshold, iou_threshold)
-            self.get_logger().info(f"Detected {len(pred[0])} objects")
+            if pred is not None:
+                self.get_logger().info(f"Detected {len(pred[0])} objects")
 
         return pred
     
@@ -112,6 +133,7 @@ class YoloDetector(Node):
         if self.inferencing:
             return
         self.latest_depth_image = msg
+
     def preprocess_image(self, img):
         # 转换为 RGB
         img = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -145,7 +167,7 @@ class YoloDetector(Node):
     def postprocess_detections(self, detections, img_shape):
         results = []
         for det in detections:
-            if det is not None and len(det):
+            if det is not None :
                 det[:, :4] = scale_coords(img_shape, det[:, :4], img_shape).round()
                 results.append(det)
         return results
