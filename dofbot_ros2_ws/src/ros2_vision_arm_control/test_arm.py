@@ -30,6 +30,7 @@ acive_links_mask = [False, True, True, True, True,True,False]
 urdf_path = URDF_PATH
 chain = Chain.from_urdf_file(urdf_path,active_links_mask=acive_links_mask)
 # 绘制机器人
+
 target_position = [-0.1, 0, 0.25]
 ik_result = chain.inverse_kinematics(target_position)
 joint_angles=calculate_joint_angles(chain,target_position)

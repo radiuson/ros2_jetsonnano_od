@@ -55,7 +55,7 @@ class MotionPlanner(Node):
                 TOPIC_ARM_CONTROL,
                 10
             )
-        init_position = [-0.05,0,0.20]
+        init_position = [-0.05,0.05,0.23]
         init_x,init_y,init_z = init_position
         self.arm_control_msg = String()
         self.arm_control_msg.data = f"{init_x},{init_y},{init_z},open"
@@ -114,7 +114,7 @@ class MotionPlanner(Node):
                 self.get_logger().info(f"Tomato coor is {tomato_coor_world}")
                 if self.compen:
                     tomato_coor_world = self.compensator(tomato_coor_world)
-                self.grab_tomato(init_position=[-0.05,0,0.20],tomato_position=tomato_coor_world,drop_position=[0,0.05,0.25])
+                self.grab_tomato(init_position=[-0.05,0.05,0.23],tomato_position=tomato_coor_world,drop_position=[0,0.05,0.25])
                 # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.2820361, 0.04377077,0.25786347, open'"
             else:
                 self.get_logger().info(f"Waiting for depth intrinsics and image")
@@ -242,25 +242,9 @@ class MotionPlanner(Node):
         # This should compute the transformation matrix between the camera and the robot arm
         return self.mount_transform @ mount_to_camera
 
-    def locate_object(self):
-        if self.yolo_results is None or self.depth_image is None or self.camera_matrix is None:
-            self.get_logger().warn("Missing data for object localization")
-            return None
-
-        # Example: Assume YOLO results provide pixel coordinates of the object
-        for obj in self.yolo_results:
-            pixel_x, pixel_y = obj['center']
-            depth = self.depth_image[pixel_y, pixel_x]
-
-            # Convert pixel coordinates to camera coordinates
-            camera_coords = self.pixel_to_camera_coords(pixel_x, pixel_y, depth)
-
-            # Convert camera coordinates to world coordinates
-            world_coords = self.camera_to_world_coords(camera_coords)
-            self.get_logger().info(f"Object located at: {world_coords}")
-            return world_coords
 
     def pixel_to_camera_coords(self, pixel_x, pixel_y):
+        
         depth = self.depth_image[pixel_y,pixel_x]
         try:
             if depth <0.01:
@@ -272,14 +256,6 @@ class MotionPlanner(Node):
             self.get_logger().error(f"Not in the range: {e}")
             return None
 
-    def camera_to_world_coords(self, camera_coords):
-        # Convert camera coordinates to world coordinates using hand-eye calibration
-        if self.hand_eye_matrix is None:
-            self.get_logger().warn("Hand-eye calibration not performed")
-            return None
-        camera_coords_homogeneous = np.append(camera_coords, 1)  # Convert to homogeneous coordinates
-        world_coords_homogeneous = np.dot(self.hand_eye_matrix, camera_coords_homogeneous)
-        return world_coords_homogeneous[:3]
 
 def main(args=None):
     rclpy.init(args=args)

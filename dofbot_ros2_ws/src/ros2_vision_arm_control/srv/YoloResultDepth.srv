@@ -1,0 +1,9 @@
+# Request
+# （可以留空，表示不需要传任何数据触发）
+
+---
+
+# Response
+sensor_msgs/Image image
+bool success
+string message

@@ -21,4 +21,10 @@ def generate_launch_description():
             name='yolo_detector',
             output='screen'
         ),
+        Node(
+            package='ros2_vision_arm_control',
+            executable='motion_planner.py',
+            name='motion_planner',
+            output='screen'
+        ),
     ])

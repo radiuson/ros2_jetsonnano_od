@@ -43,6 +43,7 @@ class ArmControl(Node):
         
         self.timer = self.create_timer(1.0, self.transform_callback)
 
+        self.servo_write([90,90,90,90,90,90])
         self.status_msg.data = "IDLE"
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Robot Status: IDLE")
@@ -51,7 +52,7 @@ class ArmControl(Node):
         """ 处理收到的控制指令 """
         try:
             # 解析目标位置，例如 "0.2,0.2,0.2, open"
-            # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.1,0,0.23, open'"
+            # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.1,0,0.23, close'"
             command = msg.data.split(",")
             
             target_position = list(map(float, command[:3]))  # 转换为浮点数
@@ -115,6 +116,10 @@ class ArmControl(Node):
 
     def control_arm(self, target_position, grabber_position):
         
+        x,y,z = target_position
+        if np.abs(x)>=0.3 or np.abs(y)>=0.3 or np.abs(z)>=0.4:
+            self.get_logger().info("Out of range")
+            return False
         self.status_msg.data = "MOVING"
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Robot Status: MOVING")
@@ -129,6 +134,9 @@ class ArmControl(Node):
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Robot Status: IDLE")
 
+        time.sleep(1)
+        return True
+
     def calculate_joint_angles(self, target_position):
         # Perform inverse kinematics calculation using ikpy
         ik_results = self.chain.inverse_kinematics(target_position = target_position,
@@ -137,7 +145,7 @@ class ArmControl(Node):
         print(joint_angles)
         return joint_angles,ik_results
     def calculate_error(self,ik_results,target_position):
-        chain_transform = self.chain.forward_kinematics(ik_results,full_kinematics=True)
+        chain_transform = self.chain.forward_kinematics(ik_results)
         chain_coor = chain_transform[:3,3]
         error = np.linalg.norm(chain_coor - target_position)
         return error
