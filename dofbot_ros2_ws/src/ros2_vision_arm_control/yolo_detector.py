@@ -25,6 +25,8 @@ from utils import (TOPIC_ROBOT_STATUS,
                    TRIGGER_YOLO_DEPTH,
                    )
 
+
+
 class YoloDetector(Node):
     def __init__(self, model_path=WEIGHT_PATH, device='',visualization=VISUALIZATION,test_img_path=TEST_IMG_PATH):
         super().__init__('yolo_detector_node')
