@@ -10,6 +10,8 @@ import json
 import pyrealsense2 as rs
 from std_srvs.srv import Trigger
 import time
+import cv2
+from ros2_vision_arm_control.msg import VisionDetection, BoundingBox
 from utils import (TOPIC_YOLO_DEPTH,
                    TOPIC_YOLO_DETECTION,
                    TOPIC_ARM_CONTROL,
@@ -22,6 +24,8 @@ from utils import (TOPIC_YOLO_DEPTH,
                    TRIGGER_YOLO_DEPTH,
                    DEPTH_IMAGE_SCALE,
                    ARM_COMPEN,
+                   TOPIC_YOLO_RESULT,
+                   VISUALIZATION,
                    )
 
 class MotionPlanner(Node):
@@ -33,7 +37,7 @@ class MotionPlanner(Node):
         self.compen = ARM_COMPEN
         self.arm_state = 'IDLE'
         self.create_subscription(CameraInfo, TOPIC_CAMERA_INFO, self.camera_info_callback, 10)
-        
+
         # Clients
         self.trigger_camera_info_client = self.create_client(Trigger, TRIGGER_CAMERA_INFO)
         self.depth_image_client = self.create_client(Trigger,TRIGGER_YOLO_DEPTH)
@@ -48,8 +52,17 @@ class MotionPlanner(Node):
         # Subscribers
         self.create_subscription(String, TOPIC_ROBOT_STATUS, self.arm_state_callback, 2)
         self.create_subscription(Float32MultiArray, TOPIC_ROBOT_TRANSFORM,self.camera_mount_transform_callback, 2)
-        self.create_subscription(String, TOPIC_YOLO_DETECTION, self.yolo_callback, 2)
-        self.create_subscription(Image, TOPIC_YOLO_DEPTH, self.depth_callback, 2)
+        
+        self.yolo_result_subscription = self.create_subscription(
+            VisionDetection,
+            TOPIC_YOLO_RESULT,  
+            self.yolo_result_callback,
+            3  # 队列大小
+        )
+        # 单独分别订阅
+        # self.create_subscription(String, TOPIC_YOLO_DETECTION, self.yolo_callback, 2)
+        # self.create_subscription(Image, TOPIC_YOLO_DEPTH, self.depth_callback, 2)
+        
         self.command_publisher = self.create_publisher(
                 String,
                 TOPIC_ARM_CONTROL,
@@ -98,7 +111,45 @@ class MotionPlanner(Node):
         # self.get_logger().info(f"Rotation: {self.camera_rotation}")
 
         # self.get_logger().info(f"Camera coords: {self.camera_coords}")
-        
+
+    def yolo_result_callback(self, msg: VisionDetection):
+        self.get_logger().info("Received YOLO detection message.")
+
+        target_class = 'tomato'
+        found_tomato = None
+
+        # 遍历消息中的所有目标框，找出类别是 "tomato" 的目标
+        for box in msg.boxes:
+            if box.class_name == target_class:
+                # 记录下这个 tomato 的检测框（只保留最后一个）
+                found_tomato = box
+
+        if found_tomato is not None:
+            # 计算中心点坐标（像素坐标）
+            center_x = (found_tomato.xmin + found_tomato.xmax) / 2
+            center_y = (found_tomato.ymin + found_tomato.ymax) / 2
+
+            if self.depth_intrinsics is not None and msg.depth_image is not None:
+                self.depth_image = msg.depth_image  # 更新最新的深度图
+                tomato_coor_cam = self.pixel_to_camera_coords(center_x, center_y)
+                self.get_logger().info(f"In camera_coor is {tomato_coor_cam}")
+
+                # 坐标转换为世界坐标系（使用相机的外参）
+                tomato_coor_world = self.camera_rotation @ tomato_coor_cam + self.camera_coords
+                self.get_logger().info(f"Tomato coor is {tomato_coor_world}")
+
+                # 是否使用补偿器
+                if self.compen:
+                    tomato_coor_world = self.compensator(tomato_coor_world)
+
+                # 你可以调用抓取函数或其他控制函数
+                # self.grab_tomato(init_position=[-0.05,0.05,0.23], tomato_position=tomato_coor_world, drop_position=[0,0.05,0.25])
+            else:
+                self.get_logger().info("Waiting for depth intrinsics or depth image...")
+        else:
+            self.get_logger().info(f"No {target_class} detected.")
+
+
     def yolo_callback(self, msg):
         # Process YOLO results
         self.yolo_results = self.decode_yolo_results(msg.data)
@@ -114,7 +165,7 @@ class MotionPlanner(Node):
                 self.get_logger().info(f"Tomato coor is {tomato_coor_world}")
                 if self.compen:
                     tomato_coor_world = self.compensator(tomato_coor_world)
-                self.grab_tomato(init_position=[-0.05,0.05,0.23],tomato_position=tomato_coor_world,drop_position=[0,0.05,0.25])
+                # self.grab_tomato(init_position=[-0.05,0.05,0.23],tomato_position=tomato_coor_world,drop_position=[0,0.05,0.25])
                 # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.2820361, 0.04377077,0.25786347, open'"
             else:
                 self.get_logger().info(f"Waiting for depth intrinsics and image")
@@ -123,6 +174,8 @@ class MotionPlanner(Node):
                     self.get_logger().info(f"No {target_class} detected (KeyError)")
             elif isinstance(e, ValueError):
                 self.get_logger().info(f"No valid depth for {target_class} ")
+
+                
     def grab_tomato(self,init_position,tomato_position,drop_position):
         # 格式化目标坐标
         target_x = tomato_position[0]
@@ -172,7 +225,8 @@ class MotionPlanner(Node):
     def depth_callback(self, msg, scale=DEPTH_IMAGE_SCALE):
         # Process depth image
         self.depth_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='passthrough') / scale
-    
+        self.get_logger().error(f"depth image received")
+
     def compensator(self,P_world):
         z = P_world[2]
         z = z + 0.03 * (np.abs(P_world[1])+np.abs(P_world[0])) + (0.45 - z)*0.02
@@ -244,8 +298,21 @@ class MotionPlanner(Node):
 
 
     def pixel_to_camera_coords(self, pixel_x, pixel_y):
-        
         depth = self.depth_image[pixel_y,pixel_x]
+        if VISUALIZATION:
+            depth_filtered = np.clip(self.depth_image, 0, 1000)  # 超过1000的值变成1000
+            depth_colormap = cv2.normalize(depth_filtered, None, 0, 255, cv2.NORM_MINMAX)
+            depth_colormap = np.uint8(depth_colormap)
+            depth_colormap = cv2.applyColorMap(depth_colormap, cv2.COLORMAP_JET)
+
+            # 在图上标注你想查看的点
+            cv2.circle(depth_colormap, (pixel_x, pixel_y), 5, (0, 0, 255), -1)
+            depth_text = f"Depth: {depth:.3f} m"
+            cv2.putText(depth_colormap, depth_text, (pixel_x + 10, pixel_y - 10),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 255, 255), 1)
+            cv2.imshow("Depth Image", depth_colormap)
+            cv2.waitKey(1000)  # 1000ms刷新
+        self.get_logger().info(f"depth at pixel ({pixel_x}, {pixel_y}): {depth}")
         try:
             if depth <0.01:
                 raise ValueError(f"Invalid depth at pixel ({pixel_x}, {pixel_y}): {depth}")

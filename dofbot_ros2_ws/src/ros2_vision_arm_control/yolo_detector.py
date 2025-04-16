@@ -12,6 +12,9 @@ from rclpy.node import Node
 from std_srvs.srv import Trigger
 from std_msgs.msg import String
 from sensor_msgs.msg import Image
+
+from ros2_vision_arm_control.msg import VisionDetection, BoundingBox
+
 from cv_bridge import CvBridge
 from utils import (TOPIC_ROBOT_STATUS,
                    TOPIC_YOLO_DEPTH,
@@ -23,6 +26,10 @@ from utils import (TOPIC_ROBOT_STATUS,
                    CLASS_NAMES,
                    TEST_IMG_PATH,
                    TRIGGER_YOLO_DEPTH,
+                   TOPIC_CAMERA_MSG,
+                   CAMERA_HEIGHT,
+                   CAMERA_WIDTH,
+                   TOPIC_YOLO_RESULT,
                    )
 
 
@@ -32,6 +39,7 @@ class YoloDetector(Node):
         super().__init__('yolo_detector_node')
         self.device = select_device(device)
         self.model = self.load_model(model_path,device=self.device)
+
         self.bridge = CvBridge()
         self.visualization = visualization
         self.robot_status = 'IDLE'
@@ -40,27 +48,39 @@ class YoloDetector(Node):
         self.status_subscription = self.create_subscription(
             String, TOPIC_ROBOT_STATUS, self.status_callback, 10
         )
-        self.subscription = self.create_subscription(
-            Image,
-            TOPIC_CAMERA_RGB,  
-            self.image_callback,
-            10
-        )
+
+        self.detection_publisher = self.create_publisher(VisionDetection, TOPIC_YOLO_RESULT, 2)
+
+        self.detection_subscription = self.create_subscription(
+                    VisionDetection,
+                    TOPIC_CAMERA_MSG,  
+                    self.detection_callback,
+                    3  # 队列大小
+                )
+        # RGB话题订阅
+        # self.subscription = self.create_subscription(
+        #     Image,
+        #     TOPIC_CAMERA_RGB,  
+        #     self.image_callback,
+        #     10
+        # )
         self.depth_image_trigger = self.create_service(Trigger,TRIGGER_YOLO_DEPTH,self.depth_trigger_callback)
 
         # self.test_img_path = test_img_path
         # _ = self.model(self.get_test_img())
         # self.get_logger().info("First inference done")
 
-        self.depth_subscription = self.create_subscription(
-            Image,
-            TOPIC_CAMERA_DEPTH,  
-            self.depth_callback,
-            10
-        )
-        self.depth_publisher = self.create_publisher(Image, TOPIC_YOLO_DEPTH, 10)
+        # DEPTH话题订阅
+        # self.depth_subscription = self.create_subscription(
+        #     Image,
+        #     TOPIC_CAMERA_DEPTH,  
+        #     self.depth_callback,
+        #     10
+        # )
+        # 配套深度图发布以及YOLO结果发布
+        # self.depth_publisher = self.create_publisher(Image, TOPIC_YOLO_DEPTH, 10)
 
-        self.publisher = self.create_publisher(String, TOPIC_YOLO_DETECTION, 10)
+        # self.publisher = self.create_publisher(String, TOPIC_YOLO_DETECTION, 10)
         self.get_logger().info("YoloDetector Node Initialized")
 
     def load_model(self, model_path,device):
@@ -74,6 +94,55 @@ class YoloDetector(Node):
         """ 监听机器人状态，当机械臂运动时，暂停 YOLO 推理 """
         self.robot_status = msg.data
         self.get_logger().info(f"Received Robot Status: {self.robot_status}")
+
+    def detection_callback(self, msg:VisionDetection):
+        self.inferencing = True
+        self.get_logger().info("Received an image")
+        
+        if self.robot_status == "MOVING":
+            self.get_logger().info("Robot is moving, skipping YOLO inference.")
+            return 
+        try:
+            cv_image = self.bridge.imgmsg_to_cv2(msg.rgb_image, desired_encoding='bgr8')
+            detections = self.detect(cv_image)
+            self.format_boundingboxes(msg,detections)
+            self.detection_publisher.publish(msg)
+            
+            self.get_logger().info(f"Published YOLO detections")
+
+            if self.visualization:
+                processed_image = self.draw_detections(cv_image, detections, names=CLASS_NAMES)  # 替换为实际类别
+                # 显示检测结果
+                cv2.imshow("YOLO Detection", processed_image)
+                cv2.waitKey(100)  # 必须调用以刷新窗口
+
+            time.sleep(0.3)
+            self.inferencing = False
+        except Exception as e:
+            if self.visualization:
+                processed_image = self.draw_detections(cv_image, None, names=CLASS_NAMES)  # 替换为实际类别
+                # 显示检测结果
+                cv2.imshow("YOLO Detection", processed_image)
+                cv2.waitKey(100)  # 必须调用以刷新窗口
+            self.get_logger().error(f"Failed to process image: {e}")
+            time.sleep(0.3)
+            self.inferencing = False
+
+
+    def format_boundingboxes(self,msg:VisionDetection,detections):
+        # 遍历检测结果，将每个检测框添加到 VisionDetection 消息的 boxes 数组中]
+        msg.boxes.clear()
+        for detection in detections:
+            # 假设 detection 是一个包含 bbox 信息的对象，格式为 [xmin, ymin, xmax, ymax, confidence, class_id, class_name]
+            box = BoundingBox()
+            box.xmin = detection[0]
+            box.ymin = detection[1]
+            box.xmax = detection[2]
+            box.ymax = detection[3]
+            box.confidence = detection[4]
+            box.class_id = detection[5]
+            msg.boxes.append(box)
+
 
     def image_callback(self, msg):
         self.inferencing = True
@@ -95,7 +164,7 @@ class YoloDetector(Node):
                 processed_image = self.draw_detections(cv_image, detections, names=CLASS_NAMES)  # 替换为实际类别
                 # 显示检测结果
                 cv2.imshow("YOLO Detection", processed_image)
-                cv2.waitKey(1)  # 必须调用以刷新窗口
+                cv2.waitKey(100)  # 必须调用以刷新窗口
 
             # 可在此处发布处理后的图片或其他操作
             if self.latest_depth_image is not None:
@@ -108,7 +177,7 @@ class YoloDetector(Node):
                 processed_image = self.draw_detections(cv_image, None, names=CLASS_NAMES)  # 替换为实际类别
                 # 显示检测结果
                 cv2.imshow("YOLO Detection", processed_image)
-                cv2.waitKey(1)  # 必须调用以刷新窗口
+                cv2.waitKey(100)  # 必须调用以刷新窗口
             self.get_logger().error(f"Failed to process image: {e}")
             time.sleep(0.3)
             self.inferencing = False
@@ -126,6 +195,7 @@ class YoloDetector(Node):
         with torch.no_grad():
             pred, *_ = self.model(img)
             pred = non_max_suppression(pred, conf_threshold, iou_threshold)
+            # pred = self.postprocess_detections(pred,(640,640),(CAMERA_WIDTH,CAMERA_HEIGHT))
             if pred is not None:
                 self.get_logger().info(f"Detected {len(pred[0])} objects")
 
@@ -135,6 +205,7 @@ class YoloDetector(Node):
         if self.inferencing:
             return
         self.latest_depth_image = msg
+        
 
     def preprocess_image(self, img):
         # 转换为 RGB
@@ -166,11 +237,11 @@ class YoloDetector(Node):
         return img
 
 
-    def postprocess_detections(self, detections, img_shape):
+    def postprocess_detections(self, detections, img1_shape,img0_shape):
         results = []
         for det in detections:
             if det is not None :
-                det[:, :4] = scale_coords(img_shape, det[:, :4], img_shape).round()
+                det[:, :4] = scale_coords(img1_shape, det[:, :4], img0_shape).round()
                 results.append(det)
         return results
 

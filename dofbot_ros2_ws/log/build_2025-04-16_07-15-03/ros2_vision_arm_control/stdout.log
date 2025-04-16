@@ -1,0 +1,253 @@
+-- The C compiler identification is GNU 8.4.0
+-- The CXX compiler identification is GNU 8.4.0
+-- Check for working C compiler: /usr/bin/cc
+-- Check for working C compiler: /usr/bin/cc -- works
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Check for working CXX compiler: /usr/bin/c++
+-- Check for working CXX compiler: /usr/bin/c++ -- works
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)
+-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)
+-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  
+-- Found FastRTPS: /opt/ros/foxy/include  
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)
+-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") 
+-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") 
+-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)
+-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") 
+-- Using PYTHON_EXECUTABLE: /usr/bin/python3
+-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8
+-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.8.so
+-- Found PythonExtra: .so  
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control
+[  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__cpp[0m
+[  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_generator_c[0m
+[  5%] Built target ros2_vision_arm_control__cpp
+[  7%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/vision_detection__functions.c.o[0m
+[ 10%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o[0m
+[ 15%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[ 15%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[ 20%] [32m[1mLinking C shared library libros2_vision_arm_control__rosidl_generator_c.so[0m
+[ 20%] Built target ros2_vision_arm_control__rosidl_generator_c
+[ 23%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_cpp[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_vision_arm_control/msg/vision_detection__type_support.cpp.o[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp[0m
+[ 28%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_vision_arm_control/msg/detail/dds_fastrtps/vision_detection__type_support.cpp.o[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_introspection_cpp[0m
+[ 30%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_vision_arm_control/msg/detail/vision_detection__type_support.cpp.o[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_introspection_c[0m
+[ 33%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_vision_arm_control/msg/detail/vision_detection__type_support.c.o[0m
+[ 35%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_vision_arm_control/msg/bounding_box__type_support.cpp.o[0m
+[ 38%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_vision_arm_control/msg/detail/bounding_box__type_support.c.o[0m
+[ 41%] [32m[1mLinking C shared library libros2_vision_arm_control__rosidl_typesupport_introspection_c.so[0m
+[ 41%] Built target ros2_vision_arm_control__rosidl_typesupport_introspection_c
+[ 43%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_vision_arm_control/msg/detail/bounding_box__type_support.cpp.o[0m
+[ 46%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_vision_arm_control/msg/detail/dds_fastrtps/bounding_box__type_support.cpp.o[0m
+[ 48%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[ 51%] [32m[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_cpp.so[0m
+[ 51%] Built target ros2_vision_arm_control__rosidl_typesupport_cpp
+[ 53%] [32m[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_introspection_cpp.so[0m
+[ 53%] Built target ros2_vision_arm_control__rosidl_typesupport_introspection_cpp
+[ 56%] [32m[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.so[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_c[0m
+[ 58%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_vision_arm_control/msg/vision_detection__type_support.cpp.o[0m
+[ 61%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_vision_arm_control/msg/bounding_box__type_support.cpp.o[0m
+[ 64%] [32m[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_c.so[0m
+[ 64%] Built target ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp
+[ 64%] Built target ros2_vision_arm_control__rosidl_typesupport_c
+[ 66%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c[0m
+[ 69%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_vision_arm_control/msg/detail/bounding_box__type_support_c.cpp.o[0m
+[ 71%] [32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_vision_arm_control/msg/detail/vision_detection__type_support_c.cpp.o[0m
+[ 74%] [32m[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_fastrtps_c.so[0m
+[ 74%] Built target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c
+[35m[1mScanning dependencies of target ros2_vision_arm_control[0m
+[ 74%] Built target ros2_vision_arm_control
+[35m[1mScanning dependencies of target ros2_vision_arm_control__py[0m
+[ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[ 76%] Built target ros2_vision_arm_control__py
+[35m[1mScanning dependencies of target ros2_vision_arm_control__python[0m
+[ 79%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__python.dir/rosidl_generator_py/ros2_vision_arm_control/msg/_bounding_box_s.c.o[0m
+[ 82%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__python.dir/rosidl_generator_py/ros2_vision_arm_control/msg/_vision_detection_s.c.o[0m
+[ 84%] [32m[1mLinking C shared library rosidl_generator_py/ros2_vision_arm_control/libros2_vision_arm_control__python.so[0m
+[ 84%] Built target ros2_vision_arm_control__python
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_c__pyext[0m
+[35m[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext[0m
+[ 87%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ros2_vision_arm_control/_ros2_vision_arm_control_s.ep.rosidl_typesupport_c.c.o[0m
+[ 89%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ros2_vision_arm_control/_ros2_vision_arm_control_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[ 92%] [32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ros2_vision_arm_control/_ros2_vision_arm_control_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[ 94%] [32m[1mLinking C shared library rosidl_generator_py/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so[0m
+[ 97%] [32m[1mLinking C shared library rosidl_generator_py/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so[0m
+[100%] [32m[1mLinking CXX shared library rosidl_generator_py/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so[0m
+[100%] Built target ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext
+[100%] Built target ros2_vision_arm_control__rosidl_typesupport_c__pyext
+[100%] Built target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext
+-- Install configuration: ""
+-- Execute custom install script
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/rosidl_interfaces/ros2_vision_arm_control
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/bounding_box.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__functions.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__struct.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__type_support.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__functions.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__struct.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__type_support.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_generator_c__visibility_control.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/vision_detection.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/library_path.sh
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/library_path.dsv
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_fastrtps_c.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_fastrtps_c.so
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_fastrtps_cpp.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.so
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_introspection_c.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_typesupport_introspection_c__visibility_control.h
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/bounding_box.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__builder.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__struct.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__traits.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__type_support.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__builder.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__struct.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__traits.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__type_support.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_generator_cpp__visibility_control.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/vision_detection.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_introspection_cpp.hpp
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/pythonpath.sh
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/pythonpath.dsv
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/__init__.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/msg/__init__.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/msg/_bounding_box.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/msg/_vision_detection.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__python.so
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/VisionDetection.idl
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/BoundingBox.idl
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/VisionDetection.msg
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/BoundingBox.msg
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/__init__.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/common.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/experimental.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/export.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov3-spp.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov5-fpn.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov5-panet.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolo.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5l.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5m.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5n.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5s.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5x.yaml
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/__init__.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/activations.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/datasets.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/general.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/google_utils.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/ikpy_utils.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/torch_utils.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/__init__.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/camera_node.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/arm_control.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_detector.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/motion_planner.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/launch/vision_arm_launch.py
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/base_link.STL
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link1.STL
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link2.STL
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link3.STL
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link4.STL
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link5.STL
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_weight/yolov5n_0214.pt
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_weight/yolov5t_0401.pt
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/urdf/dofbot.urdf
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/package_run_dependencies/ros2_vision_arm_control
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/parent_prefix_path/ros2_vision_arm_control
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/ament_prefix_path.sh
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/ament_prefix_path.dsv
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/path.sh
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/path.dsv
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.bash
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.sh
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.zsh
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.dsv
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/package.dsv
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/packages/ros2_vision_arm_control
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/rosidl_cmake-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_dependencies-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_libraries-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_targets-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_include_directories-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_controlConfig.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_controlConfig-version.cmake
+-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/package.xml
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_generator_c.so
+-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_generator_c.so" to ""
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_c.so
+-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_c.so" to ""
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_c.so
+-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_c.so" to ""
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_cpp.so
+-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_cpp.so" to ""
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_cpp.so
+-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_cpp.so" to ""
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/__init__.py'...
+Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/__init__.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/common.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/experimental.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/export.py'...
+Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolo.py'...
+Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/__init__.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/activations.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/datasets.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/general.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/google_utils.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/ikpy_utils.py'...
+Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/torch_utils.py'...
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_generator_cExport.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_generator_cExport-noconfig.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cExport.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cExport-noconfig.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cExport.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cExport-noconfig.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_generator_cppExport.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cppExport.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cppExport.cmake
+-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cppExport-noconfig.cmake

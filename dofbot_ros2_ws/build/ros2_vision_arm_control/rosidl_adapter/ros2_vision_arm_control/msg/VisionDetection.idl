@@ -1,0 +1,22 @@
+// generated from rosidl_adapter/resource/msg.idl.em
+// with input from ros2_vision_arm_control/msg/VisionDetection.msg
+// generated code does not contain a copyright notice
+
+#include "ros2_vision_arm_control/msg/BoundingBox.idl"
+#include "sensor_msgs/msg/Image.idl"
+
+module ros2_vision_arm_control {
+  module msg {
+    @verbatim (language="comment", text=
+      " VisionDetection.msg")
+    struct VisionDetection {
+      sensor_msgs::msg::Image rgb_image;
+
+      sensor_msgs::msg::Image depth_image;
+
+      @verbatim (language="comment", text=
+        " 每个目标检测框")
+      sequence<ros2_vision_arm_control::msg::BoundingBox> boxes;
+    };
+  };
+};

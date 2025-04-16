@@ -1,0 +1,213 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				},
+				{
+					"build" : "ros2_vision_arm_control__py",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.8"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/ros2_vision_arm_control__py",
+					"targetIndexes" : 
+					[
+						2
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "ros2_vision_arm_control",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control-ef0f214de1bacf572aac.json",
+					"name" : "ros2_vision_arm_control",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__cpp-577a66e39d771f91903e.json",
+					"name" : "ros2_vision_arm_control__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "ros2_vision_arm_control__py::@d0e7a61e049af151ba7c",
+					"jsonFile" : "target-ros2_vision_arm_control__py-c4bbeeb4c0534459c86c.json",
+					"name" : "ros2_vision_arm_control__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__python::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__python-9e3ad361df515ba8f4a3.json",
+					"name" : "ros2_vision_arm_control__python",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_generator_c-ca25ddef62fe7701536a.json",
+					"name" : "ros2_vision_arm_control__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_c-589c8410dd2e126a297b.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_c__pyext-837f64630d4c43d47ca1.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_cpp-fc75bf88d49d8490d4da.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_fastrtps_c-f463645b6b334e539a73.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext-725988d8e3e124d1d616.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp-bb0a7bffa86627e6bc48.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_introspection_c-3826296739d347165220.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext-2a09a99ff19b1d1556f2.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control__rosidl_typesupport_introspection_cpp-9d3ab4398be959437c37.json",
+					"name" : "ros2_vision_arm_control__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ros2_vision_arm_control_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ros2_vision_arm_control_uninstall-07cc0ce75379c5fcd214.json",
+					"name" : "ros2_vision_arm_control_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-de02543663c9a5c16ea7.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control",
+		"source" : "/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 0
+	}
+}

@@ -1,0 +1,1 @@
+/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/rosidl_generator_c/ros2_vision_arm_control/msg/detail/vision_detection__struct.h

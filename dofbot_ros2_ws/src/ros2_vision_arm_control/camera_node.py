@@ -9,9 +9,13 @@ import pyrealsense2 as rs
 import numpy as np
 from std_srvs.srv import Trigger
 
+from ros2_vision_arm_control.msg import VisionDetection, BoundingBox
+
 from utils import (TOPIC_CAMERA_DEPTH,
                    TOPIC_CAMERA_RGB,
-                   FRAME_RATE,TOPIC_CAMERA_INFO,
+                   FRAME_RATE,
+                   TOPIC_CAMERA_INFO,
+                   TOPIC_CAMERA_MSG,
                    CAMERA_WIDTH,
                    CAMERA_HEIGHT,
                    TRIGGER_CAMERA_INFO,
@@ -20,13 +24,20 @@ from utils import (TOPIC_CAMERA_DEPTH,
 class CameraNode(Node):
     def __init__(self):
         super().__init__('camera_node')
-        self.rgb_publisher = self.create_publisher(Image, TOPIC_CAMERA_RGB, 2)
-        self.depth_publisher = self.create_publisher(Image, TOPIC_CAMERA_DEPTH, 2)
+
+        self.camera_publisher = self.create_publisher(VisionDetection, TOPIC_CAMERA_MSG, 2)
+
+        # 分别发布rgb图像和depth图像
+        # self.rgb_publisher = self.create_publisher(Image, TOPIC_CAMERA_RGB, 2)
+        # self.depth_publisher = self.create_publisher(Image, TOPIC_CAMERA_DEPTH, 2)
+
+        self.timer = self.create_timer(round(1 / FRAME_RATE, 2), self.timer_vision_detection_callback)
+
         self.intrinics_publisher = self.create_publisher(CameraInfo, TOPIC_CAMERA_INFO, 2)
-        self.timer = self.create_timer(round(1 / FRAME_RATE, 2), self.timer_callback)
-        self.bridge = CvBridge()
+
         self.camera_info_trigger = self.create_service(Trigger, TRIGGER_CAMERA_INFO, self.generate_camera_info)
 
+        self.bridge = CvBridge()
         # Initialize RealSense pipeline
         self.pipeline = rs.pipeline()
         
@@ -86,7 +97,34 @@ class CameraNode(Node):
 
         return response
 
-    
+    def timer_vision_detection_callback(self):
+
+        frames = self.pipeline.wait_for_frames()
+        aligned_frames = self.align.process(frames)
+        aligned_depth_frame = aligned_frames.get_depth_frame()
+        aligned_color_frame = aligned_frames.get_color_frame()
+
+        if not aligned_color_frame or not aligned_depth_frame:
+            return
+
+        # Convert RealSense frames to ROS Image messages
+        color_image = self.bridge.cv2_to_imgmsg(
+            np.asanyarray(aligned_color_frame.get_data()), encoding='bgr8'
+        )
+        depth_image = self.bridge.cv2_to_imgmsg(
+            np.asanyarray(aligned_depth_frame.get_data()), encoding='16UC1'
+        )
+
+        detection_msg = VisionDetection()
+        detection_msg.rgb_image = color_image
+        detection_msg.depth_image = depth_image
+
+        boxes = []
+        detection_msg.boxes = boxes
+
+        self.camera_publisher.publish(detection_msg)
+        self.get_logger().info("Published image")
+        
     def timer_callback(self):
         frames = self.pipeline.wait_for_frames()
         aligned_frames = self.align.process(frames)

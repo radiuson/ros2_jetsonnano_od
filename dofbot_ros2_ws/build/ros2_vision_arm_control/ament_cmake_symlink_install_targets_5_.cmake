@@ -1,0 +1,1 @@
+ament_cmake_symlink_install_targets("TARGET_FILES" "/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/rosidl_generator_py/ros2_vision_arm_control/libros2_vision_arm_control__python.so" "TARGETS" "ros2_vision_arm_control__python" "ARCHIVE_DESTINATION" "lib" "LIBRARY_DESTINATION" "lib" "RUNTIME_DESTINATION" "bin")
