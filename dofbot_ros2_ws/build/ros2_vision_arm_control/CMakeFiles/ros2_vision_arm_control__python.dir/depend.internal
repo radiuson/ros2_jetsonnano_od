@@ -3,6 +3,9 @@
 
 CMakeFiles/ros2_vision_arm_control__python.dir/rosidl_generator_py/ros2_vision_arm_control/msg/_bounding_box_s.c.o
  /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control/rosidl_generator_py/ros2_vision_arm_control/msg/_bounding_box_s.c
+ /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence.h
+ /opt/ros/foxy/include/rosidl_runtime_c/string.h
+ /opt/ros/foxy/include/rosidl_runtime_c/string_functions.h
  /opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h
  /usr/include/python3.8/Python.h
  /usr/include/python3.8/abstract.h

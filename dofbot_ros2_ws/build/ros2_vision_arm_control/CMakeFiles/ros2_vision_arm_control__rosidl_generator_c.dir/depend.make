@@ -8,6 +8,9 @@ CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ro
 CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rcutils/types/rcutils_ret.h
 CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rcutils/visibility_control.h
 CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rcutils/visibility_control_macros.h
+CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rosidl_runtime_c/primitives_sequence.h
+CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rosidl_runtime_c/string.h
+CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rosidl_runtime_c/string_functions.h
 CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: /opt/ros/foxy/include/rosidl_runtime_c/visibility_control.h
 CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.h
 CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o: rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__struct.h

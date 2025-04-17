@@ -27,11 +27,11 @@ inline const char * name<ros2_vision_arm_control::msg::BoundingBox>()
 
 template<>
 struct has_fixed_size<ros2_vision_arm_control::msg::BoundingBox>
-  : std::integral_constant<bool, true> {};
+  : std::integral_constant<bool, false> {};
 
 template<>
 struct has_bounded_size<ros2_vision_arm_control::msg::BoundingBox>
-  : std::integral_constant<bool, true> {};
+  : std::integral_constant<bool, false> {};
 
 template<>
 struct is_message<ros2_vision_arm_control::msg::BoundingBox>

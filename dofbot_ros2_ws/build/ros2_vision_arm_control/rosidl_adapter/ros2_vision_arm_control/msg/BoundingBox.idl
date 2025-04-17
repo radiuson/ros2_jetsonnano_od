@@ -6,17 +6,19 @@
 module ros2_vision_arm_control {
   module msg {
     struct BoundingBox {
-      float xmin;
+      int32 xmin;
 
-      float ymin;
+      int32 ymin;
 
-      float xmax;
+      int32 xmax;
 
-      float ymax;
+      int32 ymax;
 
       float confidence;
 
       int32 class_id;
+
+      string class_name;
     };
   };
 };

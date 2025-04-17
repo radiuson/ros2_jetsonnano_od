@@ -37,42 +37,44 @@ struct BoundingBox_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->xmin = 0.0f;
-      this->ymin = 0.0f;
-      this->xmax = 0.0f;
-      this->ymax = 0.0f;
+      this->xmin = 0l;
+      this->ymin = 0l;
+      this->xmax = 0l;
+      this->ymax = 0l;
       this->confidence = 0.0f;
       this->class_id = 0l;
+      this->class_name = "";
     }
   }
 
   explicit BoundingBox_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
+  : class_name(_alloc)
   {
-    (void)_alloc;
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
-      this->xmin = 0.0f;
-      this->ymin = 0.0f;
-      this->xmax = 0.0f;
-      this->ymax = 0.0f;
+      this->xmin = 0l;
+      this->ymin = 0l;
+      this->xmax = 0l;
+      this->ymax = 0l;
       this->confidence = 0.0f;
       this->class_id = 0l;
+      this->class_name = "";
     }
   }
 
   // field types and members
   using _xmin_type =
-    float;
+    int32_t;
   _xmin_type xmin;
   using _ymin_type =
-    float;
+    int32_t;
   _ymin_type ymin;
   using _xmax_type =
-    float;
+    int32_t;
   _xmax_type xmax;
   using _ymax_type =
-    float;
+    int32_t;
   _ymax_type ymax;
   using _confidence_type =
     float;
@@ -80,28 +82,31 @@ struct BoundingBox_
   using _class_id_type =
     int32_t;
   _class_id_type class_id;
+  using _class_name_type =
+    std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other>;
+  _class_name_type class_name;
 
   // setters for named parameter idiom
   Type & set__xmin(
-    const float & _arg)
+    const int32_t & _arg)
   {
     this->xmin = _arg;
     return *this;
   }
   Type & set__ymin(
-    const float & _arg)
+    const int32_t & _arg)
   {
     this->ymin = _arg;
     return *this;
   }
   Type & set__xmax(
-    const float & _arg)
+    const int32_t & _arg)
   {
     this->xmax = _arg;
     return *this;
   }
   Type & set__ymax(
-    const float & _arg)
+    const int32_t & _arg)
   {
     this->ymax = _arg;
     return *this;
@@ -116,6 +121,12 @@ struct BoundingBox_
     const int32_t & _arg)
   {
     this->class_id = _arg;
+    return *this;
+  }
+  Type & set__class_name(
+    const std::basic_string<char, std::char_traits<char>, typename ContainerAllocator::template rebind<char>::other> & _arg)
+  {
+    this->class_name = _arg;
     return *this;
   }
 
@@ -177,6 +188,9 @@ struct BoundingBox_
       return false;
     }
     if (this->class_id != other.class_id) {
+      return false;
+    }
+    if (this->class_name != other.class_name) {
       return false;
     }
     return true;

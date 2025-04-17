@@ -11,6 +11,10 @@
 #include "rcutils/allocator.h"
 
 
+// Include directives for member types
+// Member `class_name`
+#include "rosidl_runtime_c/string_functions.h"
+
 bool
 ros2_vision_arm_control__msg__BoundingBox__init(ros2_vision_arm_control__msg__BoundingBox * msg)
 {
@@ -23,6 +27,11 @@ ros2_vision_arm_control__msg__BoundingBox__init(ros2_vision_arm_control__msg__Bo
   // ymax
   // confidence
   // class_id
+  // class_name
+  if (!rosidl_runtime_c__String__init(&msg->class_name)) {
+    ros2_vision_arm_control__msg__BoundingBox__fini(msg);
+    return false;
+  }
   return true;
 }
 
@@ -38,6 +47,8 @@ ros2_vision_arm_control__msg__BoundingBox__fini(ros2_vision_arm_control__msg__Bo
   // ymax
   // confidence
   // class_id
+  // class_name
+  rosidl_runtime_c__String__fini(&msg->class_name);
 }
 
 bool
@@ -70,6 +81,12 @@ ros2_vision_arm_control__msg__BoundingBox__are_equal(const ros2_vision_arm_contr
   if (lhs->class_id != rhs->class_id) {
     return false;
   }
+  // class_name
+  if (!rosidl_runtime_c__String__are_equal(
+      &(lhs->class_name), &(rhs->class_name)))
+  {
+    return false;
+  }
   return true;
 }
 
@@ -93,6 +110,12 @@ ros2_vision_arm_control__msg__BoundingBox__copy(
   output->confidence = input->confidence;
   // class_id
   output->class_id = input->class_id;
+  // class_name
+  if (!rosidl_runtime_c__String__copy(
+      &(input->class_name), &(output->class_name)))
+  {
+    return false;
+  }
   return true;
 }
 

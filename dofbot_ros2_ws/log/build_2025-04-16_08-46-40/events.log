@@ -1,0 +1,612 @@
+[0.000000] (-) TimerEvent: {}
+[0.000873] (ros2_vision_arm_control) JobQueued: {'identifier': 'ros2_vision_arm_control', 'dependencies': OrderedDict()}
+[0.001056] (ros2_vision_arm_control) JobStarted: {'identifier': 'ros2_vision_arm_control'}
+[0.067996] (ros2_vision_arm_control) JobProgress: {'identifier': 'ros2_vision_arm_control', 'progress': 'cmake'}
+[0.087954] (ros2_vision_arm_control) Command: {'cmd': ['/usr/bin/cmake', '/home/jetson/code/dofbot_ros2_ws/src/ros2_vision_arm_control', '-DAMENT_CMAKE_SYMLINK_INSTALL=1', '-DCMAKE_INSTALL_PREFIX=/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control'], 'cwd': '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 38926 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code'), ('TERM_PROGRAM_VERSION', '1.99.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-e487260a-bcb9-482e-90e2-d0530aa76788.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install:/home/jetson/code/cv_bridge_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-5112142'), ('AMENT_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 38926 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[0.094748] (-) TimerEvent: {}
+[0.195605] (-) TimerEvent: {}
+[0.296613] (-) TimerEvent: {}
+[0.397270] (-) TimerEvent: {}
+[0.498006] (-) TimerEvent: {}
+[0.598859] (-) TimerEvent: {}
+[0.699512] (-) TimerEvent: {}
+[0.801320] (-) TimerEvent: {}
+[0.902025] (-) TimerEvent: {}
+[1.002690] (-) TimerEvent: {}
+[1.103317] (-) TimerEvent: {}
+[1.114326] (ros2_vision_arm_control) StdoutLine: {'line': b'-- The C compiler identification is GNU 8.4.0\n'}
+[1.203490] (-) TimerEvent: {}
+[1.304134] (-) TimerEvent: {}
+[1.404851] (-) TimerEvent: {}
+[1.505530] (-) TimerEvent: {}
+[1.606297] (-) TimerEvent: {}
+[1.629134] (ros2_vision_arm_control) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 8.4.0\n'}
+[1.666647] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc\n'}
+[1.706469] (-) TimerEvent: {}
+[1.807262] (-) TimerEvent: {}
+[1.908446] (-) TimerEvent: {}
+[1.950348] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc -- works\n'}
+[1.957746] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[2.008675] (-) TimerEvent: {}
+[2.109390] (-) TimerEvent: {}
+[2.210114] (-) TimerEvent: {}
+[2.233203] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[2.301599] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[2.303586] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[2.310289] (-) TimerEvent: {}
+[2.320652] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++\n'}
+[2.410553] (-) TimerEvent: {}
+[2.511265] (-) TimerEvent: {}
+[2.611963] (-) TimerEvent: {}
+[2.639918] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ -- works\n'}
+[2.644206] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[2.712153] (-) TimerEvent: {}
+[2.818602] (-) TimerEvent: {}
+[2.919336] (-) TimerEvent: {}
+[2.977634] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[3.019572] (-) TimerEvent: {}
+[3.030117] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[3.032461] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[3.100708] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found ament_cmake: 0.9.12 (/opt/ros/foxy/share/ament_cmake/cmake)\n'}
+[3.119751] (-) TimerEvent: {}
+[3.220830] (-) TimerEvent: {}
+[3.278383] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3") \n'}
+[3.279261] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[3.320992] (-) TimerEvent: {}
+[3.421602] (-) TimerEvent: {}
+[3.522640] (-) TimerEvent: {}
+[3.623333] (-) TimerEvent: {}
+[3.723960] (-) TimerEvent: {}
+[3.825115] (-) TimerEvent: {}
+[3.925768] (-) TimerEvent: {}
+[4.026836] (-) TimerEvent: {}
+[4.128225] (-) TimerEvent: {}
+[4.228913] (-) TimerEvent: {}
+[4.329938] (-) TimerEvent: {}
+[4.431627] (-) TimerEvent: {}
+[4.532640] (-) TimerEvent: {}
+[4.633699] (-) TimerEvent: {}
+[4.734404] (-) TimerEvent: {}
+[4.835484] (-) TimerEvent: {}
+[4.936608] (-) TimerEvent: {}
+[5.037739] (-) TimerEvent: {}
+[5.138892] (-) TimerEvent: {}
+[5.160522] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[5.239117] (-) TimerEvent: {}
+[5.340210] (-) TimerEvent: {}
+[5.375397] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found rclpy: 1.0.13 (/opt/ros/foxy/share/rclpy/cmake)\n'}
+[5.389598] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found sensor_msgs: 2.0.5 (/opt/ros/foxy/share/sensor_msgs/cmake)\n'}
+[5.440461] (-) TimerEvent: {}
+[5.541622] (-) TimerEvent: {}
+[5.615431] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[5.642338] (-) TimerEvent: {}
+[5.674613] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found rosidl_adapter: 1.3.1 (/opt/ros/foxy/share/rosidl_adapter/cmake)\n'}
+[5.742584] (-) TimerEvent: {}
+[5.843586] (-) TimerEvent: {}
+[5.944374] (-) TimerEvent: {}
+[6.045092] (-) TimerEvent: {}
+[6.150726] (-) TimerEvent: {}
+[6.239495] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/aarch64-linux-gnu/libcrypto.so (found version "1.1.1f")  \n'}
+[6.250901] (-) TimerEvent: {}
+[6.351574] (-) TimerEvent: {}
+[6.383509] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/foxy/include  \n'}
+[6.451748] (-) TimerEvent: {}
+[6.552557] (-) TimerEvent: {}
+[6.653212] (-) TimerEvent: {}
+[6.753859] (-) TimerEvent: {}
+[6.833784] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.854100] (-) TimerEvent: {}
+[6.958837] (-) TimerEvent: {}
+[7.059528] (-) TimerEvent: {}
+[7.160497] (-) TimerEvent: {}
+[7.261225] (-) TimerEvent: {}
+[7.361930] (-) TimerEvent: {}
+[7.462798] (-) TimerEvent: {}
+[7.563494] (-) TimerEvent: {}
+[7.664199] (-) TimerEvent: {}
+[7.760358] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.0.1 (/opt/ros/foxy/share/rosidl_default_generators/cmake)\n'}
+[7.764356] (-) TimerEvent: {}
+[7.865490] (-) TimerEvent: {}
+[7.948275] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found version "3.8.10") \n'}
+[7.965652] (-) TimerEvent: {}
+[8.066329] (-) TimerEvent: {}
+[8.167077] (-) TimerEvent: {}
+[8.268119] (-) TimerEvent: {}
+[8.369270] (-) TimerEvent: {}
+[8.470329] (-) TimerEvent: {}
+[8.571425] (-) TimerEvent: {}
+[8.672160] (-) TimerEvent: {}
+[8.772901] (-) TimerEvent: {}
+[8.873603] (-) TimerEvent: {}
+[8.974332] (-) TimerEvent: {}
+[9.075788] (-) TimerEvent: {}
+[9.176847] (-) TimerEvent: {}
+[9.185842] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.9.2 (/opt/ros/foxy/share/ament_cmake_ros/cmake)\n'}
+[9.277059] (-) TimerEvent: {}
+[9.383231] (-) TimerEvent: {}
+[9.484044] (-) TimerEvent: {}
+[9.585266] (-) TimerEvent: {}
+[9.685931] (-) TimerEvent: {}
+[9.786677] (-) TimerEvent: {}
+[9.887302] (-) TimerEvent: {}
+[9.990697] (-) TimerEvent: {}
+[10.091419] (-) TimerEvent: {}
+[10.194076] (-) TimerEvent: {}
+[10.294911] (-) TimerEvent: {}
+[10.395584] (-) TimerEvent: {}
+[10.496334] (-) TimerEvent: {}
+[10.596997] (-) TimerEvent: {}
+[10.698059] (-) TimerEvent: {}
+[10.799160] (-) TimerEvent: {}
+[10.900223] (-) TimerEvent: {}
+[11.000956] (-) TimerEvent: {}
+[11.101704] (-) TimerEvent: {}
+[11.167332] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[11.201896] (-) TimerEvent: {}
+[11.302655] (-) TimerEvent: {}
+[11.403670] (-) TimerEvent: {}
+[11.504720] (-) TimerEvent: {}
+[11.605835] (-) TimerEvent: {}
+[11.706585] (-) TimerEvent: {}
+[11.807319] (-) TimerEvent: {}
+[11.909616] (-) TimerEvent: {}
+[12.010365] (-) TimerEvent: {}
+[12.111257] (-) TimerEvent: {}
+[12.211892] (-) TimerEvent: {}
+[12.312537] (-) TimerEvent: {}
+[12.413234] (-) TimerEvent: {}
+[12.444173] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[12.513415] (-) TimerEvent: {}
+[12.593017] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found PythonInterp: /usr/bin/python3 (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[12.613606] (-) TimerEvent: {}
+[12.720508] (-) TimerEvent: {}
+[12.721696] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found python_cmake_module: 0.8.1 (/opt/ros/foxy/share/python_cmake_module/cmake)\n'}
+[12.820698] (-) TimerEvent: {}
+[12.921799] (-) TimerEvent: {}
+[12.940058] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found PythonLibs: /usr/lib/aarch64-linux-gnu/libpython3.8.so (found suitable version "3.8.10", minimum required is "3.5") \n'}
+[12.941017] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[12.941519] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.8\n'}
+[12.941978] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/aarch64-linux-gnu/libpython3.8.so\n'}
+[13.021981] (-) TimerEvent: {}
+[13.122699] (-) TimerEvent: {}
+[13.173860] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Found PythonExtra: .so  \n'}
+[13.222876] (-) TimerEvent: {}
+[13.324007] (-) TimerEvent: {}
+[13.425167] (-) TimerEvent: {}
+[13.526291] (-) TimerEvent: {}
+[13.630683] (-) TimerEvent: {}
+[13.731800] (-) TimerEvent: {}
+[13.832546] (-) TimerEvent: {}
+[13.933182] (-) TimerEvent: {}
+[13.991406] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Configuring done\n'}
+[14.033355] (-) TimerEvent: {}
+[14.134410] (-) TimerEvent: {}
+[14.235418] (-) TimerEvent: {}
+[14.310856] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Generating done\n'}
+[14.335587] (-) TimerEvent: {}
+[14.406929] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Build files have been written to: /home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control\n'}
+[14.440845] (ros2_vision_arm_control) CommandEnded: {'returncode': 0}
+[14.443966] (-) TimerEvent: {}
+[14.444901] (ros2_vision_arm_control) JobProgress: {'identifier': 'ros2_vision_arm_control', 'progress': 'build'}
+[14.445095] (ros2_vision_arm_control) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control', '--', '-j4', '-l4'], 'cwd': '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 38926 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code'), ('TERM_PROGRAM_VERSION', '1.99.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-e487260a-bcb9-482e-90e2-d0530aa76788.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install:/home/jetson/code/cv_bridge_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-5112142'), ('AMENT_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 38926 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[14.544185] (-) TimerEvent: {}
+[14.645585] (-) TimerEvent: {}
+[14.647859] (ros2_vision_arm_control) StdoutLine: {'line': b'[  2%] \x1b[34m\x1b[1mGenerating C code for ROS interfaces\x1b[0m\n'}
+[14.650239] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__cpp\x1b[0m\n'}
+[14.743193] (ros2_vision_arm_control) StdoutLine: {'line': b'[  5%] \x1b[34m\x1b[1mGenerating C++ code for ROS interfaces\x1b[0m\n'}
+[14.745757] (-) TimerEvent: {}
+[14.846480] (-) TimerEvent: {}
+[14.947666] (-) TimerEvent: {}
+[15.048763] (-) TimerEvent: {}
+[15.149478] (-) TimerEvent: {}
+[15.250149] (-) TimerEvent: {}
+[15.350924] (-) TimerEvent: {}
+[15.451583] (-) TimerEvent: {}
+[15.552252] (-) TimerEvent: {}
+[15.655436] (-) TimerEvent: {}
+[15.757956] (-) TimerEvent: {}
+[15.859128] (-) TimerEvent: {}
+[15.960140] (-) TimerEvent: {}
+[16.061144] (-) TimerEvent: {}
+[16.162304] (-) TimerEvent: {}
+[16.271487] (-) TimerEvent: {}
+[16.372542] (-) TimerEvent: {}
+[16.473220] (-) TimerEvent: {}
+[16.573967] (-) TimerEvent: {}
+[16.639924] (ros2_vision_arm_control) StdoutLine: {'line': b'[  5%] Built target ros2_vision_arm_control__cpp\n'}
+[16.674157] (-) TimerEvent: {}
+[16.722581] (ros2_vision_arm_control) StdoutLine: {'line': b'[  7%] \x1b[34m\x1b[1mGenerating C++ type support for eProsima Fast-RTPS\x1b[0m\n'}
+[16.774331] (-) TimerEvent: {}
+[16.803976] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 10%] \x1b[34m\x1b[1mGenerating C++ type support dispatch for ROS interfaces\x1b[0m\n'}
+[16.846828] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_generator_c\x1b[0m\n'}
+[16.854743] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 12%] \x1b[34m\x1b[1mGenerating C++ introspection for ROS interfaces\x1b[0m\n'}
+[16.874592] (-) TimerEvent: {}
+[16.975723] (-) TimerEvent: {}
+[17.035321] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/vision_detection__functions.c.o\x1b[0m\n'}
+[17.075894] (-) TimerEvent: {}
+[17.176519] (-) TimerEvent: {}
+[17.277161] (-) TimerEvent: {}
+[17.377822] (-) TimerEvent: {}
+[17.479059] (-) TimerEvent: {}
+[17.506388] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 17%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_generator_c.dir/rosidl_generator_c/ros2_vision_arm_control/msg/detail/bounding_box__functions.c.o\x1b[0m\n'}
+[17.579219] (-) TimerEvent: {}
+[17.680336] (-) TimerEvent: {}
+[17.748571] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 20%] \x1b[32m\x1b[1mLinking C shared library libros2_vision_arm_control__rosidl_generator_c.so\x1b[0m\n'}
+[17.780498] (-) TimerEvent: {}
+[17.881446] (-) TimerEvent: {}
+[17.938095] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 20%] Built target ros2_vision_arm_control__rosidl_generator_c\n'}
+[17.981626] (-) TimerEvent: {}
+[17.985160] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 23%] \x1b[34m\x1b[1mGenerating C introspection for ROS interfaces\x1b[0m\n'}
+[18.081807] (-) TimerEvent: {}
+[18.182878] (-) TimerEvent: {}
+[18.224012] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_cpp\x1b[0m\n'}
+[18.283059] (-) TimerEvent: {}
+[18.340336] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_vision_arm_control/msg/vision_detection__type_support.cpp.o\x1b[0m\n'}
+[18.383239] (-) TimerEvent: {}
+[18.484310] (-) TimerEvent: {}
+[18.524728] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[18.537155] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[18.584488] (-) TimerEvent: {}
+[18.629926] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 28%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_vision_arm_control/msg/detail/dds_fastrtps/vision_detection__type_support.cpp.o\x1b[0m\n'}
+[18.644843] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_vision_arm_control/msg/detail/vision_detection__type_support.cpp.o\x1b[0m\n'}
+[18.684701] (-) TimerEvent: {}
+[18.785771] (-) TimerEvent: {}
+[18.886994] (-) TimerEvent: {}
+[18.988060] (-) TimerEvent: {}
+[19.089124] (-) TimerEvent: {}
+[19.190223] (-) TimerEvent: {}
+[19.291545] (-) TimerEvent: {}
+[19.392659] (-) TimerEvent: {}
+[19.493787] (-) TimerEvent: {}
+[19.502452] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 33%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/ros2_vision_arm_control/msg/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[19.593980] (-) TimerEvent: {}
+[19.627634] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[19.694183] (-) TimerEvent: {}
+[19.779857] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 35%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_vision_arm_control/msg/detail/vision_detection__type_support.c.o\x1b[0m\n'}
+[19.794382] (-) TimerEvent: {}
+[19.895665] (-) TimerEvent: {}
+[19.965339] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 38%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/ros2_vision_arm_control/msg/detail/bounding_box__type_support.c.o\x1b[0m\n'}
+[19.975980] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 41%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/ros2_vision_arm_control/msg/detail/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[19.995853] (-) TimerEvent: {}
+[20.096994] (-) TimerEvent: {}
+[20.111694] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 43%] \x1b[32m\x1b[1mLinking C shared library libros2_vision_arm_control__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[20.197196] (-) TimerEvent: {}
+[20.259604] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 43%] Built target ros2_vision_arm_control__rosidl_typesupport_introspection_c\n'}
+[20.297391] (-) TimerEvent: {}
+[20.341252] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 46%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/ros2_vision_arm_control/msg/detail/dds_fastrtps/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[20.397586] (-) TimerEvent: {}
+[20.430779] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 48%] \x1b[34m\x1b[1mGenerating C type support dispatch for ROS interfaces\x1b[0m\n'}
+[20.497767] (-) TimerEvent: {}
+[20.598860] (-) TimerEvent: {}
+[20.699584] (-) TimerEvent: {}
+[20.747716] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[20.799758] (-) TimerEvent: {}
+[20.900843] (-) TimerEvent: {}
+[21.001975] (-) TimerEvent: {}
+[21.047593] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 51%] Built target ros2_vision_arm_control__rosidl_typesupport_cpp\n'}
+[21.102163] (-) TimerEvent: {}
+[21.139836] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 53%] \x1b[32m\x1b[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[21.202345] (-) TimerEvent: {}
+[21.303120] (-) TimerEvent: {}
+[21.404305] (-) TimerEvent: {}
+[21.429590] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 53%] Built target ros2_vision_arm_control__rosidl_typesupport_introspection_cpp\n'}
+[21.504532] (-) TimerEvent: {}
+[21.605211] (-) TimerEvent: {}
+[21.705902] (-) TimerEvent: {}
+[21.806617] (-) TimerEvent: {}
+[21.907297] (-) TimerEvent: {}
+[21.932017] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 56%] \x1b[32m\x1b[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[22.007466] (-) TimerEvent: {}
+[22.013296] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_c\x1b[0m\n'}
+[22.072583] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 58%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_vision_arm_control/msg/vision_detection__type_support.cpp.o\x1b[0m\n'}
+[22.076361] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 61%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_c.dir/rosidl_typesupport_c/ros2_vision_arm_control/msg/bounding_box__type_support.cpp.o\x1b[0m\n'}
+[22.107694] (-) TimerEvent: {}
+[22.208154] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 64%] \x1b[32m\x1b[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_c.so\x1b[0m\n'}
+[22.208841] (-) TimerEvent: {}
+[22.279553] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 64%] Built target ros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp\n'}
+[22.309092] (-) TimerEvent: {}
+[22.323972] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 66%] \x1b[34m\x1b[1mGenerating C type support for eProsima Fast-RTPS\x1b[0m\n'}
+[22.362471] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 66%] Built target ros2_vision_arm_control__rosidl_typesupport_c\n'}
+[22.409296] (-) TimerEvent: {}
+[22.509875] (-) TimerEvent: {}
+[22.610502] (-) TimerEvent: {}
+[22.711136] (-) TimerEvent: {}
+[22.811788] (-) TimerEvent: {}
+[22.912418] (-) TimerEvent: {}
+[23.013040] (-) TimerEvent: {}
+[23.113657] (-) TimerEvent: {}
+[23.214234] (-) TimerEvent: {}
+[23.314913] (-) TimerEvent: {}
+[23.415484] (-) TimerEvent: {}
+[23.516050] (-) TimerEvent: {}
+[23.616700] (-) TimerEvent: {}
+[23.664904] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[23.716914] (-) TimerEvent: {}
+[23.744743] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 69%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_vision_arm_control/msg/detail/bounding_box__type_support_c.cpp.o\x1b[0m\n'}
+[23.753570] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 71%] \x1b[32mBuilding CXX object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/ros2_vision_arm_control/msg/detail/vision_detection__type_support_c.cpp.o\x1b[0m\n'}
+[23.817136] (-) TimerEvent: {}
+[23.917814] (-) TimerEvent: {}
+[24.018576] (-) TimerEvent: {}
+[24.119229] (-) TimerEvent: {}
+[24.219883] (-) TimerEvent: {}
+[24.320571] (-) TimerEvent: {}
+[24.421295] (-) TimerEvent: {}
+[24.521980] (-) TimerEvent: {}
+[24.622715] (-) TimerEvent: {}
+[24.723356] (-) TimerEvent: {}
+[24.824015] (-) TimerEvent: {}
+[24.924726] (-) TimerEvent: {}
+[24.945050] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 74%] \x1b[32m\x1b[1mLinking CXX shared library libros2_vision_arm_control__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[25.024961] (-) TimerEvent: {}
+[25.125664] (-) TimerEvent: {}
+[25.226485] (-) TimerEvent: {}
+[25.260648] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 74%] Built target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c\n'}
+[25.299686] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control\x1b[0m\n'}
+[25.326743] (-) TimerEvent: {}
+[25.340759] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 74%] Built target ros2_vision_arm_control\n'}
+[25.380191] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__py\x1b[0m\n'}
+[25.424134] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 76%] \x1b[34m\x1b[1mGenerating Python code for ROS interfaces\x1b[0m\n'}
+[25.426871] (-) TimerEvent: {}
+[25.527436] (-) TimerEvent: {}
+[25.628090] (-) TimerEvent: {}
+[25.728707] (-) TimerEvent: {}
+[25.829396] (-) TimerEvent: {}
+[25.930013] (-) TimerEvent: {}
+[26.030821] (-) TimerEvent: {}
+[26.131474] (-) TimerEvent: {}
+[26.232078] (-) TimerEvent: {}
+[26.332760] (-) TimerEvent: {}
+[26.433423] (-) TimerEvent: {}
+[26.533981] (-) TimerEvent: {}
+[26.634937] (-) TimerEvent: {}
+[26.735547] (-) TimerEvent: {}
+[26.836627] (-) TimerEvent: {}
+[26.937530] (-) TimerEvent: {}
+[27.038435] (-) TimerEvent: {}
+[27.139484] (-) TimerEvent: {}
+[27.250292] (-) TimerEvent: {}
+[27.351177] (-) TimerEvent: {}
+[27.452059] (-) TimerEvent: {}
+[27.552930] (-) TimerEvent: {}
+[27.653839] (-) TimerEvent: {}
+[27.754753] (-) TimerEvent: {}
+[27.855662] (-) TimerEvent: {}
+[27.956559] (-) TimerEvent: {}
+[28.057657] (-) TimerEvent: {}
+[28.127677] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 76%] Built target ros2_vision_arm_control__py\n'}
+[28.157893] (-) TimerEvent: {}
+[28.165644] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__python\x1b[0m\n'}
+[28.258115] (-) TimerEvent: {}
+[28.306064] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 79%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__python.dir/rosidl_generator_py/ros2_vision_arm_control/msg/_bounding_box_s.c.o\x1b[0m\n'}
+[28.318391] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 82%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__python.dir/rosidl_generator_py/ros2_vision_arm_control/msg/_vision_detection_s.c.o\x1b[0m\n'}
+[28.358351] (-) TimerEvent: {}
+[28.459076] (-) TimerEvent: {}
+[28.559819] (-) TimerEvent: {}
+[28.660492] (-) TimerEvent: {}
+[28.713838] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 84%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ros2_vision_arm_control/libros2_vision_arm_control__python.so\x1b[0m\n'}
+[28.760645] (-) TimerEvent: {}
+[28.861261] (-) TimerEvent: {}
+[28.896151] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 84%] Built target ros2_vision_arm_control__python\n'}
+[28.935368] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[28.935978] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[28.936364] (ros2_vision_arm_control) StdoutLine: {'line': b'\x1b[35m\x1b[1mScanning dependencies of target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[28.961448] (-) TimerEvent: {}
+[29.023126] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/ros2_vision_arm_control/_ros2_vision_arm_control_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[29.047124] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 89%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/ros2_vision_arm_control/_ros2_vision_arm_control_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[29.061639] (-) TimerEvent: {}
+[29.062770] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 92%] \x1b[32mBuilding C object CMakeFiles/ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/ros2_vision_arm_control/_ros2_vision_arm_control_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[29.161829] (-) TimerEvent: {}
+[29.262893] (-) TimerEvent: {}
+[29.361068] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 94%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[29.363350] (-) TimerEvent: {}
+[29.400677] (ros2_vision_arm_control) StdoutLine: {'line': b'[ 97%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[29.417139] (ros2_vision_arm_control) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX shared library rosidl_generator_py/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\x1b[0m\n'}
+[29.463554] (-) TimerEvent: {}
+[29.564764] (-) TimerEvent: {}
+[29.569238] (ros2_vision_arm_control) StdoutLine: {'line': b'[100%] Built target ros2_vision_arm_control__rosidl_typesupport_introspection_c__pyext\n'}
+[29.591372] (ros2_vision_arm_control) StdoutLine: {'line': b'[100%] Built target ros2_vision_arm_control__rosidl_typesupport_c__pyext\n'}
+[29.664998] (-) TimerEvent: {}
+[29.723968] (ros2_vision_arm_control) StdoutLine: {'line': b'[100%] Built target ros2_vision_arm_control__rosidl_typesupport_fastrtps_c__pyext\n'}
+[29.765207] (-) TimerEvent: {}
+[29.767514] (ros2_vision_arm_control) CommandEnded: {'returncode': 0}
+[29.770123] (ros2_vision_arm_control) JobProgress: {'identifier': 'ros2_vision_arm_control', 'progress': 'install'}
+[29.810136] (ros2_vision_arm_control) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control'], 'cwd': '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'jetson'), ('SSH_CLIENT', '192.168.50.244 38926 22'), ('LC_TIME', 'nl_NL.UTF-8'), ('XDG_SESSION_TYPE', 'tty'), ('GIT_ASKPASS', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib:/opt/ros/foxy/opt/yaml_cpp_vendor/lib:/opt/ros/foxy/opt/rviz_ogre_vendor/lib:/opt/ros/foxy/lib/aarch64-linux-gnu:/opt/ros/foxy/lib::/usr/local/cuda/lib64'), ('BROWSER', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/bin/helpers/browser.sh'), ('MOTD_SHOWN', 'pam'), ('HOME', '/home/jetson'), ('OLDPWD', '/home/jetson/code'), ('TERM_PROGRAM_VERSION', '1.99.2'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-e487260a-bcb9-482e-90e2-d0530aa76788.sock'), ('JETSON_L4T', '32.6.1'), ('ROS_PYTHON_VERSION', '3'), ('JETSON_MODEL', 'NVIDIA Jetson Nano Developer Kit'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/node'), ('SSL_CERT_FILE', '/usr/lib/ssl/certs/ca-certificates.crt'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('BUNDLED_DEBUGPY_PATH', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('COLCON_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install:/home/jetson/code/cv_bridge_ws/install'), ('ROS_DISTRO', 'foxy'), ('LOGNAME', 'jetson'), ('JETSON_MODULE', 'NVIDIA Jetson Nano (4 GB ram)'), ('JETSON_SERIAL_NUMBER', '1421523010890'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('JETSON_CODENAME', 'Porg'), ('XDG_SESSION_CLASS', 'user'), ('TERM', 'xterm-256color'), ('XDG_SESSION_ID', '1'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/opt/ros/foxy/bin:/usr/local/cuda/bin:/home/jetson/.vscode-server/cli/servers/Stable-4949701c880d4bdb949e3c0e6b400288da7f474b/server/bin/remote-cli:/home/jetson/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/bundled/scripts/noConfigScripts:/usr/local/cuda/bin'), ('LC_ADDRESS', 'nl_NL.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('SSL_CERT_DIR', '/usr/lib/ssl/certs'), ('DISPLAY', 'localhost:10.0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/jetson/.vscode-server/extensions/ms-python.debugpy-2025.6.0-linux-arm64/.noConfigDebugAdapterEndpoints/endpoint-0a3623c71a66cd4a.txt'), ('LANG', 'en_US.UTF-8'), ('LC_TELEPHONE', 'nl_NL.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('JETSON_SOC', 'tegra210'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-03999399f2.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AUTH_SOCK', '/run/user/1000/vscode-ssh-auth-sock-5112142'), ('AMENT_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/opt/ros/foxy'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nl_NL.UTF-8'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('JETSON_BOARDIDS', 'p3448'), ('LC_MEASUREMENT', 'nl_NL.UTF-8'), ('LC_IDENTIFICATION', 'nl_NL.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('JETSON_CUDA_ARCH_BIN', '5.3'), ('PWD', '/home/jetson/code/dofbot_ros2_ws/build/ros2_vision_arm_control'), ('LC_ALL', 'en_US.UTF-8'), ('SSH_CONNECTION', '192.168.50.244 38926 192.168.50.197 22'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/build/opencv_tests:/home/jetson/code/cv_bridge_ws/install/opencv_tests/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/image_geometry/lib/python3.8/site-packages:/home/jetson/code/cv_bridge_ws/install/cv_bridge/lib/python3.8/site-packages:/opt/ros/foxy/lib/python3.8/site-packages:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages:/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages'), ('LC_NUMERIC', 'nl_NL.UTF-8'), ('LC_PAPER', 'nl_NL.UTF-8'), ('COLCON', '1'), ('JETSON_JETPACK', '4.6'), ('CMAKE_PREFIX_PATH', '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control:/home/jetson/code/cv_bridge_ws/install/vision_opencv:/home/jetson/code/cv_bridge_ws/install/image_geometry:/home/jetson/code/cv_bridge_ws/install/cv_bridge:/home/jetson/code/cv_bridge_ws/install/opencv_tests:/opt/ros/foxy'), ('JETSON_P_NUMBER', 'p3448-0000')]), 'shell': False}
+[29.846827] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[29.848770] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[29.850061] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/rosidl_interfaces/ros2_vision_arm_control\n'}
+[29.865448] (-) TimerEvent: {}
+[29.886057] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/bounding_box.h\n'}
+[29.918689] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__functions.h\n'}
+[29.951360] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__struct.h\n'}
+[29.965676] (-) TimerEvent: {}
+[29.984200] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__type_support.h\n'}
+[30.017538] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__functions.h\n'}
+[30.053650] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__struct.h\n'}
+[30.065949] (-) TimerEvent: {}
+[30.086843] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__type_support.h\n'}
+[30.119576] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_generator_c__visibility_control.h\n'}
+[30.152024] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/vision_detection.h\n'}
+[30.166174] (-) TimerEvent: {}
+[30.191805] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/library_path.sh\n'}
+[30.224952] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/library_path.dsv\n'}
+[30.259257] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_fastrtps_c.h\n'}
+[30.266389] (-) TimerEvent: {}
+[30.292385] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_fastrtps_c.h\n'}
+[30.324509] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[30.357904] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_fastrtps_c.so\n'}
+[30.366635] (-) TimerEvent: {}
+[30.397230] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[30.430868] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[30.464535] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[30.466779] (-) TimerEvent: {}
+[30.499952] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_fastrtps_cpp.so\n'}
+[30.534577] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_introspection_c.h\n'}
+[30.567011] (-) TimerEvent: {}
+[30.567730] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_introspection_c.h\n'}
+[30.601313] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[30.639742] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/bounding_box.hpp\n'}
+[30.667175] (-) TimerEvent: {}
+[30.672648] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__builder.hpp\n'}
+[30.707334] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__struct.hpp\n'}
+[30.743514] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__traits.hpp\n'}
+[30.767346] (-) TimerEvent: {}
+[30.779060] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__type_support.hpp\n'}
+[30.813654] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__builder.hpp\n'}
+[30.850460] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__struct.hpp\n'}
+[30.867572] (-) TimerEvent: {}
+[30.889780] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__traits.hpp\n'}
+[30.926557] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__type_support.hpp\n'}
+[30.962269] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[30.967795] (-) TimerEvent: {}
+[30.999207] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/vision_detection.hpp\n'}
+[31.041722] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/bounding_box__rosidl_typesupport_introspection_cpp.hpp\n'}
+[31.068025] (-) TimerEvent: {}
+[31.076563] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/include/ros2_vision_arm_control/msg/detail/vision_detection__rosidl_typesupport_introspection_cpp.hpp\n'}
+[31.113080] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/pythonpath.sh\n'}
+[31.153718] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/pythonpath.dsv\n'}
+[31.168213] (-) TimerEvent: {}
+[31.199512] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/__init__.py\n'}
+[31.241358] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/msg/__init__.py\n'}
+[31.268387] (-) TimerEvent: {}
+[31.277007] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/msg/_bounding_box.py\n'}
+[31.313384] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/msg/_vision_detection.py\n'}
+[31.357172] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_fastrtps_c.cpython-38-aarch64-linux-gnu.so\n'}
+[31.368607] (-) TimerEvent: {}
+[31.395087] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_introspection_c.cpython-38-aarch64-linux-gnu.so\n'}
+[31.431162] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/ros2_vision_arm_control_s__rosidl_typesupport_c.cpython-38-aarch64-linux-gnu.so\n'}
+[31.468798] (-) TimerEvent: {}
+[31.470710] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__python.so\n'}
+[31.537514] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/VisionDetection.idl\n'}
+[31.569000] (-) TimerEvent: {}
+[31.593492] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/BoundingBox.idl\n'}
+[31.637837] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/VisionDetection.msg\n'}
+[31.669223] (-) TimerEvent: {}
+[31.684193] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/msg/BoundingBox.msg\n'}
+[31.730886] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/__init__.py\n'}
+[31.769199] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/common.py\n'}
+[31.769874] (-) TimerEvent: {}
+[31.810419] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/experimental.py\n'}
+[31.845282] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/export.py\n'}
+[31.870141] (-) TimerEvent: {}
+[31.882450] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov3-spp.yaml\n'}
+[31.919085] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov5-fpn.yaml\n'}
+[31.955339] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub/yolov5-panet.yaml\n'}
+[31.970378] (-) TimerEvent: {}
+[31.992690] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolo.py\n'}
+[32.031246] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5l.yaml\n'}
+[32.067368] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5m.yaml\n'}
+[32.070629] (-) TimerEvent: {}
+[32.104184] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5n.yaml\n'}
+[32.153080] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5s.yaml\n'}
+[32.170885] (-) TimerEvent: {}
+[32.191255] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolov5x.yaml\n'}
+[32.231162] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/__init__.py\n'}
+[32.268332] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/activations.py\n'}
+[32.271051] (-) TimerEvent: {}
+[32.305111] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/datasets.py\n'}
+[32.344467] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/general.py\n'}
+[32.371485] (-) TimerEvent: {}
+[32.381731] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/google_utils.py\n'}
+[32.419471] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/ikpy_utils.py\n'}
+[32.455919] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/torch_utils.py\n'}
+[32.471662] (-) TimerEvent: {}
+[32.493529] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/__init__.py\n'}
+[32.531186] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/camera_node.py\n'}
+[32.570974] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/arm_control.py\n'}
+[32.571828] (-) TimerEvent: {}
+[32.607928] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_detector.py\n'}
+[32.643737] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/motion_planner.py\n'}
+[32.672075] (-) TimerEvent: {}
+[32.684425] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/launch/vision_arm_launch.py\n'}
+[32.723173] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/base_link.STL\n'}
+[32.759162] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link1.STL\n'}
+[32.772313] (-) TimerEvent: {}
+[32.795649] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link2.STL\n'}
+[32.832639] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link3.STL\n'}
+[32.868492] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link4.STL\n'}
+[32.872534] (-) TimerEvent: {}
+[32.904801] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/meshes/link5.STL\n'}
+[32.944411] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_weight/yolov5n_0214.pt\n'}
+[32.972737] (-) TimerEvent: {}
+[32.983563] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/yolo_weight/yolov5t_0401.pt\n'}
+[33.022965] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/ros2_vision_arm_control/urdf/dofbot.urdf\n'}
+[33.066270] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/package_run_dependencies/ros2_vision_arm_control\n'}
+[33.072928] (-) TimerEvent: {}
+[33.110826] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/parent_prefix_path/ros2_vision_arm_control\n'}
+[33.152055] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/ament_prefix_path.sh\n'}
+[33.173168] (-) TimerEvent: {}
+[33.190236] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/ament_prefix_path.dsv\n'}
+[33.226913] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/path.sh\n'}
+[33.266334] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/environment/path.dsv\n'}
+[33.273354] (-) TimerEvent: {}
+[33.305004] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.bash\n'}
+[33.341740] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.sh\n'}
+[33.373572] (-) TimerEvent: {}
+[33.380507] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.zsh\n'}
+[33.417911] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/local_setup.dsv\n'}
+[33.456486] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/package.dsv\n'}
+[33.473820] (-) TimerEvent: {}
+[33.498772] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ament_index/resource_index/packages/ros2_vision_arm_control\n'}
+[33.536321] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/rosidl_cmake-extras.cmake\n'}
+[33.573242] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[33.573872] (-) TimerEvent: {}
+[33.611120] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[33.648299] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[33.674130] (-) TimerEvent: {}
+[33.684491] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[33.721930] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[33.772965] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[33.774286] (-) TimerEvent: {}
+[33.810811] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_controlConfig.cmake\n'}
+[33.847699] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_controlConfig-version.cmake\n'}
+[33.874494] (-) TimerEvent: {}
+[33.890446] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Symlinking: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/package.xml\n'}
+[33.928514] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_generator_c.so\n'}
+[33.931234] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_generator_c.so" to ""\n'}
+[33.932769] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_c.so\n'}
+[33.935347] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_c.so" to ""\n'}
+[33.936725] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_c.so\n'}
+[33.939545] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_c.so" to ""\n'}
+[33.941045] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_cpp.so\n'}
+[33.944032] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[33.945935] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_cpp.so\n'}
+[33.950817] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Set runtime path of "/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/libros2_vision_arm_control__rosidl_typesupport_cpp.so" to ""\n'}
+[33.974661] (-) TimerEvent: {}
+[34.075419] (-) TimerEvent: {}
+[34.121597] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/ros2_vision_arm_control/__init__.py'...\n"}
+[34.175661] (-) TimerEvent: {}
+[34.276745] (-) TimerEvent: {}
+[34.344054] (ros2_vision_arm_control) StdoutLine: {'line': b"Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models'...\n"}
+[34.344766] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/__init__.py'...\n"}
+[34.345334] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/common.py'...\n"}
+[34.345881] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/experimental.py'...\n"}
+[34.346422] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/export.py'...\n"}
+[34.347089] (ros2_vision_arm_control) StdoutLine: {'line': b"Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/hub'...\n"}
+[34.347629] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/models/yolo.py'...\n"}
+[34.378693] (-) TimerEvent: {}
+[34.479496] (-) TimerEvent: {}
+[34.580580] (-) TimerEvent: {}
+[34.634462] (ros2_vision_arm_control) StdoutLine: {'line': b"Listing '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils'...\n"}
+[34.635317] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/__init__.py'...\n"}
+[34.635944] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/activations.py'...\n"}
+[34.636522] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/datasets.py'...\n"}
+[34.637081] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/general.py'...\n"}
+[34.637651] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/google_utils.py'...\n"}
+[34.638207] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/ikpy_utils.py'...\n"}
+[34.638878] (ros2_vision_arm_control) StdoutLine: {'line': b"Compiling '/home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/lib/python3.8/site-packages/utils/torch_utils.py'...\n"}
+[34.661891] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_generator_cExport.cmake\n'}
+[34.662755] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_generator_cExport-noconfig.cmake\n'}
+[34.663823] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cExport.cmake\n'}
+[34.664676] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[34.665723] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cExport.cmake\n'}
+[34.666569] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[34.667663] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_generator_cppExport.cmake\n'}
+[34.668763] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[34.669635] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[34.670704] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cppExport.cmake\n'}
+[34.671607] (ros2_vision_arm_control) StdoutLine: {'line': b'-- Installing: /home/jetson/code/dofbot_ros2_ws/install/ros2_vision_arm_control/share/ros2_vision_arm_control/cmake/ros2_vision_arm_control__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[34.682499] (ros2_vision_arm_control) CommandEnded: {'returncode': 0}
+[34.684278] (-) TimerEvent: {}
+[34.790668] (-) TimerEvent: {}
+[34.838998] (ros2_vision_arm_control) JobEnded: {'identifier': 'ros2_vision_arm_control', 'rc': 0}
+[34.841753] (-) EventReactorShutdown: {}

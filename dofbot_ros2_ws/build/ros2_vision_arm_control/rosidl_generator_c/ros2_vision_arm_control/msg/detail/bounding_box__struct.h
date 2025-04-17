@@ -17,15 +17,20 @@ extern "C"
 
 // Constants defined in the message
 
+// Include directives for member types
+// Member 'class_name'
+#include "rosidl_runtime_c/string.h"
+
 // Struct defined in msg/BoundingBox in the package ros2_vision_arm_control.
 typedef struct ros2_vision_arm_control__msg__BoundingBox
 {
-  float xmin;
-  float ymin;
-  float xmax;
-  float ymax;
+  int32_t xmin;
+  int32_t ymin;
+  int32_t xmax;
+  int32_t ymax;
   float confidence;
   int32_t class_id;
+  rosidl_runtime_c__String class_name;
 } ros2_vision_arm_control__msg__BoundingBox;
 
 // Struct for a sequence of ros2_vision_arm_control__msg__BoundingBox.

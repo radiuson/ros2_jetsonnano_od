@@ -37,10 +37,10 @@ void BoundingBox_fini_function(void * message_memory)
   typed_message->~BoundingBox();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember BoundingBox_message_member_array[6] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember BoundingBox_message_member_array[7] = {
   {
     "xmin",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -55,7 +55,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember BoundingBox_m
   },
   {
     "ymin",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -70,7 +70,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember BoundingBox_m
   },
   {
     "xmax",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -85,7 +85,7 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember BoundingBox_m
   },
   {
     "ymax",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_FLOAT,  // type
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     nullptr,  // members of sub message
     false,  // is array
@@ -127,13 +127,28 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember BoundingBox_m
     nullptr,  // get_const(index) function pointer
     nullptr,  // get(index) function pointer
     nullptr  // resize(index) function pointer
+  },
+  {
+    "class_name",  // name
+    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_STRING,  // type
+    0,  // upper bound of string
+    nullptr,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ros2_vision_arm_control::msg::BoundingBox, class_name),  // bytes offset in struct
+    nullptr,  // default value
+    nullptr,  // size() function pointer
+    nullptr,  // get_const(index) function pointer
+    nullptr,  // get(index) function pointer
+    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers BoundingBox_message_members = {
   "ros2_vision_arm_control::msg",  // message namespace
   "BoundingBox",  // message name
-  6,  // number of fields
+  7,  // number of fields
   sizeof(ros2_vision_arm_control::msg::BoundingBox),
   BoundingBox_message_member_array,  // message members
   BoundingBox_init_function,  // function to initialize message memory (memory has to be allocated)

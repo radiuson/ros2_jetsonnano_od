@@ -127,6 +127,8 @@ stddef.h
 -
 stdint.h
 -
+rosidl_runtime_c/string.h
+rosidl_generator_c/ros2_vision_arm_control/msg/detail/rosidl_runtime_c/string.h
 
 rosidl_generator_c/ros2_vision_arm_control/msg/detail/vision_detection__struct.h
 stdbool.h

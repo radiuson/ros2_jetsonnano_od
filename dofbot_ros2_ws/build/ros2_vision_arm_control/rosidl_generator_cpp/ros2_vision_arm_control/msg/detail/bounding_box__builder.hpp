@@ -20,16 +20,32 @@ namespace msg
 namespace builder
 {
 
+class Init_BoundingBox_class_name
+{
+public:
+  explicit Init_BoundingBox_class_name(::ros2_vision_arm_control::msg::BoundingBox & msg)
+  : msg_(msg)
+  {}
+  ::ros2_vision_arm_control::msg::BoundingBox class_name(::ros2_vision_arm_control::msg::BoundingBox::_class_name_type arg)
+  {
+    msg_.class_name = std::move(arg);
+    return std::move(msg_);
+  }
+
+private:
+  ::ros2_vision_arm_control::msg::BoundingBox msg_;
+};
+
 class Init_BoundingBox_class_id
 {
 public:
   explicit Init_BoundingBox_class_id(::ros2_vision_arm_control::msg::BoundingBox & msg)
   : msg_(msg)
   {}
-  ::ros2_vision_arm_control::msg::BoundingBox class_id(::ros2_vision_arm_control::msg::BoundingBox::_class_id_type arg)
+  Init_BoundingBox_class_name class_id(::ros2_vision_arm_control::msg::BoundingBox::_class_id_type arg)
   {
     msg_.class_id = std::move(arg);
-    return std::move(msg_);
+    return Init_BoundingBox_class_name(msg_);
   }
 
 private:

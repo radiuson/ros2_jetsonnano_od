@@ -99,7 +99,6 @@ class MotionPlanner(Node):
     def arm_state_callback(self, msg):
         # Process arm state
         self.arm_state = msg.data
-        self.get_logger().info(f"Received arm state: {self.arm_state}")
 
     def camera_mount_transform_callback(self, msg):
         # Convert the transform string back to a numpy array
@@ -117,38 +116,45 @@ class MotionPlanner(Node):
 
         target_class = 'tomato'
         found_tomato = None
+        try:
+            # 遍历消息中的所有目标框，找出类别是 "tomato" 的目标
+            for box in msg.boxes:
+                if box.class_name == target_class:
+                    # 记录下这个 tomato 的检测框（只保留最后一个）
+                    found_tomato = box
 
-        # 遍历消息中的所有目标框，找出类别是 "tomato" 的目标
-        for box in msg.boxes:
-            if box.class_name == target_class:
-                # 记录下这个 tomato 的检测框（只保留最后一个）
-                found_tomato = box
 
-        if found_tomato is not None:
-            # 计算中心点坐标（像素坐标）
-            center_x = (found_tomato.xmin + found_tomato.xmax) / 2
-            center_y = (found_tomato.ymin + found_tomato.ymax) / 2
+            if found_tomato is not None:
+                # 计算中心点坐标（像素坐标）
+                center_x = (found_tomato.xmin + found_tomato.xmax) // 2
+                center_y = (found_tomato.ymin + found_tomato.ymax) // 2
 
-            if self.depth_intrinsics is not None and msg.depth_image is not None:
-                self.depth_image = msg.depth_image  # 更新最新的深度图
-                tomato_coor_cam = self.pixel_to_camera_coords(center_x, center_y)
-                self.get_logger().info(f"In camera_coor is {tomato_coor_cam}")
+                if self.depth_intrinsics is not None and msg.depth_image is not None:
+                    self.depth_image = self.bridge.imgmsg_to_cv2(msg.depth_image, desired_encoding='passthrough') / DEPTH_IMAGE_SCALE
+                    tomato_coor_cam = self.pixel_to_camera_coords(center_x, center_y)
+                    self.get_logger().info(f"In camera_coor is {tomato_coor_cam}")
 
-                # 坐标转换为世界坐标系（使用相机的外参）
-                tomato_coor_world = self.camera_rotation @ tomato_coor_cam + self.camera_coords
-                self.get_logger().info(f"Tomato coor is {tomato_coor_world}")
+                    # 坐标转换为世界坐标系（使用相机的外参）
+                    tomato_coor_world = self.camera_rotation @ tomato_coor_cam + self.camera_coords
+                    self.get_logger().info(f"Tomato coor is {tomato_coor_world}")
 
-                # 是否使用补偿器
-                if self.compen:
-                    tomato_coor_world = self.compensator(tomato_coor_world)
+                    # 是否使用补偿器
+                    if self.compen:
+                        tomato_coor_world = self.compensator(tomato_coor_world)
 
-                # 你可以调用抓取函数或其他控制函数
-                # self.grab_tomato(init_position=[-0.05,0.05,0.23], tomato_position=tomato_coor_world, drop_position=[0,0.05,0.25])
+                    # 你可以调用抓取函数或其他控制函数
+                    self.grab_tomato(init_position=[-0.02,0.05,0.23], tomato_position=tomato_coor_world, drop_position=[0,0.05,0.25])
+                else:
+                    self.get_logger().info("Waiting for depth intrinsics or depth image...")
             else:
-                self.get_logger().info("Waiting for depth intrinsics or depth image...")
-        else:
-            self.get_logger().info(f"No {target_class} detected.")
-
+                self.get_logger().info(f"No {target_class} detected.")
+        except (KeyError,ValueError,AttributeError) as e:
+            if isinstance(e, KeyError):
+                    self.get_logger().info(f"No {target_class} detected (KeyError)")
+            elif isinstance(e, ValueError):
+                self.get_logger().info(f"No valid depth for {target_class} ")
+            elif isinstance(e, AttributeError):
+                self.get_logger().info(f"Arm state not received")
 
     def yolo_callback(self, msg):
         # Process YOLO results
@@ -213,13 +219,14 @@ class MotionPlanner(Node):
         self.wait_for_idle()
 
     def wait_for_idle(self):
-        time.sleep(0.1)
+        pass
+        # time.sleep(0.5)
 
-        while self.arm_state == 'MOVING':
-            self.get_logger().info(f"Waiting for idle")
-            time.sleep(0.1)
+        # while self.arm_state == 'MOVING':
+        #     self.get_logger().info(f"Waiting for idle")
+        #     time.sleep(0.1)
     
-        self.get_logger().info("Arm is IDLE, ready to move.")
+        # self.get_logger().info("Arm is IDLE, ready to move.")
 
 
     def depth_callback(self, msg, scale=DEPTH_IMAGE_SCALE):
