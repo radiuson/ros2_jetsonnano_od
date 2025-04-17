@@ -12,6 +12,10 @@
 #include "ros2_vision_arm_control/msg/detail/bounding_box__struct.h"
 
 
+// Include directives for member types
+// Member `class_name`
+#include "rosidl_runtime_c/string_functions.h"
+
 #ifdef __cplusplus
 extern "C"
 {
@@ -31,10 +35,10 @@ void BoundingBox__rosidl_typesupport_introspection_c__BoundingBox_fini_function(
   ros2_vision_arm_control__msg__BoundingBox__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember BoundingBox__rosidl_typesupport_introspection_c__BoundingBox_message_member_array[6] = {
+static rosidl_typesupport_introspection_c__MessageMember BoundingBox__rosidl_typesupport_introspection_c__BoundingBox_message_member_array[7] = {
   {
     "xmin",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -49,7 +53,7 @@ static rosidl_typesupport_introspection_c__MessageMember BoundingBox__rosidl_typ
   },
   {
     "ymin",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -64,7 +68,7 @@ static rosidl_typesupport_introspection_c__MessageMember BoundingBox__rosidl_typ
   },
   {
     "xmax",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -79,7 +83,7 @@ static rosidl_typesupport_introspection_c__MessageMember BoundingBox__rosidl_typ
   },
   {
     "ymax",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
+    rosidl_typesupport_introspection_c__ROS_TYPE_INT32,  // type
     0,  // upper bound of string
     NULL,  // members of sub message
     false,  // is array
@@ -121,13 +125,28 @@ static rosidl_typesupport_introspection_c__MessageMember BoundingBox__rosidl_typ
     NULL,  // get_const(index) function pointer
     NULL,  // get(index) function pointer
     NULL  // resize(index) function pointer
+  },
+  {
+    "class_name",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(ros2_vision_arm_control__msg__BoundingBox, class_name),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers BoundingBox__rosidl_typesupport_introspection_c__BoundingBox_message_members = {
   "ros2_vision_arm_control__msg",  // message namespace
   "BoundingBox",  // message name
-  6,  // number of fields
+  7,  // number of fields
   sizeof(ros2_vision_arm_control__msg__BoundingBox),
   BoundingBox__rosidl_typesupport_introspection_c__BoundingBox_message_member_array,  // message members
   BoundingBox__rosidl_typesupport_introspection_c__BoundingBox_init_function,  // function to initialize message memory (memory has to be allocated)

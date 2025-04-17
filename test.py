@@ -19,5 +19,8 @@ def servo_write(Arm,angle,s_time=3000):
     return s_time
 
 if __name__ == "__main__":
-    Arm = Arm_Device()
-    servo_write(Arm=Arm,angle=[0,90,90,0,90,90])
+    Arm1 = Arm_Device(0x15)
+    while True:
+        print(read_servolines(Arm1))
+        time.sleep(0.2)
+

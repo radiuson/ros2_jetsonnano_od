@@ -11,9 +11,9 @@ import utils
 from utils import ikpy_utils
 from utils import (URDF_PATH,
                    CAMERA_MOUNT_INDEX,
-                   TOPIC_ROBOT_STATUS,
-                   TOPIC_ROBOT_TRANSFORM,
-                   TOPIC_ARM_CONTROL,
+                   TOPIC_ROBOT1_STATUS,
+                   TOPIC_ROBOT1_TRANSFORM,
+                   TOPIC_ARM1_CONTROL,
                    INITIAL_POSITION,
                    )
 
@@ -31,15 +31,15 @@ class ArmControl(Node):
         }
         self.command_subscription = self.create_subscription(
             String,
-            TOPIC_ARM_CONTROL,
+            TOPIC_ARM1_CONTROL,
             self.command_callback,
             10
         )
         self.transform_msg = Float32MultiArray()
         self.status_msg = String()
         self.joint_msg = String()
-        self.status_publisher = self.create_publisher(String, TOPIC_ROBOT_STATUS, 10)
-        self.transform_publisher = self.create_publisher(Float32MultiArray, TOPIC_ROBOT_TRANSFORM, 10)
+        self.status_publisher = self.create_publisher(String, TOPIC_ROBOT1_STATUS, 10)
+        self.transform_publisher = self.create_publisher(Float32MultiArray, TOPIC_ROBOT1_TRANSFORM, 10)
         
         self.timer = self.create_timer(1.0, self.transform_callback)
 
@@ -112,6 +112,7 @@ class ArmControl(Node):
         # 发布消息
         self.transform_msg.data = self.calculate_chain_transform()
         self.transform_publisher.publish(self.transform_msg)
+        self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Transform matrix published")
 
     def control_arm(self, target_position, grabber_position):
@@ -134,7 +135,6 @@ class ArmControl(Node):
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Robot Status: IDLE")
 
-        time.sleep(1)
         return True
 
     def calculate_joint_angles(self, target_position):

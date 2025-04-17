@@ -105,7 +105,7 @@ class YoloDetector(Node):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg.rgb_image, desired_encoding='bgr8')
             detections = self.detect(cv_image)
-            self.format_boundingboxes(msg,detections)
+            self.format_boundingboxes(msg,detections[0])
             self.detection_publisher.publish(msg)
             
             self.get_logger().info(f"Published YOLO detections")
@@ -129,18 +129,21 @@ class YoloDetector(Node):
             self.inferencing = False
 
 
-    def format_boundingboxes(self,msg:VisionDetection,detections):
+    def format_boundingboxes(self,msg:VisionDetection,detections:torch.Tensor):
         # 遍历检测结果，将每个检测框添加到 VisionDetection 消息的 boxes 数组中]
         msg.boxes.clear()
         for detection in detections:
+            detection = detection.cpu().tolist()
+            print(detection)
             # 假设 detection 是一个包含 bbox 信息的对象，格式为 [xmin, ymin, xmax, ymax, confidence, class_id, class_name]
             box = BoundingBox()
-            box.xmin = detection[0]
-            box.ymin = detection[1]
-            box.xmax = detection[2]
-            box.ymax = detection[3]
+            box.xmin = int(detection[0])
+            box.ymin = int(detection[1])
+            box.xmax = int(detection[2])
+            box.ymax = int(detection[3])
             box.confidence = detection[4]
-            box.class_id = detection[5]
+            box.class_id = int(detection[5])
+            box.class_name = CLASS_NAMES[int(detection[5])]
             msg.boxes.append(box)
 
 

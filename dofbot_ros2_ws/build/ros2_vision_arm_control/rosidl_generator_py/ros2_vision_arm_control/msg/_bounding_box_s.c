@@ -16,6 +16,9 @@
 #include "ros2_vision_arm_control/msg/detail/bounding_box__struct.h"
 #include "ros2_vision_arm_control/msg/detail/bounding_box__functions.h"
 
+#include "rosidl_runtime_c/string.h"
+#include "rosidl_runtime_c/string_functions.h"
+
 
 ROSIDL_GENERATOR_C_EXPORT
 bool ros2_vision_arm_control__msg__bounding_box__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -55,8 +58,8 @@ bool ros2_vision_arm_control__msg__bounding_box__convert_from_py(PyObject * _pym
     if (!field) {
       return false;
     }
-    assert(PyFloat_Check(field));
-    ros_message->xmin = (float)PyFloat_AS_DOUBLE(field);
+    assert(PyLong_Check(field));
+    ros_message->xmin = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
   {  // ymin
@@ -64,8 +67,8 @@ bool ros2_vision_arm_control__msg__bounding_box__convert_from_py(PyObject * _pym
     if (!field) {
       return false;
     }
-    assert(PyFloat_Check(field));
-    ros_message->ymin = (float)PyFloat_AS_DOUBLE(field);
+    assert(PyLong_Check(field));
+    ros_message->ymin = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
   {  // xmax
@@ -73,8 +76,8 @@ bool ros2_vision_arm_control__msg__bounding_box__convert_from_py(PyObject * _pym
     if (!field) {
       return false;
     }
-    assert(PyFloat_Check(field));
-    ros_message->xmax = (float)PyFloat_AS_DOUBLE(field);
+    assert(PyLong_Check(field));
+    ros_message->xmax = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
   {  // ymax
@@ -82,8 +85,8 @@ bool ros2_vision_arm_control__msg__bounding_box__convert_from_py(PyObject * _pym
     if (!field) {
       return false;
     }
-    assert(PyFloat_Check(field));
-    ros_message->ymax = (float)PyFloat_AS_DOUBLE(field);
+    assert(PyLong_Check(field));
+    ros_message->ymax = (int32_t)PyLong_AsLong(field);
     Py_DECREF(field);
   }
   {  // confidence
@@ -102,6 +105,21 @@ bool ros2_vision_arm_control__msg__bounding_box__convert_from_py(PyObject * _pym
     }
     assert(PyLong_Check(field));
     ros_message->class_id = (int32_t)PyLong_AsLong(field);
+    Py_DECREF(field);
+  }
+  {  // class_name
+    PyObject * field = PyObject_GetAttrString(_pymsg, "class_name");
+    if (!field) {
+      return false;
+    }
+    assert(PyUnicode_Check(field));
+    PyObject * encoded_field = PyUnicode_AsUTF8String(field);
+    if (!encoded_field) {
+      Py_DECREF(field);
+      return false;
+    }
+    rosidl_runtime_c__String__assign(&ros_message->class_name, PyBytes_AS_STRING(encoded_field));
+    Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
 
@@ -128,7 +146,7 @@ PyObject * ros2_vision_arm_control__msg__bounding_box__convert_to_py(void * raw_
   ros2_vision_arm_control__msg__BoundingBox * ros_message = (ros2_vision_arm_control__msg__BoundingBox *)raw_ros_message;
   {  // xmin
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->xmin);
+    field = PyLong_FromLong(ros_message->xmin);
     {
       int rc = PyObject_SetAttrString(_pymessage, "xmin", field);
       Py_DECREF(field);
@@ -139,7 +157,7 @@ PyObject * ros2_vision_arm_control__msg__bounding_box__convert_to_py(void * raw_
   }
   {  // ymin
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->ymin);
+    field = PyLong_FromLong(ros_message->ymin);
     {
       int rc = PyObject_SetAttrString(_pymessage, "ymin", field);
       Py_DECREF(field);
@@ -150,7 +168,7 @@ PyObject * ros2_vision_arm_control__msg__bounding_box__convert_to_py(void * raw_
   }
   {  // xmax
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->xmax);
+    field = PyLong_FromLong(ros_message->xmax);
     {
       int rc = PyObject_SetAttrString(_pymessage, "xmax", field);
       Py_DECREF(field);
@@ -161,7 +179,7 @@ PyObject * ros2_vision_arm_control__msg__bounding_box__convert_to_py(void * raw_
   }
   {  // ymax
     PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->ymax);
+    field = PyLong_FromLong(ros_message->ymax);
     {
       int rc = PyObject_SetAttrString(_pymessage, "ymax", field);
       Py_DECREF(field);
@@ -186,6 +204,23 @@ PyObject * ros2_vision_arm_control__msg__bounding_box__convert_to_py(void * raw_
     field = PyLong_FromLong(ros_message->class_id);
     {
       int rc = PyObject_SetAttrString(_pymessage, "class_id", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
+  {  // class_name
+    PyObject * field = NULL;
+    field = PyUnicode_DecodeUTF8(
+      ros_message->class_name.data,
+      strlen(ros_message->class_name.data),
+      "replace");
+    if (!field) {
+      return NULL;
+    }
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "class_name", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

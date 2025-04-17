@@ -28,7 +28,7 @@ install(
   PROGRAMS
     __init__.py
     camera_node.py
-    arm_control.py
+    arm1_control.py
     yolo_detector.py
     motion_planner.py
   DESTINATION lib/${PROJECT_NAME}

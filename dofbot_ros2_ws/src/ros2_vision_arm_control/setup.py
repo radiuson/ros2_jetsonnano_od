@@ -15,7 +15,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'arm_control = ros2_vision_arm_control.arm_control:main',
+            'arm1_control = ros2_vision_arm_control.arm1_control:main',
             'camera_node = ros2_vision_arm_control.camera_node:main',
             'yolo_detector = ros2_vision_arm_control.yolo_detector:main',
             'motion_planner = ros2_vision_arm_control.motion_planner:main',
