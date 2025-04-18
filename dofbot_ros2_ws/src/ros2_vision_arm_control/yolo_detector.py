@@ -16,7 +16,7 @@ from sensor_msgs.msg import Image
 from ros2_vision_arm_control.msg import VisionDetection, BoundingBox
 
 from cv_bridge import CvBridge
-from utils import (TOPIC_ROBOT_STATUS,
+from utils import (TOPIC_ROBOT1_STATUS,
                    TOPIC_YOLO_DEPTH,
                    TOPIC_YOLO_DETECTION,
                    WEIGHT_PATH,
@@ -46,7 +46,7 @@ class YoloDetector(Node):
         self.inferencing = False
 
         self.status_subscription = self.create_subscription(
-            String, TOPIC_ROBOT_STATUS, self.status_callback, 10
+            String, TOPIC_ROBOT1_STATUS, self.status_callback, 10
         )
 
         self.detection_publisher = self.create_publisher(VisionDetection, TOPIC_YOLO_RESULT, 2)
@@ -96,6 +96,21 @@ class YoloDetector(Node):
         self.get_logger().info(f"Received Robot Status: {self.robot_status}")
 
     def detection_callback(self, msg:VisionDetection):
+        # # Convert ROS Image message to OpenCV image
+        # try:
+        #     cv_image = self.bridge.imgmsg_to_cv2(msg.rgb_image, desired_encoding='bgr8')
+        #     # Save the image to a local directory
+        #     timestamp = int(time.time() * 1000)  # Use timestamp to ensure unique filenames
+        #     save_path = f"/home/jetson/code/img/image_{timestamp}.jpg"
+        #     cv2.imwrite(save_path, cv_image)
+        #     self.get_logger().info(f"Image saved to {save_path}")
+        # except Exception as e:
+        #     self.get_logger().error(f"Failed to save image: {e}")
+
+
+
+
+
         self.inferencing = True
         self.get_logger().info("Received an image")
         

@@ -114,7 +114,7 @@ class CameraNode(Node):
         depth_image = self.bridge.cv2_to_imgmsg(
             np.asanyarray(aligned_depth_frame.get_data()), encoding='16UC1'
         )
-
+        print(f"depth shape:{np.asanyarray(aligned_depth_frame.get_data()).shape},color shape:{np.asanyarray(aligned_color_frame.get_data()).shape}")
         detection_msg = VisionDetection()
         detection_msg.rgb_image = color_image
         detection_msg.depth_image = depth_image

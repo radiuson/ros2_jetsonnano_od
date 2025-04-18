@@ -43,7 +43,7 @@ class ArmControl(Node):
         
         self.timer = self.create_timer(1.0, self.transform_callback)
 
-        self.servo_write([90,90,90,90,90,90])
+        self.servo_write([0,90,90,90,90,90])
         self.status_msg.data = "IDLE"
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Robot Status: IDLE")
@@ -75,6 +75,7 @@ class ArmControl(Node):
             angle.append(aa if aa else 0)
             time.sleep(0.002)
         time.sleep(0.002)
+        print(angle)
         return angle
     
 
