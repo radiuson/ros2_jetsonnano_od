@@ -27,7 +27,7 @@ class ArmControl(Node):
         self.servo_speed = self.get_parameter('servo_speed').get_parameter_value().double_value
         self.grabber_positions = {
             'open': 80,
-            'close': 160,
+            'close': 179,
         }
         self.command_subscription = self.create_subscription(
             String,
@@ -100,6 +100,7 @@ class ArmControl(Node):
         converted_joint_angles = ikpy_utils.util_ikpy_d2r(joint_angles)
         chain_transform = self.chain.forward_kinematics(converted_joint_angles,full_kinematics=True)
         if index:
+            # print(np.array(chain_transform[6][:3,3], dtype=np.float32).ravel().tolist())
             return np.array(chain_transform[index], dtype=np.float32).ravel().tolist()
         else:
             return chain_transform
