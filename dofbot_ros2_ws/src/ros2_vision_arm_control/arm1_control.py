@@ -41,7 +41,7 @@ class ArmControl(Node):
         self.status_publisher = self.create_publisher(String, TOPIC_ROBOT1_STATUS, 10)
         self.transform_publisher = self.create_publisher(Float32MultiArray, TOPIC_ROBOT1_TRANSFORM, 10)
         
-        self.timer = self.create_timer(1.0, self.transform_callback)
+        self.timer = self.create_timer(0.2, self.transform_callback)
 
         self.servo_write([0,90,90,90,90,90])
         self.status_msg.data = "IDLE"
@@ -51,18 +51,21 @@ class ArmControl(Node):
     def command_callback(self, msg):
         """ 处理收到的控制指令 """
         try:
-            # 解析目标位置，例如 "0.2,0.2,0.2, open"
-            # ros2 topic pub /arm_control std_msgs/msg/String "data: '-0.1,0,0.23, close'"
+            # 解析目标位置，例如 "0.2,0.2,0.2, open,40"
+            # ros2 topic pub /arm1_control std_msgs/msg/String "data: '-0.1,0,0.23, close,40'"
             command = msg.data.split(",")
             
             target_position = list(map(float, command[:3]))  # 转换为浮点数
             grabber_state = command[3].strip().lower()
             grabber_position = self.grabber_positions.get(grabber_state, 80)  # 默认打开状态
-            
-            self.get_logger().info(f"Received command: {target_position}, Grabber: {grabber_state}")
+            if command[4] is not None:
+                rotation = command[4]
+            else:
+                rotation = 90
+            self.get_logger().info(f"Received command: {target_position}, Grabber: {grabber_state}, Rotation:{rotation}")
             
             # 控制机械臂
-            self.control_arm(target_position, grabber_position)
+            self.control_arm(target_position, grabber_position,rotation)
 
         except Exception as e:
             self.get_logger().error(f"Failed to process command: {e}")
@@ -116,7 +119,7 @@ class ArmControl(Node):
         self.status_publisher.publish(self.status_msg)
         self.get_logger().info("Transform matrix published")
 
-    def control_arm(self, target_position, grabber_position):
+    def control_arm(self, target_position, grabber_position, rotation):
         
         x,y,z = target_position
         if np.abs(x)>=0.3 or np.abs(y)>=0.3 or np.abs(z)>=0.4:
@@ -129,7 +132,10 @@ class ArmControl(Node):
         joint_angles,ik_results = self.calculate_joint_angles(target_position)
         error = self.calculate_error(ik_results,target_position)
         self.get_logger().info(f"ik error: {error}")
+        joint_angles = joint_angles[:4]
+        joint_angles.append(int(float(rotation)))
         joint_angles.append(grabber_position)
+
         self.servo_write(joint_angles)
 
         self.status_msg.data = "IDLE"

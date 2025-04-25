@@ -1,5 +1,6 @@
 import rclpy
 from rclpy.node import Node
+from rclpy.executors import MultiThreadedExecutor
 from sensor_msgs.msg import Image, CameraInfo
 # Removed unused import
 from std_msgs.msg import String, Float32MultiArray
@@ -11,6 +12,7 @@ import pyrealsense2 as rs
 from std_srvs.srv import Trigger
 import time
 import cv2
+from functools import partial
 from ros2_vision_arm_control.msg import VisionDetection, BoundingBox
 from utils import (TOPIC_YOLO_DEPTH,
                    TOPIC_YOLO_DETECTION,
@@ -39,9 +41,10 @@ class MotionPlanner(Node):
         self.depth_intrinsics = None
         self.depth_image = None
         self.compen = ARM_COMPEN
+        self.leaf_grab = False
+        self.tomato_grab = False
         self.yolo_wait_count = 0
-        self.arm_state1 = 'IDLE'
-        self.arm_state2 = 'IDLE'
+        self.arm_state = ['IDLE','IDLE']
         self.create_subscription(CameraInfo, TOPIC_CAMERA_INFO, self.camera_info_callback, 10)
 
         # Clients
@@ -56,9 +59,9 @@ class MotionPlanner(Node):
 
         self.send_camera_info_request()
         # Subscribers
-        self.create_subscription(String, TOPIC_ROBOT1_STATUS, self.arm_state1_callback, 2)
+        self.create_subscription(String, TOPIC_ROBOT1_STATUS, partial(self.arm_state_callback,index = 0), 2)
         self.create_subscription(Float32MultiArray, TOPIC_ROBOT1_TRANSFORM,self.camera_mount_transform1_callback, 2)
-        self.create_subscription(String, TOPIC_ROBOT2_STATUS, self.arm_state2_callback, 2)
+        self.create_subscription(String, TOPIC_ROBOT2_STATUS, partial(self.arm_state_callback,index = 1), 2)
         self.create_subscription(Float32MultiArray, TOPIC_ROBOT2_TRANSFORM,self.camera_mount_transform2_callback, 2)
         
         self.yolo_result_subscription = self.create_subscription(
@@ -84,7 +87,7 @@ class MotionPlanner(Node):
         init_position = [0.05,0.05,0.23]
         init_x,init_y,init_z = init_position
         self.arm_control_msg = String()
-        self.arm_control_msg.data = f"{init_x},{init_y},{init_z},open"
+        self.arm_control_msg.data = f"{init_x},{init_y},{init_z},open,80"
         self.command_publisher1.publish(self.arm_control_msg)
         # Variables
         self.get_logger().info(f"Node Initialized: {self.get_name()}")
@@ -109,12 +112,9 @@ class MotionPlanner(Node):
         except Exception as e:
             self.get_logger().error('请求过程中出错：%r' % (e,))
 
-    def arm_state1_callback(self, msg):
+    def arm_state_callback(self, msg, index):
         # Process arm state
-        self.arm_state1 = msg.data
-    def arm_state2_callback(self, msg):
-        # Process arm state
-        self.arm_state2 = msg.data
+        self.arm_state[index] = msg.data
 
     def camera_mount_transform1_callback(self, msg):
         # Convert the transform string back to a numpy array
@@ -147,13 +147,70 @@ class MotionPlanner(Node):
 
     def yolo_result_callback(self, msg: VisionDetection):
         # self.get_logger().info("Received YOLO detection message.")
-        
-        target_class = 'leaf'
-        
+        try:
+            if self.leaf_grab is not True:
+                    
+                target_class = 'leaf'
+                max_ymax=0
+                found_leaf = None
+                for box in msg.boxes:  
+                    if box.class_name == target_class:
+                        if box.ymax > max_ymax:
+                            max_ymax = box.ymax
+                            found_leaf = box
+                if self.yolo_wait_count < 2:
+                    self.yolo_wait_count = self.yolo_wait_count + 1
+                    return
+                self.yolo_wait_count = 0
+                if found_leaf is not None:
+                    # 计算中心点坐标（像素坐标）
+                    center_x = (found_leaf.xmin + found_leaf.xmax) // 2
+                    center_y = ((found_leaf.ymin + found_leaf.ymax) // 2+found_leaf.ymax) //2
+
+                    if self.depth_intrinsics is not None and msg.depth_image is not None:
+                        self.depth_image = self.bridge.imgmsg_to_cv2(msg.depth_image, desired_encoding='passthrough') / DEPTH_IMAGE_SCALE
+                        leaf_coor_cam = self.pixel_to_camera_coords(center_x, center_y)
+                        
+                        self.get_logger().info(f"In camera_coor is {leaf_coor_cam}")
+
+                        # 坐标转换为世界坐标系（使用相机的外参）
+                        leaf_coor_world = self.camera_rotation1 @ leaf_coor_cam + self.camera_coords1
+                        self.get_logger().info(f"Leaf coor is {leaf_coor_cam}")
+
+                        # 是否使用补偿器
+                        # if self.compen:
+                        #     tomato_coor_world = self.compensator(tomato_coor_world)
+                        
+                        idle_position = [0.25,0.13,0.35]
+                        idle_x = idle_position[0]
+                        idle_y = idle_position[1]
+                        idle_z = idle_position[2]
+                        target_x = leaf_coor_world[0]
+                        target_y = leaf_coor_world[1]
+                        target_z = leaf_coor_world[2]
+                        self.arm_control_msg.data = f"{0.20},{0},{0.20}, open"
+                        self.command_publisher2.publish(self.arm_control_msg)
+                        self.wait_for_idle([0,1])
+                        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, open"
+                        self.command_publisher2.publish(self.arm_control_msg)
+                        self.wait_for_idle([0,1])
+                        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, close"
+                        self.command_publisher2.publish(self.arm_control_msg)
+                        self.wait_for_idle([0,1])
 
 
+                        self.arm_control_msg.data = f"{idle_x},{idle_y},{idle_z}, close"
+                        self.command_publisher2.publish(self.arm_control_msg)
+                        self.wait_for_idle([0,1])
 
-        self.grab_object(msg,'tomato')
+                        # 你可以调用抓取函数或其他控制函数
+                        self.leaf_grab = True
+                    else:
+                        self.get_logger().info("Waiting for depth intrinsics or depth image...")
+            if self.leaf_grab is True and self.tomato_grab is not True:
+                self.grab_object(msg,'tomato')
+        except (ValueError,AttributeError) as e:
+            self.get_logger().info(f"Something went wrong {e}")
 
 
 
@@ -162,24 +219,31 @@ class MotionPlanner(Node):
         found_tomato = None
         try:
             # 遍历消息中的所有目标框，找出类别是 "tomato" 的目标
-            for box in msg.boxes:
+            max_ymax=0
+            for box in msg.boxes:  
                 if box.class_name == target_class:
-                    # 记录下这个 tomato 的检测框（只保留最后一个）
-                    found_tomato = box
+                    if box.ymax > max_ymax:
+                        max_ymax = box.ymax
+                        found_tomato = box
 
-            if self.yolo_wait_count < 4:
+            if self.yolo_wait_count < 2:
                 self.yolo_wait_count = self.yolo_wait_count + 1
                 return
             self.yolo_wait_count = 0
             if found_tomato is not None:
+                self.tomato_grab = True
                 # 计算中心点坐标（像素坐标）
                 center_x = (found_tomato.xmin + found_tomato.xmax) // 2
                 center_y = (found_tomato.ymin + found_tomato.ymax) // 2
+                
 
                 if self.depth_intrinsics is not None and msg.depth_image is not None:
                     self.depth_image = self.bridge.imgmsg_to_cv2(msg.depth_image, desired_encoding='passthrough') / DEPTH_IMAGE_SCALE
                     tomato_coor_cam = self.pixel_to_camera_coords(center_x, center_y)
-                    
+                    rotation = self.object_axis_angle([found_tomato.xmin,
+                                                       found_tomato.ymin,
+                                                       found_tomato.xmax,
+                                                       found_tomato.ymax],self.depth_image)
                     self.get_logger().info(f"In camera_coor is {tomato_coor_cam}")
 
                     # 坐标转换为世界坐标系（使用相机的外参）
@@ -191,7 +255,11 @@ class MotionPlanner(Node):
                     #     tomato_coor_world = self.compensator(tomato_coor_world)
 
                     # 你可以调用抓取函数或其他控制函数
-                    self.grab_tomato(init_position=[0.05,0.05,0.23], tomato_position=tomato_coor_world, drop_position=[0,0.05,0.25])
+                    self.grab_tomato(init_position=[0.06,0.06,0.24],
+                                     tomato_position=tomato_coor_world,
+                                     drop_position=[0,0.07,0.10],
+                                     rotation=rotation)
+                    self.tomato_grab = False
                 else:
                     self.get_logger().info("Waiting for depth intrinsics or depth image...")
             else:
@@ -203,6 +271,64 @@ class MotionPlanner(Node):
                 self.get_logger().info(f"No valid depth for {target_class} ")
             elif isinstance(e, AttributeError):
                 self.get_logger().info(f"Arm state not received{e}")
+                
+    def object_axis_angle(self, xyxy, depth_image, padding=20):
+        x1, y1, x2, y2 = xyxy
+        h, w = depth_image.shape
+
+        # 计算需要填充的边界
+        top_pad = max(0, padding - y1)
+        left_pad = max(0, padding - x1)
+        bottom_pad = max(0, y2 + padding - h)
+        right_pad = max(0, x2 + padding - w)
+
+        # 加边框，防止越界
+        padded_image = cv2.copyMakeBorder(
+            depth_image,
+            top=top_pad,
+            bottom=bottom_pad,
+            left=left_pad,
+            right=right_pad,
+            borderType=cv2.BORDER_CONSTANT,
+            value=0
+        )
+
+        # 偏移坐标（因为图像变大了）
+        x1 += left_pad
+        x2 += left_pad
+        y1 += top_pad
+        y2 += top_pad
+
+        # 裁剪区域
+        obj_depth_image = padded_image[y1 - padding:y2 + padding, x1 - padding:x2 + padding]
+
+        # 计算直方图
+        hist, bin_edges = np.histogram(obj_depth_image, 120, range=(100 / DEPTH_IMAGE_SCALE, 500 / DEPTH_IMAGE_SCALE))
+        min_val = bin_edges[max(0, np.argmax(hist) - 3)]
+        max_val = bin_edges[min(len(bin_edges) - 1, np.argmax(hist) + 4)]
+
+        # 生成 mask 并提取点
+        mask = (obj_depth_image > min_val) & (obj_depth_image < max_val)
+        y_coords, x_coords = np.where(mask)
+
+        if len(x_coords) == 0:
+            print("No valid depth points found.")
+            return None
+
+        points = np.column_stack((x_coords, y_coords)).astype(np.float32)
+
+        # 最小外接矩形计算角度
+        rect = cv2.minAreaRect(points)
+        (center_x, center_y), (width, height), angle = rect
+
+        if width < height:
+            short_axis_angle = angle + 90
+        else:
+            short_axis_angle = angle
+
+        print("short_axis_angle:", short_axis_angle)
+        return short_axis_angle
+    
 
     # def yolo_callback(self, msg):
     #     # Process YOLO results
@@ -230,7 +356,7 @@ class MotionPlanner(Node):
     #             self.get_logger().info(f"No valid depth for {target_class} ")
 
                 
-    def grab_tomato(self,init_position,tomato_position,drop_position):
+    def grab_tomato(self,init_position,tomato_position,drop_position,rotation):
         # 格式化目标坐标
         target_x = tomato_position[0]
         target_y = tomato_position[1]
@@ -244,37 +370,49 @@ class MotionPlanner(Node):
         init_y = init_position[1]
         init_z = init_position[2]
 
-        self.wait_for_idle()
+        self.wait_for_idle([0,1])
 
-        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, open"
+        self.arm_control_msg.data = f"{(target_x+init_x)/2},{(target_y+init_y)/2},{(target_z+init_z)/2}, open,{rotation}"
         self.command_publisher1.publish(self.arm_control_msg)
-        self.wait_for_idle()
+        self.wait_for_idle([0,1])
 
-        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, close"
+        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, open,{rotation}"
         self.command_publisher1.publish(self.arm_control_msg)
-        self.wait_for_idle()
+        self.wait_for_idle([0,1])
 
-        self.arm_control_msg.data = f"{drop_x},{drop_y},{drop_z}, close"
+        self.arm_control_msg.data = f"{target_x},{target_y},{target_z}, close,{rotation}"
         self.command_publisher1.publish(self.arm_control_msg)
-        self.wait_for_idle()
+        self.wait_for_idle([0,1])
 
-        self.arm_control_msg.data = f"{drop_x},{drop_y},{drop_z}, open"
+        self.arm_control_msg.data = f"{drop_x},{drop_y},{drop_z}, close,90"
         self.command_publisher1.publish(self.arm_control_msg)
-        self.wait_for_idle()
+        self.wait_for_idle([0,1])
 
-        self.arm_control_msg.data = f"{init_x},{init_y},{init_z}, open"
+        self.arm_control_msg.data = f"{drop_x},{drop_y},{drop_z}, open,90"
         self.command_publisher1.publish(self.arm_control_msg)
-        self.wait_for_idle()
+        self.wait_for_idle([0,1])
 
-    def wait_for_idle(self):
-        pass
-        # time.sleep(0.5)
+        self.arm_control_msg.data = f"{init_x},{init_y},{init_z}, open,90"
+        self.command_publisher1.publish(self.arm_control_msg)
+        self.wait_for_idle([0,1])
 
-        # while self.arm_state == 'MOVING':
-        #     self.get_logger().info(f"Waiting for idle")
-        #     time.sleep(0.1)
-    
-        # self.get_logger().info("Arm is IDLE, ready to move.")
+    def wait_for_idle(self, index_list: list, timeout: float = 3.0):
+        start_time = time.time()
+        time.sleep(0.5)  # 留一点时间让订阅启动
+
+        while True:
+            moving_indices = [index for index in index_list if self.arm_state[index] == 'MOVING']
+            if not moving_indices:
+                self.get_logger().info("All arms are IDLE, ready to move.")
+                return True
+
+            if time.time() - start_time > timeout:
+                self.get_logger().warn(f"Timeout waiting for arms {moving_indices} to become IDLE.")
+                return False
+
+            self.get_logger().info(f"Waiting for arms {moving_indices} to become IDLE...")
+            time.sleep(0.2)
+
 
 
     def depth_callback(self, msg, scale=DEPTH_IMAGE_SCALE):
@@ -285,7 +423,7 @@ class MotionPlanner(Node):
     def compensator(self,P_world):
         z = P_world[2]
         # z = z + 0.03 * (np.abs(P_world[1])+np.abs(P_world[0])) + (0.45 - z)*0.02
-        z = 1.1 * z
+        z = 1.02 * z
         P_world[2] = z
         return np.array(P_world)
     
@@ -408,17 +546,21 @@ class MotionPlanner(Node):
                 cv2.imshow("Depth Image", depth_colormap)
                 cv2.waitKey(1000)  # 1000ms刷新
             return np.array([x, y, z])
-        except ValueError as e:
-            self.get_logger().error(f"Not in the range: {e}")
+        except (ValueError,AttributeError) as e:
+            self.get_logger().error(f"{e}")
             return None
 
 
 def main(args=None):
     rclpy.init(args=args)
     motion_planner = MotionPlanner()
-    rclpy.spin(motion_planner)
-    motion_planner.destroy_node()
-    rclpy.shutdown()
+    executor = MultiThreadedExecutor()
+    executor.add_node(motion_planner)
+    try:
+        executor.spin()
+    finally:
+        motion_planner.destroy_node()
+        rclpy.shutdown()
 
 
 def rotation_matrix_to_euler_xyz(R):
